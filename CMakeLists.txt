@@ -17,4 +17,5 @@ include(cmake/UseLATEX.cmake)
 
 # Add the document to the build
 add_latex_document(hps_thesis.tex
-    INPUTS chapters/abstract.tex)
+    INPUTS chapters/abstract.tex
+           chapters/hps_apparatus.tex)
