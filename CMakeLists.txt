@@ -19,5 +19,6 @@ include(cmake/UseLATEX.cmake)
 add_latex_document(hps_thesis.tex
     INPUTS chapters/abstract.tex
            chapters/hps_apparatus.tex
+           chapters/analysis.tex
     IMAGE_DIRS images
 )
