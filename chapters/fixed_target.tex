@@ -9,54 +9,88 @@ radiation.  The heavy photon subsequently decays to narrow $e^+e^-$ resonances,
 which can be observed above the dominat quantum electrodynamic (QED) trident
 background.  For suitably small couplings, heavy photons travel detectable 
 distances before decaying providing a second signature.  In the chapter that
-follows, both the heavy photon production mechanism and background involved 
-in such a search will be discussed.
+follows, both the heavy photon production mechanism and backgrounds will be 
+discussed.
 
-\section{Heavy Photon Production}
+\section{Production of Heavy Photons}
 
 Sensitivity to the theoretically favored regions of the heavy photon 
 mass-coupling phase space can be best achieved using high luminosity fixed
 target experiments \cite{PhysRevD.80.075018}.  In such experiments, an electron
 of energy $E_{0}$ incident on a high $Z$ target will radiate heavy photons 
-through a process analogous to ordinary photon bremsstrahlung.  The differential
-(Fig. \ref{fig:ap_production}).  
+through a process analogous to ordinary photon bremsstrahlung 
+%
+% Do I need to explain what bremsstrahlung is or should I assume it's common
+% knowledge?
+%
+(Fig. \ref{fig:ap_production}).  However, as discussed below, the weak coupling
+of the $A'$ to electrons along with it's relatively larger mass will lead to 
+rates and kinematics which are very different from ordinary photon 
+bremsstrahlung.
+
+The energy-angle distribution of heavy photons in such a process 
+%%%%%%%%%%%%%%
+%   Figure   %
+%%%%%%%%%%%%%%
 \begin{figure}[t]
     \centering
-    \caption{A' being produced.}
+    \caption{A heavy photon can be produced through a process analogous to 
+             ordinary photon bremsstrahlung.}
     \includegraphics[width=0.5\textwidth]{images/aprime_brem.png}
     \label{fig:ap_production}
 \end{figure}  
-cross-section of such a process can be estimated using the Weizacker-Williams 
-approximation as 
-\[
-    \frac{\sigma}{dx d\cos{\theta_{A}}} \approx \frac{8 Z^{2} \alpha^{3} \epsilon^{2} E_{0}x}{U^{2}} \chi
-            \time [(1 - x + x^{2}/2) - x(1-x)m_{A'}^{2}E_{0}^{2}x\theta_{A'}^{2}/U^{2}]
-\]
-where $\alpha \sim 1/137$ is the fine structure constant, $\theta_{A}$ is the 
-scattering angle of the $A'$, $\chi$ is the effective photon flux and 
-\[
-    U(x, \theta_{A'}) = E_{0}^{2}x\theta_{A'}^{2} + m_{A'}^{2}\frac{1-x}{x} + m_{e}^2 x
-\]
-is the virtuality of the intermidiate electron.
-
-%In the case that the mass of the heavy photon is zero, equation
-Although heavy photons are produced in a process similar to ordinary bremsstrahlung, 
-their production rate and kinematics differ in several ways: 
-\begin{itemize}
-    \item The production cross-section is suppressed by a factor of $\epsilon^{2}m_{e}^{2}/m_{A'}^{2}$.
-    \item The $A'$ is produced very forward.
-    \item The $A'$ will take most of the incident beam energy.
-\end{itemize}
+%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%
+process can be estimated using the Weizacker-Williams approximation as 
+\begin{equation}
+    \label{eqn:ap_diff_cross}
+    \frac{d\sigma}{dx d\cos\theta_{A'}} =
+    \frac{8 \alpha^{3} \epsilon^{2} E_{0}^2 x \sqrt{1-m_{A'}^{2}/E_{0}^{2}}}{U^{2}} \chi
+    \left [ \left (1 - x + \frac{x^{2}}{2} \right ) 
+    - \frac{(1-x)^{2} m_{A'}^{2}}{U^{2}}
+    \left(m_{A'}^{2} - \frac{Ux}{1-x} \right) \right]
+\end{equation}
+where $\alpha \sim 1/137$ is the fine structure constant, $\theta_{A}$ is the
+opening angle of the $A'$ relative to the incident electron in the lab frame, 
+$x = E_{A'}/E_{0}$, $\chi$ is the effective photon flux and 
+\begin{equation}
+    U(x, \theta_{A'}) = E_{0}^{2}x\theta_{A'}^{2} 
+    + m_{A'}^{2}\frac{1-x}{x} + m_{e}^2 x
+\end{equation}
+is related to the virtuality of the itermidiate electron \cite{PhysRevD.34.1326,
+PhysRevD.80.075018}.  Assuming
+$m_{e} << m_{A'}$, 
+and integrating \ref{eqn:ap_diff_cross} over all angles yields
+\begin{equation}
+    \label{eqn:ap_diff_cross_i}
+    \frac{d\sigma}{dx} = \frac{8\alpha^{3}\epsilon^{2} \sqrt{1-m_{A'}^{2}/E_{0}^{2}}}
+    {m_{A'}^{2}\frac{1-x}{x} + m_{e}^{2}x}\chi
+    \left( 1 - x + \frac{x^{2}}{3}\right).
+\end{equation}
+Although \cite{eqn:ap_diff_cross_i} reduces to the cross-section of photon 
+bremsstrahlung in the limit that $m_{A'} \rightarrow 0$, their production rate
+and kinematics differ in several ways. Specifically, the production 
+cross-section is suppressed by a factor of $\epsilon^{2}m_{e}^{2}/m_{A'}^{2}$.
+Furthermore, the $A'$ is produced very forward and will take most of the 
+incident beam energy. \textbf{Expand this a bit more ... Also talk about the
+total rates.}
 
 \section{Trident Backgrounds}
 
 The primary background expected to dominate the final event sample of the Heavy
 Photon Search experiment is the quantum electrodynamic Trident process.  As 
-shown on Fig. (), the tridents can be seperated out into two main diagrams: 
+shown on Fig. (\cite{fig:tridents}), the tridents can be seperated out into two
+main diagrams: 
 \begin{figure}[t]
-    \centering
-    \caption{A' being produced.}
-    \includegraphics[width=0.5\textwidth]{images/bethe-heitler.png}
+    \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/bethe-heitler.png}
+    \end{subfigure}
+    \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{images/radiative.png}
+    \end{subfigure}
+    \caption{Diagrams of the radiative and Bethe-Heitler trident reactions.}
     \label{fig:tridents}
 \end{figure}  
 Bethe-Heitler and radiatives. The kinematics of radiativesare indistinguishable
