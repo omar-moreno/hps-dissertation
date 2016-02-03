@@ -6,7 +6,7 @@ photons in the mass range of 20 MeV/c$^{2}$ to 500 MeV/c$^{2}$ and couplings
 of $\epsilon \sim 10^{-5} - 10^{-10}$.  Since heavy photons couple to electric
 charge, they can be produced by a process analogous to bremsstrahlung 
 radiation.  The heavy photon subsequently decays to narrow $e^+e^-$ resonances, 
-which can be observed above the dominat quantum electrodynamic (QED) trident
+which can be observed above the dominant quantum electrodynamic (QED) trident
 background.  For suitably small couplings, heavy photons travel detectable 
 distances before decaying providing a second signature.  In the chapter that
 follows, both the heavy photon production mechanism and backgrounds will be 
@@ -57,9 +57,8 @@ $x = E_{A'}/E_{0}$, $\chi$ is the effective photon flux and
     U(x, \theta_{A'}) = E_{0}^{2}x\theta_{A'}^{2} 
     + m_{A'}^{2}\frac{1-x}{x} + m_{e}^2 x
 \end{equation}
-is related to the virtuality of the itermidiate electron \cite{PhysRevD.34.1326,
-PhysRevD.80.075018}.  Assuming
-$m_{e} << m_{A'}$, 
+is related to the virtuality of the intermediate electron 
+\cite{PhysRevD.80.075018, PhysRevD.34.1326}.  Assuming $m_{e} << m_{A'}$, 
 and integrating \ref{eqn:ap_diff_cross} over all angles yields
 \begin{equation}
     \label{eqn:ap_diff_cross_i}
@@ -67,7 +66,7 @@ and integrating \ref{eqn:ap_diff_cross} over all angles yields
     {m_{A'}^{2}\frac{1-x}{x} + m_{e}^{2}x}\chi
     \left( 1 - x + \frac{x^{2}}{3}\right).
 \end{equation}
-Although \cite{eqn:ap_diff_cross_i} reduces to the cross-section of photon 
+Although \ref{eqn:ap_diff_cross_i} reduces to the cross-section of photon 
 bremsstrahlung in the limit that $m_{A'} \rightarrow 0$, their production rate
 and kinematics differ in several ways. Specifically, the production 
 cross-section is suppressed by a factor of $\epsilon^{2}m_{e}^{2}/m_{A'}^{2}$.
@@ -77,10 +76,11 @@ total rates.}
 
 \section{Trident Backgrounds}
 
-The primary background expected to dominate the final event sample of the Heavy
-Photon Search experiment is the quantum electrodynamic Trident process.  As 
-shown on Fig. (\cite{fig:tridents}), the tridents can be seperated out into two
-main diagrams: 
+The primary background expected to dominate the final event sample of the HPS 
+experiment is the QED Bethe-Heitler and radiative trident processes.  Diagrams
+on these processes are shown on Fig. \ref{fig:tridents}. The heavy photon 
+signal is expected to appear as a resonance above the trident invariant mass
+distribution so an understanding of these backgrounds is highly desirable. 
 \begin{figure}[t]
     \begin{subfigure}{.5\textwidth}
         \centering
@@ -93,25 +93,33 @@ main diagrams:
     \caption{Diagrams of the radiative and Bethe-Heitler trident reactions.}
     \label{fig:tridents}
 \end{figure}  
-Bethe-Heitler and radiatives. The kinematics of radiativesare indistinguishable
-from the $A'$ signal events within an invariant mass window near the $A'$ mass.
-Therefore, radiatives can be used to analyze both the rate of the $A'$ signal 
-production and the sensitivity of an experiment to $A'$ signals.  Specifically,
+
+The kinematics of radiatives are indistinguishable from $A'$ signal events 
+within an invariant mass window, $\delta m$, near $m_{A'}$. Specifically, 
 the $A'$ production cross-section is related to the production cross-section of 
 radiatives as 
-\[
-    \frac{d\sigma(A')}{d\sigma(\gamma^*)} = \frac{3\pi\epsilon^{2}}{2 N_{eff} \alpha}
-        \frac{m_{A'}}{\delta m}
-\]
-As a result, the radiatives in the final event sample can be used to analyze 
-the $A'$.
+\begin{equation}
+    \frac{d\sigma(e^-Z\rightarrow e-Z(A'\rightarrow l^+l^-))}
+    {d\sigma(e^-Z\rightarrow e-Z(\gamma^*\rightarrow l^+l^-))}
+    = \frac{3\pi\epsilon^{2}}{2 N_{eff} \alpha} \frac{m_{A'}}{\delta m}.
+\end{equation}
+Therefore, radiatives can be used to analyze both the rate of the $A'$ signal 
+production and the sensitivity of an experiment to $A'$ signals.
 
-Although the rate of the Bethe-Heitler process dominates among the two processes, 
-its different kinematics can be used to reduce them in the final event sample.
-Specifically, the $A'$ decay products are highly boosted while the recoiling 
-electron is soft and scatters at large angles.  In contrast, at higher 
-energies, the Bethe-Heitler process is not enhance.  Furthermore, only one of
-the leptons in the pair will be highly boosted, while the other will be much
-softer.  The recoiling electron will be produced much more forward.
+Although the rate of the Bethe-Heitler process dominates among the two 
+processes, its different kinematics can be used to reduce them in the final 
+event sample.  Specifically, the $A'$ decay products are highly boosted while 
+the recoiling electron is soft and scatters at large angles.  In contrast, 
+at higher energies, the Bethe-Heitler process is not enhance.  Furthermore,
+only one of the leptons in the pair will be highly boosted, while the other
+will be much softer.  The recoiling electron will be produced much more forward.
+These kinematic differences are illustrated in Fig. \ref{fig:ap_v_bethe}.
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/bh_energy_cut.png}
+    \caption{The distribution of the energy of the positron versus the electron
+    for Bethe-Heitler (black) and $A'$ (red) event.}
+    \label{fig:ap_v_bethe}
+\end{figure}
 
 
