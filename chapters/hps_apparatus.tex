@@ -1,30 +1,32 @@
 
 \chapter{The HPS Apparatus}
 
-\section{Introduction}
-
 The HPS experiment engineering run was conducted in the Spring of 2015 at the 
 Thomas Jefferson National Accelerator Facility (JLab) in Newport News, VA 
 within experimental Hall B.  HPS utilized CEBAF's high luminosity electron beam,
 operating at an energy of 1.056 GeV and current of 50 nA, incident on a thin
 (~0.125\% $X_{0}$) tungsten target to search for an $A'$ with a mass in the 
-range of 20 - 100 MeV.  Sensitivity to such a search requires the precision 
-measurement of both the invariant mass and vertex of the $A'$.  This is 
-achieved by placing a silicon vertex tracker (SVT) immediately downstream 
-(10 cm) from the target inside of an analyzing magnet and using an 
-electromagnetic calorimeter to trigger.
+range of 20 - 100 MeV.  
 
-At this energy, the decay products of the electroproduced $A'$ are highly 
-boosted. As a result, obtaining the complete kinematic information required
-to reconstruct the $A'$ necessitates 
-the need to place the detector in close proximity to the intense primary beam
-plane.  The distance of the detector from the beam plane is limited by a 
-``dead zone'' occupied Coulomb scattered electrons and radiative secondaries. 
-Maximizing the sensitivity to a low mass $A'$, therefore, requires minimizing
-the size of the dead zone.
+As was previously discussed, at this energy, the electroproduced $A'$ will 
+carry most of the incident beam energy.  Consequently, the $A'$ decay products
+will be highly boosted, requiring a detector with very forward acceptance that
+can be placed in close proximity to the target.  Maximizing the acceptance will
+require placing the detector close to the beam plane, which is occupied by the
+intense flux of multiple Coulomb scattered beam particles and radiative
+secondaries originating from the target.  This establishes  ``dead zone'' that
+the detector is unable to encroach in order to avoid extensive radiation damage.
+Furthermore, the detector must also be operated in vacuum in order to avoid 
+additional background from beam gas interactions.  Finally, minimizing the 
+material budget of the active are of the detector is essential to reducing 
+multiple scattering that dominates both the mass and vertex resolutions that 
+determine the experimental sensitivity.
 
-The chapter that follows, a detailed description of the HPS apparatus will
-be given.
+The design principles led to the conception of the HPS detector.  The HPS 
+detector will utilize a compact, large acceptance forward spectrometer 
+consisting of a silicon microstrip tracker (SVT) along with a lead tungstate
+electromagnetic calorimeter (Ecal), used as the primary trigger.  In the chapter
+that follows, a detailed description of the HPS apparatus will be give.
 
 \section{CEBAF}
 
@@ -65,46 +67,61 @@ them at an operating temperature of 2 K.
 
 \subsection*{Layout}
 
-The SVT is comprised of six measurement layers, each consisting of a pair of
+The HPS SVT is comprised of six measurement layers, each consisting of a pair of
 closely-spaced silicon planes as shown in Fig. \ref{fig:svt_layout_render}.
 \begin{figure}[h]
     \centering
-    \caption{A render of the Silicon Vertex Tracker.}
-    \includegraphics[width=0.5\textwidth]{images/svt_layout_render.png}
+    \caption{A rendered view of the Silicon Vertex Tracker inside of the pair
+             spectrometer vacumm chamber.}
+    \includegraphics[width=0.8\textwidth]{images/svt_layout_render.png}
     \label{fig:svt_layout_render}
 \end{figure}
 A stereo angle is introduced between the two planes within each layer allowing
 for the measurement of both the vertical and bend coordinate of a hit, in turn, 
-enabling full 3D hit reconstruction.  The first three layers consist of a
+enabling full 3D hit reconstruction.  
+
+The first three layers consist of a single sensor of coverage above and below
+the beam plane and use a stereo angle of 100 mrad. In order to better match the
 % needs a sentence explaning why 100 mrad stereo was used.  According to the
 % proposal, it balances acceptance against vertexing resolution.
-single sensor and use a stereo angle of 100 mrad. In order to better match the
 acceptance of the ECal, the coverage of the last three layers is two sensors 
 % Insert a sentence explaining why 50 mrad? According to the proposal it's too
 % cut down the number of bad tracks created from ghost hits due to layers with
 % the same stereo angle.
 % Why use a sixth layer? I guess it's not that important but should be in here
 % nontheless
-wide and use a stereo angle of 50 mrad.  In total, the SVT makes use of 36
-sensors, which amounts to 23,004 channels.  The SVT layout is summarized in 
-Table \ref{tab:svt_layout}.
+wide and use a stereo angle of 50 mrad.  The choice of a 50 mrad angle for the
+last three layers was meant to break the degeneracy that results in fake tracks
+due to ghost hits in layers with the same stereo angle.  It must be noted that
+only five layers are needed to match the full acceptance of the Ecal, however,
+an improvement in the momentum resolution was observed with the addition of 
+another layer.  In total, the SVT makes use of 36 sensors, which amounts to 
+23,004 channels.
+
+Since the opening angle of the $A'$ relative to the incident beam electron goes
+as $\sim (m_{A}/E_{0})^{3/2}$, sensitivy to low mass $A'$ require the tracker
+planes to be as close to the beam plane as possible.
+
+
+The SVT layout is summarized in Table \ref{tab:svt_layout}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Table of SVT layout %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
+% I should use the survey positions here.
 \begin{table}[t]
  \begin{center}
 \begin{tabular}{l|cccccc}  
+\hline
 Layer & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
-$z$ position from target [cm]    & 10 & 20 & 30 & 50 & 70 & 90 \\
-Stereo angle [mrad] & 100 & 100 & 100 & 50 & 50 & 50 \\
-Bend plane resolution [$\mu$m] & $\approx$6 & $\approx$6 & $\approx$6
-& $\approx$6 & $\approx$6 & $\approx$6 \\
-Non-bend plane resolution [$\mu$m] & $\approx60$ & $\approx60$ & $\approx60$
-& $\approx120$ & $\approx120$ & $\approx120$ \\
+$z$ position from target (cm)    & 10 & 20 & 30 & 50 & 70 & 90 \\
+Stereo angle (mrad) & 100 & 100 & 100 & 50 & 50 & 50 \\
+Bend plane resolution ($\mu$m) & $\approx$6 & $\approx$6 & $\approx$6 & $\approx$6 & $\approx$6 & $\approx$6 \\
+Non-bend plane resolution ($\mu$m) & $\approx60$ & $\approx60$ & $\approx60$ & $\approx120$ & $\approx120$ & $\approx120$ \\
+Nominal dead zone in $y$ (mm) & $\pm$ 1.5 & $\pm$ 3.0 & $\pm$ 4.5 & $\pm$ 7.5 & $\pm$ 10.5 & $\pm$ 13.5 \\ 
 \hline
 \end{tabular}
-\caption{The proposed layout of the SVT.}
+\caption{The layout of the HPS SVT.}
 \label{tab:svt_layout}
 \end{center}
 \end{table}
@@ -112,12 +129,12 @@ Non-bend plane resolution [$\mu$m] & $\approx60$ & $\approx60$ & $\approx60$
 
 
 
-The SVT is split into upper and lower tracking volumes in order to avoid
-the 15 mrad ``dead zone'', putting the active area of the sensors at 1.5 mm
-from the beam plane.  The layers are mounted on upper and lower support 
-structures that are hinged on the downstream end of the SVT.  This allows
-adjustment of the vertical position of the sensors remotely by a motion
-control system, in response to experimental conditions.
+%The SVT is split into upper and lower tracking volumes in order to avoid
+%the 15 mrad ``dead zone'', putting the active area of the sensors at 1.5 mm
+%from the beam plane.  The layers are mounted on upper and lower support 
+%structures that are hinged on the downstream end of the SVT.  This allows
+%adjustment of the vertical position of the sensors remotely by a motion
+%control system, in response to experimental conditions.
 
 \subsection*{Sensors}
 
@@ -137,19 +154,19 @@ a sense (readout) pitch of 30 (60) $\mu$m. All sensors were qualified to
 1 kV and can tolerate a dose of 1.5 $\times 10^{14}$ 1 MeV neq/cm$^{2}$.  The 
 sensor specifications are listed on Table \ref{tab:sensor_specs}
 
-\begin{table}[t]
-    \begin{center}
-        \begin{tabular}{rc}
-            Cut Dimensions & 100 mm x 40.34 mm \\
-            Active Area & 98.33 mm x 38.34 mm \\
-            Readout (Sense) pitch & 60 (30) $\mu$m \\
-            # Readout (Sense) strips & 639 (1277) \\
-            Depletion Voltage & 40 V - 300 V \\
-        \end{tabular}
-        \caption{Sensor specs.}
-        \label{tab:sensor_specs}
-    \end{center}
-\end{table}
+%\begin{table}[t]
+%    \begin{center}
+%        \begin{tabular}{rc}
+%            Cut Dimensions & 100 mm x 40.34 mm \\
+%            Active Area & 98.33 mm x 38.34 mm \\
+%            Readout (Sense) pitch & 60 (30) $\mu$m \\
+%            # Readout (Sense) strips & 639 (1277) \\
+%            Depletion Voltage & 40 V - 300 V \\
+%        \end{tabular}
+%        \caption{Sensor specs.}
+%        \label{tab:sensor_specs}
+%    \end{center}
+%\end{table}
 
 \subsection*{Readout}
 
@@ -171,4 +188,22 @@ on Table ().
 \subsection{Layout}
 
 \section{Trigger and Data Acquisition}
+
+The low voltage differential signals (LVDS) from each of the APV25's are 
+transferred via twisted pair wires to a front end board to undergo digitization
+and processing.  At the FEB, the LVDS signal is first amplified to match the 
+dynamic range of the 14 bit analog to digital converter.  The signals are then
+sampled at 41.667 MHz and digitized.  The digitized signals are transferred to 
+ field programmable gate arrays (FPGA's) at which point thresholds are applied.
+ Specifically, three of the six samples are required to be above threshold.  
+ Thresholds are derived from baseline runs and were set to be 3 sigma noise RMS
+ above baseline.
+
+ Those signals which pass the threshold requirement are transferred through 
+ mini SAS wires to the vacuum flange where they undergo optical conversion.
+ After being converted to optical signals, the signals are transferred via 
+ fiber to a COB and distributed to RCE's.
+
+ % Maybe show an example of how the signal looks emerging from the APV?
+
 
