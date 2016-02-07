@@ -1,42 +1,55 @@
 
 \chapter{The HPS Apparatus}
 
-The HPS experiment engineering run was conducted in the Spring of 2015 at the 
-Thomas Jefferson National Accelerator Facility (JLab) in Newport News, VA 
-within experimental Hall B.  HPS utilized CEBAF's high luminosity electron beam,
+The HPS experiment engineering run was conducted in the Spring of 2015 at the
+Thomas Jefferson National Accelerator Facility (JLab) in Newport News, VA.  The
+HPS detector was installed within the Hall B alcove upstream of the Continous 
+Electron Beam Acelerator Facility (CEBAF) Large Acceptance Spectrometer for 12
+GeV (CLAS12) detector.  HPS utilized CEBAF's high luminosity electron beam,
 operating at an energy of 1.056 GeV and current of 50 nA, incident on a thin
 (~0.125\% $X_{0}$) tungsten target to search for an $A'$ with a mass in the 
 range of 20 - 100 MeV.  
 
-As was previously discussed, at this energy, the electroproduced $A'$ will 
-carry most of the incident beam energy.  Consequently, the $A'$ decay products
-will be highly boosted, requiring a detector with very forward acceptance that
-can be placed in close proximity to the target.  Maximizing the acceptance will
-require placing the detector close to the beam plane, which is occupied by the
-intense flux of multiple Coulomb scattered beam particles and radiative
-secondaries originating from the target.  This establishes  ``dead zone'' that
-the detector is unable to encroach in order to avoid extensive radiation damage.
-Furthermore, the detector must also be operated in vacuum in order to avoid 
-additional background from beam gas interactions.  Finally, minimizing the 
-material budget of the active are of the detector is essential to reducing 
-multiple scattering that dominates both the mass and vertex resolutions that 
-determine the experimental sensitivity.
+As was previously discussed, at the energy HPS was operating at, the 
+electroproduced $A'$ will carry most of the incident beam energy.  Consequently,
+the $A'$ decay products will be highly boosted, requiring a detector with very
+forward acceptance that can be placed in close proximity to the target.
+Maximizing the acceptance requires placing the detector close to the beam plane,
+encroaching on a ``dead zone'' which is occupied by an intense flux of multiple
+Coulomb scattered beam particles along with radiative secondaries originating
+from the target.  This also necessitates the need to operate the detector in 
+vacumm in order to avoid additional background from beam gas interactions. 
+Finally, minimizing the material budget of the active area of the detector is 
+essential to reducing the multiple scattering that dominates both the mass and
+vertex resolutions that determine the experimental sensitivity.
 
-The design principles led to the conception of the HPS detector.  The HPS 
+These design principles led to the conception of the HPS detector.  The HPS 
 detector will utilize a compact, large acceptance forward spectrometer 
 consisting of a silicon microstrip tracker (SVT) along with a lead tungstate
 electromagnetic calorimeter (Ecal), used as the primary trigger.  In the chapter
-that follows, a detailed description of the HPS apparatus will be give.
+that follows, a detailed description of both CEBAF and the HPS apparatus will be
+given.
 
 \section{CEBAF}
 
+The ability of CEBAF to provide a nearly continous, clean and intense electron
+beam make it ideal to search for heavy photons with weak couplings.  With the
+recently completed 12 GeV upgrade, CEBAF is capable of simultaneously providing
+electron beams to four experimental halls.
+
+\subsection{Electron Production and Injection}
+
 The electrons injected into the accelerator were a result of photoemission from
-a superlattice photocathode.  The photoemission electrons are released into an
-extremely high vacuum environment at a pressure of $10^{-11}$ to $10^{-12}$ 
-Torr.  The free electrons are then delivered into the injector by a 100 keV 
-electron gun.  The injector itself then accelerates the electron bunches to 
-an energy of 67 MeV by 2 1/4 cryomodules before being delivered into the 
-accelerator.  
+a superlattice photocathode \cite{}.
+
+The photoemission electrons are released into an extremely high vacuum
+environment at a pressure of $10^{-11}$ to $10^{-12}$ Torr.  The free electrons
+% Are they still using a 100 keV electron gun?
+are then delivered into the injector by a 100 keV electron gun.  The injector
+itself then accelerates the electron bunches to an energy of 67 MeV by 2 1/4
+cryomodules before being delivered into the accelerator.
+
+\subsection{Electron Acceleration}
 
 % Need to add a sentence explain why we ran as a 6 GeV era detector
 The CEBAF accelerator is composed of two linacs arranged in a racetrack
@@ -47,7 +60,7 @@ configuration as shown on Fig \ref{fig:cebaf}. Each of the linacs consist
     \includegraphics[width=0.5\textwidth]{images/cebaf.jpg}
     \label{fig:cebaf}
 \end{figure}
-of () cryomodules which is capable of accelerating the electron bunches 
+of 25 cryomodules and are capable of accelerating the electron bunches 
 by () GeV per pass up to a maximum of () passes per linac.  The number of 
 passes depends on the energy requirements of the experiment taking place.
 The electron bunches are delivered to each experimental hall by an RF seperator
@@ -71,9 +84,9 @@ The HPS SVT is comprised of six measurement layers, each consisting of a pair of
 closely-spaced silicon planes as shown in Fig. \ref{fig:svt_layout_render}.
 \begin{figure}[h]
     \centering
+    \includegraphics[width=0.9\textwidth]{images/svt_layout_render.png}
     \caption{A rendered view of the Silicon Vertex Tracker inside of the pair
              spectrometer vacumm chamber.}
-    \includegraphics[width=0.8\textwidth]{images/svt_layout_render.png}
     \label{fig:svt_layout_render}
 \end{figure}
 A stereo angle is introduced between the two planes within each layer allowing
@@ -98,10 +111,15 @@ an improvement in the momentum resolution was observed with the addition of
 another layer.  In total, the SVT makes use of 36 sensors, which amounts to 
 23,004 channels.
 
-Since the opening angle of the $A'$ relative to the incident beam electron goes
-as $\sim (m_{A}/E_{0})^{3/2}$, sensitivy to low mass $A'$ require the tracker
-planes to be as close to the beam plane as possible.
-
+Since heavy photons are produced very forward, and the opening angle of it's 
+decay products goes as $\sim m_{A}/E_{0}$, sensitivity to low mass $A'$ require
+the tracker planes to be as close to the beam plane as possible.  When deciding
+the distance of the first layer to the beam, several things  needed to be taken
+into consideration including the amount of beam halo, the ability to resolve 
+hits with pileup present and the ability to do pattern recognition in a high 
+occupacy environment.  With all of this in mind, it was determined that the 
+closest tolerable distance was 15 mrad, putting the active edge of layer 1 
+at 0.5 mm from the beam center.  
 
 The SVT layout is summarized in Table \ref{tab:svt_layout}.
 
@@ -127,65 +145,121 @@ Nominal dead zone in $y$ (mm) & $\pm$ 1.5 & $\pm$ 3.0 & $\pm$ 4.5 & $\pm$ 7.5 & 
 \end{table}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
-%The SVT is split into upper and lower tracking volumes in order to avoid
-%the 15 mrad ``dead zone'', putting the active area of the sensors at 1.5 mm
-%from the beam plane.  The layers are mounted on upper and lower support 
-%structures that are hinged on the downstream end of the SVT.  This allows
-%adjustment of the vertical position of the sensors remotely by a motion
-%control system, in response to experimental conditions.
-
 \subsection*{Sensors}
 
-At the energies at which HPS will operate, the uncertainty of both the mass and
-vertex is dominated by multiple Coulomb scattering.  As a result, 
-the material budget of the SVT must be minimized in order to achieve the 
-optimal mass and vertex resolutions.  Furthermore, the necessity of placing the
-SVT in close proximity to the beam requires a sensor technology that is 
-radiation tolerate.  With these considerations in mind, silicon microstrip 
-sensors were chosen.
+At the energies at which HPS will operate, the uncertainty both the mass and
+vertex resolutions are dominated by multiple Coulomb scattering in the first 
+few layers.  It was then emperical to choose a sensor technology that would 
+reduce the material budget of the SVT in order to maximize the mass and vertex
+resolutions.  Furthermore, the need to place the SVT in close proximity to the 
+beam further required the sensors to be radition tolerant.  Which these 
+considerations in mind, a readily available batch of silicon microstrip sensors,
+initially manufactured for the D0 Run IIb upgrade, were found satisfy all 
+necessary requirements.
 
-The SVT used used $p^{+}$ on $n$-bulk, single sided, AC-coupled, 
-polysilicon-biased sensors manufactured by Hamamatsu Photonics
-corporation on <100> silicon for the cancelled Run IIb D0 run.
-The sensors are 320 $\mu$m thick and have 
-a sense (readout) pitch of 30 (60) $\mu$m. All sensors were qualified to 
-1 kV and can tolerate a dose of 1.5 $\times 10^{14}$ 1 MeV neq/cm$^{2}$.  The 
-sensor specifications are listed on Table \ref{tab:sensor_specs}
+The sensors were manufactured by Hamamatsu Photonics Corporation on 
+$\langle 100 \rangle$ crystal rotation silicon and are $p^{+}$ on $n$-bulk, 
+single sided, AC-coupled and polysilicon-biased. The cut dimensions of the 
+sensors are $100 \times 40.34$ mm$^{2}$ with an active area of 
+$98.33 \times 38.34$ mm$^{2}$.  They are 320 $\mu$m thick and have a sense
+(readout) pitch of 30 (60) $\mu$m. The sensor specifications are listed on 
+Table \ref{tab:sensor_specs}.
+\begin{table}[t]
+    \centering
+    \begin{tabular}{l|c}
+        \hline
+        Cut Dimensions & 100 mm x 40.34 mm \\
+        Active Area & 98.33 mm x 38.34 mm \\
+        Readout (Sense) pitch & 60 (30) $\mu$m \\
+        \# Readout (Sense) strips & 639 (1277) \\
+        Depletion Voltage & 40 V - 300 V \\
+        \hline
+    \end{tabular}
+    \caption{Specifications of the sensors used for the HPS SVT.}
+    \label{tab:sensor_specs}
+\end{table}
 
-%\begin{table}[t]
-%    \begin{center}
-%        \begin{tabular}{rc}
-%            Cut Dimensions & 100 mm x 40.34 mm \\
-%            Active Area & 98.33 mm x 38.34 mm \\
-%            Readout (Sense) pitch & 60 (30) $\mu$m \\
-%            # Readout (Sense) strips & 639 (1277) \\
-%            Depletion Voltage & 40 V - 300 V \\
-%        \end{tabular}
-%        \caption{Sensor specs.}
-%        \label{tab:sensor_specs}
-%    \end{center}
-%\end{table}
+All sensors were qualified to 1000 V with only () out of () breaking down.  
+During these test, leakage currents of less than () were observed. IV curves
+for a subset of sensors can be seen on Fig. \ref{}.  The high breakdown voltage
+means that the sensors are capable of a dose tolerance of  1.5 
+$\times 10^{14}$ 1 MeV neq/cm$^{2}$.  All sensors were determined to be fully 
+depleted at $\approx$ 130 V. 
 
 \subsection*{Readout}
 
-The sensor are continously read out using the APV25 readout chip developed for
-the Compact Muon Solenoid detector at the Large Hadron Collider.  The APV25
-consist of 128 channels of a pre-amplifier coupled to a shaping amplifier. The
-shaper signal is sampled at 41.6 MHz into an analog pipeline 192 cells deep.
-At the nominal operating points, the shaping time is equal to 50 ns and the
-expected noise performance is ...  During the engineering run, the APV25's
-were operated in multi-peak mode, with six samples being read out per 
-trigger.  The six samples were then used to extract the $t0$ and amplitude 
-of the signal.  A summary of the specifications of the AVP25 is shown
-on Table ().
+The sensors are continously read out using the APV25 readout chip developed for
+the Compact Muon Solenoid detector at the Large Hadron Collider 
+\ref{french2001design}. The APV25 has 128 channels, with each channel consisting
+of a charge sensitive pre-amplifier coupled to CR-RC shaping amplifier and 192
+cell deep analog pipeline.  A schematic of a single channel can be seen on 
+Fig. \ref{fig:apv25_schem}.
+\begin{figure}
+    \centering
+    %\includegraphics[width=0.5\textwidth]{images/cebaf.jpg}
+    \caption{A schematic of a single channel of the APV25 readout chip.}
+    \label{fig:apv25_schem}
+\end{figure}
+
+The shaper signal is sampled at 40 MHz into the analog pipeline.  Only 160 cells
+out of 192 are used to buffer the samples, the remaining being used to buffer
+up to 10 triggers.  The 160 cell depth allows an external trigger decision of 
+up to 4 $\mu$s.    
+
+The APV25 can operate in two modes: peak mode and deconvolution mode.  In peak
+mode, only a sample pipeline cell is read out corresponding to the maximum 
+value of the CR-RC shape.  In deconvution mode, three consecutive samples are
+read out allowing for the reconstruction of the shaper output.
+
+The analog pipeline is DC coupled to the Analog Pulse Shape Processor (APSP).
+
+During the engineering run, the APV25's used the nominal  operating points with
+a shaping time 50 ns.  The high occupancies expected during the engineering run
+meant that overlapping of hits or ``pile-up'' were a concern.  In order to 
+mitigate this problem, the APV25's were operated in deconvolution mode with
+six consecutive samples readout per trigger.  The resulting signal shape 
+observed during the engineering run is shown on Fig. \ref{fig:apv_shape}.  A 
+summary of the APV25 operating points used during the engineering run is listed
+on Table \ref{tab:apv_specs}.
 
 \subsection*{Modules}
 
 \section{Electromagnetic Calorimeter}
 
-\subsection{Layout}
+The HPS Ecal is used as the primary trigger for the experiment as well as to
+identify electrons and positrons.  It consist of two halves of lead-tungstate 
+PbW0$_4$ cystals with each half mounted on an aluminum frame $\sim 137$ cm 
+from the upstream edge of the analyzing magnet.  Each half is composed of five
+layers of crystals with the four most outer layers consisting of 46 crystals and 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/ecal_layout.png}
+    \caption{A rendering showing the arrangement of the Ecal crystals.  The Ecal
+             is split into upper and lower modules in order to acommodate the 
+             ``dead zone''.  The crystals removed from the first layer allow
+             a larger opening for the outgoing electron and photon beams.}
+    \label{fig:ecal_layout}
+\end{figure}
+the layer closest to the beam plane consisting of 37. The removal of the 9 
+crystals from the inner layer was necessary to allow the outgoing electron and
+photon beams to pass through unimpeded.  Each half is enclosed in a temperature
+controlled environment held at 1$^{\circ}$ F which encroaches on the Ecal 
+vacuum chamber.
+
+Each of the crystals is 16 cm long and trapezoidal in shape with a front face
+dimension of $1.3 \times 1.3$ cm$^2$ and a back face dimension of $1.6 \times
+1.6$ cm$^2$.  In order to maximize the light yield, the crystals were wrapped
+in VM2000 non-metallic reflector film. A Hamamatsu S8664-1010 Avalanche 
+Photodiode (APD) with a photosensitive area of $10 \times 10$ mm$^2$ was glued
+to the back of each crystal and used to read out the signals collected by the
+crystals.  
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/ecal_crystal.png}
+    \caption{Rendered view of an HPS Ecal module consisting of a 16 cm PbW$_4$
+             crystal, Avalanche Photodiode and preamplifier board.}
+    \label{fig:ecal_crystal}
+\end{figure}
 
 \section{Trigger and Data Acquisition}
 
