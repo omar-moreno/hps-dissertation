@@ -33,18 +33,45 @@ given.
 \section{CEBAF}
 
 The ability of CEBAF to provide a nearly continous, clean and intense electron
-beam make it ideal to search for heavy photons with weak couplings.  With the
-recently completed 12 GeV upgrade, CEBAF is capable of simultaneously providing
-electron beams to four experimental halls.
+beam make it ideal to search for heavy photons with weak couplings. Recently,
+CEBAF underwent an upgrade that increased it's maximum operating energy to 12
+GeV and introduced a new experimental hall, Hall D \cite{pac.2007.4440339}. As 
+shown on Fig \ref{fig:cebaf}, in order to achieve 12 GeV operation, 5 additional
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/cebaf.jpg}
+    \caption{The Continous Electron Beam Accelerator Facility.}
+    \label{fig:cebaf}
+\end{figure}
+cavities were added to each of the linacs.  Four hall operation required the 
+addition of a new 750 MHz RF seperator, a new laser to the electron source and a
+10th arc which allows delivery of the maximum beam energy to Hall D.  The 
+upgrade allows CEBAF to accelerate electrons at a rate of 2.2 GeV per pass, up 
+to fives passes and currents upwards of 150 $\mu$A to all experimental halls 
+simultaneously.  The following section discusses CEBAF in more detail.
+
+%During the Spring of 2015, HPS was prepared to run at a beam energy of 2 GeV, 
+%while the commissioning of the 750 MHz RF seperator was taking place.  
+%Unfortunately, the loss of one of the new CHLs caused the accelerator to 
+%fallback to 6 GeV operation.  As a result, HPS instead ran with a beam energy of
+%1.056 GeV.
 
 \subsection{Electron Production and Injection}
 
 The electrons injected into the accelerator were a result of photoemission from
-a superlattice photocathode \cite{}.
+a strained GaAs superlattice photocathode \cite{APL.2004.85.13}.  Each of the 
+four experimental halls has a dedicated gain-switched fiber coupled laser of
+wavelength 1560 nm.  The lasers are frequency doubled in order to produce light
+of wavelength of 780 nm, matching the band gap of the superlattice cathode. The
+lasers are phased shifted and are each pulsed for $\approx$ 40 ps at the 
+freqency of 499 MHz.  Since the operational frequency of the accelrator 
+cryomodules is 1497 MHz, four hall operation requires subharmonics of 499 MHz to
+be chosen.  This is achieved by by ``cutting away'' pulses using an optical 
+modulator \cite{kazimi2013source}.
+
 
 The photoemission electrons are released into an extremely high vacuum
 environment at a pressure of $10^{-11}$ to $10^{-12}$ Torr.  The free electrons
-% Are they still using a 100 keV electron gun?
 are then delivered into the injector by a 100 keV electron gun.  The injector
 itself then accelerates the electron bunches to an energy of 67 MeV by 2 1/4
 cryomodules before being delivered into the accelerator.
@@ -54,22 +81,17 @@ cryomodules before being delivered into the accelerator.
 % Need to add a sentence explain why we ran as a 6 GeV era detector
 The CEBAF accelerator is composed of two linacs arranged in a racetrack
 configuration as shown on Fig \ref{fig:cebaf}. Each of the linacs consist
-\begin{figure}[h]
-    \centering
-    \caption{The Continous Electron Beam Accelerator Facility.}
-    \includegraphics[width=0.5\textwidth]{images/cebaf.jpg}
-    \label{fig:cebaf}
-\end{figure}
 of 25 cryomodules and are capable of accelerating the electron bunches 
-by () GeV per pass up to a maximum of () passes per linac.  The number of 
+by 2.2 GeV per pass up to a maximum of 5 passes per linac.  The number of 
 passes depends on the energy requirements of the experiment taking place.
-The electron bunches are delivered to each experimental hall by an RF seperator
-operating at a frequency of 499 MHz. 
+The electron bunches are delivered to Halls A, B and C by an RF seperator
+operating at a frequency of 499 MHz.  Delivery to Hall D uses an RF seperator
+of 750 MHz.
 
 The acceleration of the electron beam takes place using a 5-cell 
 superconducting radio frequency (SRF) cavities made of ultra-pure Niobium 
 operating at 1497 MHz.  Two of the SRF cavities are joined and placed in a 
-sealed helium container forming a cryounit.  () cryounits are joined in an
+sealed helium container forming a cryounit.  Four cryounits are joined in an
 insulating vacuum environment to for a cryomodule.  The cryomodules also
 contain the necessary instrumentation both to power the SRF cavities and keep
 them at an operating temperature of 2 K.
