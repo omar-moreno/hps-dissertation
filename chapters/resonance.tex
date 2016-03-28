@@ -1,0 +1,30 @@
+
+\chapter{Resonance Search and Results}
+
+    If a heavy photon does indeed exist and has a mass that is within the 
+    acceptance of HPS, it will appear as a resonance above the copious QED 
+    trident invariant mass spectrum.  A search for such a resonance can be 
+    performed by scanning the previously described invariant mass distribution
+    for any significant peaks.  In the chapter that follows, the procedure used
+    to search for such resonances will be discussed.
+
+
+\section{Overview}
+
+
+
+\section{Pseudo Data Sets}
+
+Pseudo data sets are needed to study the fitter systematics and to optimize both
+the fit function and window.  In order to obtain an invariant mass probability
+density function (PDF) that describes the data, a smoothing algorithm was
+% What smoothing algorithm was used? Why? Was a K-S test used to make sure the
+% resulting PDF matched the data set?
+applied to the normalized final invariant mass MC distribution.  The resulting
+PDF after smoothing is shown on Fig. \ref{fig:smooth_pdf}. 
+
+Events were sampled from the PDF between 0 and 100 MeV with the total number of
+% What kind of sampling algorithm was used? 
+events choosen to match the number observed in data.  The resulting pseudo data
+is binned to match the data distributions with the expectation value of each 
+bin Poisson distributed. 

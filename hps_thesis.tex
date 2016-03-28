@@ -17,13 +17,15 @@
 \usepackage[left=1.5in, right=1.25in, top=1.25in, bottom=1.25in]{geometry}
 
 % Allows double spacing of document
-\usepackage{setspace}
+%\usepackage{setspace}
 
 \usepackage{subcaption}
 
+\usepackage{amsmath}
+
 \begin{document}
 
-\doublespacing
+%\doublespacing
 
 %%%%%%%%%%%%%%%%
 % Front Matter %
@@ -40,12 +42,7 @@
 
 \listoffigures
 
-%\chapter{Introduction}
-%
-%\chapter{Physics Motivation}
-
-%\section{Motivations for an $A'$ from Dark Matter}
-%\section{Current Limits of Heavy Photons}
+\input{chapters/motivations}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  HPS Signal and Backgrounds   %
@@ -60,7 +57,12 @@
 %%%%%%%%%%%%%%%%
 %   Analysis   %
 %%%%%%%%%%%%%%%%
-%\input{chapters/analysis}
+\input{chapters/analysis}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+%   Resonance Search   %
+%%%%%%%%%%%%%%%%%%%%%%%%
+\input{chapters/resonance}
 
 %%%%%%%%%%%%%%%%%%%%
 %   Bibliography   %

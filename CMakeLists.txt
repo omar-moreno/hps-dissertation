@@ -18,9 +18,11 @@ include(cmake/UseLATEX.cmake)
 # Add the document to the build
 add_latex_document(hps_thesis.tex
     INPUTS chapters/abstract.tex
+           chapters/motivations.tex
            chapters/fixed_target.tex
            chapters/hps_apparatus.tex
            chapters/analysis.tex
+           chapters/resonance.tex
     BIBFILES chapters/bibliography.bib
     IMAGE_DIRS images
 )
