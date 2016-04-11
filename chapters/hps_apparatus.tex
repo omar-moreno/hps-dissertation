@@ -102,8 +102,10 @@ them at an operating temperature of 2 K.
 
 \subsection{Layout}
 
-The HPS SVT is comprised of six measurement layers, each consisting of a pair of
-closely-spaced silicon planes as shown in Fig. \ref{fig:svt_layout_render}.
+The HPS SVT is comprised of two halves of six measurement layers encroaching the
+beam plane \ref{fig:svt_layout_render}. Each layer consist of a pair of
+closely-spaced silicon planes with one of the planes oriented orthogonal to
+the beam plane and the other at small angle stereo.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.9\textwidth]{images/svt_layout_render.png}
@@ -111,8 +113,8 @@ closely-spaced silicon planes as shown in Fig. \ref{fig:svt_layout_render}.
              spectrometer vacuum chamber.}
     \label{fig:svt_layout_render}
 \end{figure}
-A stereo angle is introduced between the two planes within each layer allowing
-for the measurement of both the vertical and bend coordinate of a hit, in turn, 
+This allows
+for the measurement of both the vertical and horizontal coordinate of a hit, in turn, 
 enabling full 3D hit reconstruction.  
 
 The first three layers consist of a single sensor of coverage above and below
@@ -120,11 +122,6 @@ the beam plane and use a stereo angle of 100 mrad. In order to better match the
 % needs a sentence explaining why 100 mrad stereo was used.  According to the
 % proposal, it balances acceptance against vertexing resolution.
 acceptance of the ECal, the coverage of the last three layers is two sensors 
-% Insert a sentence explaining why 50 mrad? According to the proposal it's too
-% cut down the number of bad tracks created from ghost hits due to layers with
-% the same stereo angle.
-% Why use a sixth layer? I guess it's not that important but should be in here
-% nonetheless
 wide and use a stereo angle of 50 mrad.  The choice of a 50 mrad angle for the
 last three layers was meant to break the degeneracy that results in fake tracks
 due to ghost hits in layers with the same stereo angle.  It must be noted that
@@ -141,9 +138,14 @@ into consideration including the amount of beam halo, the ability to resolve
 hits with pileup present and the ability to do pattern recognition in a high 
 occupancy environment.  With all of this in mind, it was determined that the 
 closest tolerable distance was 15 mrad, putting the active edge of layer 1 
-at 0.5 mm from the beam center.  
+at 0.5 mm from the beam center. In simulation, this corresponded to 1\% occupancy
+of strips closest to the beam plane.
+% Should I include a plot of the occupancy here or in the performance section?
+% Probably in the performance section.
 
-The SVT layout is summarized in Table \ref{tab:svt_layout}.
+% I should talk about the positions as surveyed.
+The SVT layout is summarized in Table \ref{tab:svt_layout}. \textbf{Talk about
+the survey}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Table of SVT layout %%%
@@ -340,26 +342,37 @@ crystals.
     \label{fig:ecal_crystal}
 \end{figure}
 
-%\section{Trigger and Data Acquisition}
- 
-%\subsection{SVT DAQ}
+\section{Trigger and Data Acquisition}
 
+\textbf{Write overview ...}
 
-%The low voltage differential signals (LVDS) from each of the APV25's are 
-%transferred via twisted pair wires to a FEB to undergo digitization
-%and further processing.  At the FEB, the LVDS signal is first amplified to match
-%the dynamic range of the 14 bit analog to digital converter (ADC). The ADC 
-%samples the signal at 41.667 MHz and digitizes it to a value between 0 and 
-%16384.  The digitized signals are then transferred to () field programmable gate
-%arrays (FPGA) where thresholds are applied. If a signal is found to have three
-%samples above 3 noise RMS above baseline.
+\subsection{Ecal DAQ}
 
- %Thresholds are derived from baseline runs and were set to be 3 sigma noise RMS
- %above baseline.
+\subsection{SVT DAQ}
+% Need to discuss the hybrid design for both layers 1-3 and 4-6.
+% 1) Need to mention why different wiring was used for the different parts of 
+% the SVT.
+%
+%
 
-% Those signals which pass the threshold requirement are transferred through 
-% mini SAS wires to a board on the vacuum  where they undergo optical conversion.
-%The optical signal is then transferred over ~10 m fibers to the ATCA crate.
+After a trigger is received, the differential current signals 
+from each of the APV25's are transferred to a total of 10 Front End Boards (FEB)
+to undergo digitization and further processing. (Add figure?) As discussed in 
+section (), the signals from layers 1-3 are transferred to the FEB's via 
+Teflon-coated twisted pair wires while those emerging from
+layers 4-6 use twisted pair magnet wire.  The use of twisted pairs reduces
+crosstalk between the lines as well as electromagnetic interference.
+
+At the FEB's, the differential current signals are first converted to a voltage
+by a pre-amplifier circuit to match the dynamic range 
+of the AD9252 14-bit analog to digital converter (ADC). The ADC samples the 
+signal at 41.667 MHz and digitizes it to a value between 0 and 16384.  The 
+digitized signals are then transferred to Xilinx Artix-7 field programmable
+gate arrays (FPGA).  The signals are sent upstream by multi-gigabit transceivers.
+
+Those signals which pass the threshold requirement are transferred through 
+mini SAS wires to a board on the vacuum  where they undergo optical conversion.
+The optical signal is then transferred over ~10 m fibers to the ATCA crate.
 
 
 %\subsection{Ecal DAQ}
