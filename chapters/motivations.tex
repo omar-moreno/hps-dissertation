@@ -3,7 +3,8 @@
 The existence of additional $U(1)$ gauge symmetries of nature are common in
 several Beyond the Standard Model (BSM) theories \cite{goodsell2010, 
 candelas1985, andreas2013, jaeckel2010}. Such theories envision the associated
-gauge boson ($A'$, ``dark'', ``hidden'', ``heavy'' photon) inhabiting a hidden sector
+gauge boson ($A'$, ``dark'', ``hidden'', ``heavy'' photon) inhabiting a 
+``hidden sector''
 consisting of a complex of particles and gauge bosons.  Probing the 
 structure of such a hidden sector may be possible through several different portals
 including ``kinetic mixing''.  In fact, it is natural for the $A'$ to 
@@ -14,11 +15,13 @@ new hidden sector particles, but also dark matter which some theoretical models
 have envisioned as inhabiting the hidden sector, with it's interactions mediated
 via an $A'$ \cite{arkani-hamed2009, pospelov2009, cheung2009, arkani-hamed2008}.
 
-The chapter that follows will motivate the need to search for an $A'$, and it's
-connection to dark matter.  Furthermore, an overview of current experimental 
-searches for an $A'$ will be given.
+The chapter that follows will motivate the need to search for an $A'$.  
+This will include an overview of the of the current astrophysical anomalies
+that may be explained assuming a dark matter candidate whose interactions are 
+mediated by a heavy photon.  Finally, a review of current experimental searches
+for an $A'$ will be given.
 
-\section{Physics Motivation}
+\section{Theoretical Formalism and Physics Motivation}
 
 As Holdom \cite{holdom1986} realized in the mid eighties, in a theory with 
 $U(1)_Y \times U(1)'$, there is a term in the gauge part of the Lagrangian 
@@ -47,22 +50,24 @@ Dropping all $\epsilon^2$ terms, this results in the diagnolization of \ref{eqn:
                           - \frac{1}{4} F'^{\mu \nu}F'_{\mu \nu}.
 \end{equation}
 However, the redefinition of the field also affects the interaction term of 
-the Lagrangian, $\mathcal{L}_{int} = A^{mu}J_{\mu}^{EM}$, which, in turn, induces
+the Lagrangian, $\mathcal{L}_{int} = A^{\mu}J_{\mu}^{EM}$, which, in turn, induces
 an effective coupling between the electromagnetic current and the heavy photon
 field that is suppressed by a factor of $\epsilon$
 \begin{equation}
     A^{\mu}J_{\mu}^{EM} \rightarrow (A^{\mu} - \epsilon A'^{\mu})J_{\mu}^{EM}
 \end{equation}
-As explained in chapter 2, this interaction can be exploited to search for heavy 
+As explained in chapter 2, this effective coupling can be exploited to search for heavy 
 photons.
 
-An interaction between between the SM photon and the heavy photon can be 
-generated at multiple loops assuming there exist a particle, $\Phi$, that is charged
-under both the SM hypercharge and dark charge (see Fig. \ref{fig:ap_loop}).
+Mixing between the SM photon and the heavy photon can be naturally
+generated at one-loop assuming there exist a massive particle, $\Phi$, that is charged
+under both the SM hypercharge and dark charge (see Fig. \ref{fig:aprime_loop}).
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{images/aprime_loop.png}
-    \label{fig:ap_loop}
+    \label{fig:aprime_loop}
+    \caption{Kinetic mixing of a Standard Model photon with a heavy photon 
+    at one-loop through the interaction of massive fields.}
 \end{figure}
 This generates values of $\epsilon \sim 10^{-8} - 10^{-2}$ 
 \cite{arkani-hamed2008, bjorken2009}.  In some string theory constructions, 
@@ -144,40 +149,43 @@ Again, this requires a $\sim$ GeV dark matter and a $\sim$ GeV mediator.
 Electron beam dump experiments make use of a high intensity beam ``dumped'' onto
 a thick ($\sim$ cm) target to produce highly boosted neutral particles through a 
 process analogous to photon bremsstrahlung.  In order to suppress the large
-SM backgrounds produced at the target, a shield of thickness ($\sim$ cm - m)
-is usually placed immediately downstream and in front of the detector.
+SM backgrounds produced at the target, a shield of thickness $\sim$ cm - m
+is placed immediately downstream and in front of the detector.
 % What backgrounds are these experiments concerned with?
 % What is the shield made of?
-The thickness of the target and shield in combination with the high luminosities
-resulting from the intense beams allow such 
-experiments to be sensitive to heavy photons with small couplings which tend to
-travel considerable distances before decaying.  
+The thickness of the target and shield in combination with a high luminosity
+beam allow such experiments to be sensitive to heavy photons with small 
+couplings which tend to travel considerable distances before decaying.
 
-Several beam dump experiments were devised over the last several decades with
-the intention of searching for axions.  These included E137 \cite{PhysRevD.38.3375}
-and E141 \cite{PhysRevLett.59.755} conducted at SLAC, E774 \cite{} at Fermilab., 
-KEK \cite{} and Orsay \cite{}. The experimental conditions of each of the 
-experiments is summarized on Table \ref{}. The data from each of these 
-experiments was reanalyzed in the context of heavy photons.  The resulting limits
-are shown on Fig. \reft{}.
+Several electron beam dump experiments were devised over the last several decades with
+the intention of searching for axions.  These included E137 \cite{bjorken1988}
+and E141 \cite{riordan1987} conducted at SLAC National Accelerator Laboratory,
+E774 \cite{bross1991} at Fermi National Accelerator Laboratory, 
+KEK \cite{konaka1986} in Japan and Orsay \cite{davier1989} in Frace. 
+%The setup of each of the experiments is summarized on Table \ref{}. 
+The results from each of these experiments have been reinterpreted in the 
+context of a search for a heavy photon and used to set limits on the coupling
+strength $\epsilon$ \cite{bjorken2009, andreas2012}.  The resulting limits are 
+shown on Fig. \ref{fig:ap_limits}.
 
 \subsection{Proton Beam Dump Experiments}
 
 Proton beam dump experiments can also be used to search for heavy photons
-through the decay of mesons produced at the target.  In fact, such experiments
-will have similar sensitivity to electron beam dump experiments.  One such 
-experiment that took place at the U70 accelerator at IHEP, was used to search
-for both axions and light Higgs.  The results of the reanalysis of that data
-assuming that the heavy photon can decay to ... is shown on Fig. \ref{}.
+through either the decay of mesons produced at the target or proton
+bremsstrahlung.  The data collected by one such experiment that used the U70
+accelerator at IHEP Serpukhov, was originally used to search for both axions
+and a light Higgs boson.  The data was re-analyzed and a search for an $A'$ 
+was conducted
+using the $\pi_0 \rightarrow A'\gamma$ decay channel and proton bremmstrahlung
+\cite{johannes2011, johannes2014}. The resulting limits are shown on Fig. 
+\ref{fig:ap_limits}.
 
 \subsection{Electron-Positron Colliders}
 
-The past decade saw the operation of several $e^+e^-$ operating at a range of 
-center-of-mass energies.  These include KLOE running at the the DA$\Phi$NE, 
-the $\phi$ factory and BaBar, the B-Factory running at PEP-II.   These 
-experiments collected a large amount of data that was used to search for 
-dark photons using a variety of search channels.  A summary of these searches
-and their limits is given on table \ref{}.
+The past decade saw the operation of several high-luminosity $e^+e^-$ colliders 
+that were able to collect a lot of data at diffent center-of-mass energies.
+These include KLOE running at the the DA$\Phi$NE $\phi$ factory and BaBar, 
+the B-Factory running at PEP-II.   
 
 \subsection{Electron Fixed Target Experiments}
 
@@ -185,5 +193,5 @@ and their limits is given on table \ref{}.
     \centering
     \includegraphics[width=0.9\textwidth]{images/ap_current_limits.png}
     \caption{Current limits on heavy photons.}
-    \label{fig:svt_layout_render}
+    \label{fig:ap_limits}
 \end{figure}
