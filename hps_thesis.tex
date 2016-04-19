@@ -11,7 +11,7 @@
 \usepackage{amsmath}
 
 % ?
-%\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
 
 % Package required to load images
 \usepackage{graphicx}
@@ -19,12 +19,16 @@
 % Package used to set the layout of the page
 \usepackage[left=1.5in, right=1.25in, top=1.25in, bottom=1.25in]{geometry}
 
-%\usepackage{hyperref}
+\usepackage{hyperref}
 
 % Allows double spacing of document
 %\usepackage{setspace}
 
 \usepackage{subcaption}
+
+% Package used to adjust the size of the section headings
+\usepackage{titlesec}
+\titleformat*{\section}{\large\bfseries}
 
 \begin{document}
 
@@ -50,27 +54,28 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  HPS Signal and Backgrounds   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{chapters/fixed_target}
+%\input{chapters/fixed_target}
 
 %%%%%%%%%%%%%%%%%%%%%
 %   HPS Apparatus   %
 %%%%%%%%%%%%%%%%%%%%%
-\input{chapters/hps_apparatus}
+%\input{chapters/hps_apparatus}
 
 %%%%%%%%%%%%%%%%
 %   Analysis   %
 %%%%%%%%%%%%%%%%
-\input{chapters/analysis}
+%\input{chapters/analysis}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 %   Resonance Search   %
 %%%%%%%%%%%%%%%%%%%%%%%%
-\input{chapters/resonance}
+%\input{chapters/resonance}
 
 %%%%%%%%%%%%%%%%%%%%
 %   Bibliography   %
 %%%%%%%%%%%%%%%%%%%%
 \bibliographystyle{hunsrt}
+%\bibliographystyle{kp}
 \bibliography{chapters/bibliography}
 
 
