@@ -7,7 +7,7 @@
 % Set the document type and the font size
 \documentclass[12pt]{report}
 
-%
+% Package from AMS that facilitates formula typography
 \usepackage{amsmath}
 
 % ?
@@ -19,6 +19,7 @@
 % Package used to set the layout of the page
 \usepackage[left=1.5in, right=1.25in, top=1.25in, bottom=1.25in]{geometry}
 
+% Package used to add hyperlinks to references within a document
 \usepackage{hyperref}
 
 % Allows double spacing of document
@@ -49,7 +50,7 @@
 
 \listoffigures
 
-\input{chapters/motivations}
+%\input{chapters/motivations}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  HPS Signal and Backgrounds   %
@@ -69,13 +70,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%
 %   Resonance Search   %
 %%%%%%%%%%%%%%%%%%%%%%%%
-%\input{chapters/resonance}
+\input{chapters/resonance}
 
 %%%%%%%%%%%%%%%%%%%%
 %   Bibliography   %
 %%%%%%%%%%%%%%%%%%%%
 \bibliographystyle{hunsrt}
-%\bibliographystyle{kp}
 \bibliography{chapters/bibliography}
 
 
