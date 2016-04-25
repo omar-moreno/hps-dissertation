@@ -3,7 +3,7 @@
 
 The following chapter will discuss the details and results from a resonance 
 search conducted on the 2015 engineering run data.  This includes a discussion
-of the toy studies used to optimize the fitter along with the statistical 
+of the fit procedure along with the statistical 
 formalism used to set a limit.  The chapter will conclude with a discussion 
 of systematics.
 
@@ -106,37 +106,97 @@ Quantifying how extreme the observation is, a p-value can be calculated as
 
 \subsection{The Look-Elsewhere Effect}
 
+As discussed in previous section, a result is determined signficant if the 
+$p$-value is smaller than some pre-determined threshold, $\alpha$.  However, 
+when performing multiple test, as is the case when scanning a mass distribution
+for a resonance, a observation with a $p$-value that is as extreme as $\alpha$
+is bound to occur.  This phenomena is known as the ``Look-Elsewhere Effect'' (LEE)
+and needs to be taken into account through a correction to the observed $p$-value
+at each mass hypothesis.
 
+Assuming that only a single heavy photon can be observed within the HPS invariant
+mass distribution, the correction can be estimated using the distribution 
+$f(q_{0, max} | 0)$ composed of the largest $q_{0}$ (i.e. smallest $p$-value)
+from each of the invariant mass scans.  The distribution $f(q_{0, max} | 0)$ can
+be derived by running a large number of pseudo-experiments and then calculating
+the $p$-value as was explained previously.  However, obtaining a ``global''
+$p$-value with any accuracy would require running $\sim 10^{6}$ pseudo experiments
+which is not feasible.  
 
-\section{Optimization of Fit Procedure}
+Instead, the smallest $p$-values obtained from a modest number of pseudo-experiments were
+ranked and the corresponding quantile was calculated.  A mapping from a local 
+p-value to a global p-value is then created.  Such a mapping is was created using
+10,000 toys and is shown on Fig. \ref{}.  As can be seen from the figure, a 
+local p-value equal to 0.05 corresponds to a global p-value of $\sim$ 0.5.
 
-\subsection{Pseudo Data Sets}
+%\section{Optimization of Fit Procedure}
 
-Pseudo data sets are needed to understand fitting systematics and to optimize
-both
-the fit function and window size.  In order to obtain an invariant mass probability
-density function (PDF) that describes the data, smoothing algorithm 353 QH 
-\cite{Friedman:1974vj} was
+%\subsection{Pseudo Data Sets}
+
+%Pseudo data sets are needed to understand fitting systematics and to optimize
+%both
+%the fit function and window size.  In order to obtain an invariant mass probability
+%density function (PDF) that describes the data, smoothing algorithm 353 QH 
+%\cite{Friedman:1974vj} was
 % What smoothing algorithm was used? Why? Was a K-S test used to make sure the
 % resulting PDF matched the data set?
-applied the unit normalized final invariant mass MC distribution.  The resulting
-PDF after smoothing (blue line) overlayed over the MC distribution it was generated 
-from is shown on Fig. \ref{fig:smooth_pdf}.
-\begin{figure}[b]
-    \centering
-    \includegraphics[width=0.7\textwidth]{images/smooth_pdf.png}
-    \caption{Probability density function obtained by applying a smoothing algorithm 
-             to the Heavy Photon Search Monte Carlo invariant mass distribution.}
-    \label{fig:smooth_pdf}
-\end{figure}
+%applied the unit normalized final invariant mass MC distribution.  The resulting
+%PDF after smoothing (blue line) overlayed over the MC distribution it was generated 
+%from is shown on Fig. \ref{fig:smooth_pdf}.
+%\begin{figure}[b]
+%    \centering
+%    \includegraphics[width=0.7\textwidth]{images/smooth_pdf.png}
+%    \caption{Probability density function obtained by applying a smoothing algorithm 
+%             to the Heavy Photon Search Monte Carlo invariant mass distribution.}
+%    \label{fig:smooth_pdf}
+%\end{figure}
  
 
-Events were sampled from the PDF between 0 and 100 MeV with the total number of
-% What kind of sampling algorithm was used? 
-events, 579336, choosen to match the number observed in data.  The resulting
-pseudo data is binned to match the data distributions with the expectation
-value of each bin Poisson distributed.
+%Events were sampled from the PDF between 0 and 100 MeV with the total number of
+%% What kind of sampling algorithm was used? 
+%events, 579336, choosen to match the number observed in data.  The resulting
+%pseudo data is binned to match the data distributions with the expectation
+%value of each bin Poisson distributed.
 
 \section{Results}
 
+The resulting local $p$-values from a resonance search conducted in the range 
+between 20 MeV and 75 MeV are shown on Fig. \ref{}.  The most significant signal
+was found at a mass of 28.525 MeV and has a local p-value of $4 \times 10^{-3}$.
+After correcting for the LEE, the corresponding global p-value is 
+$\sim 10\%$.
+
+
 \section{Setting Limits}
+
+Since no significant resonances were found, a 90\% confidence upper limit of the number
+of signal events at each mass hypothesis was set.  For the purpose of setting
+an upper limit, the test statistic define define in equation \ref{}, is inverted.
+The resulting statistic used to set an upper limit is then
+\begin{equation}
+    q_{\mu} = \begin{cases}
+        -2 \ln \frac{\mathcal{L}(\mu, \hat{\hat{\theta}})}{\mathcal{L}(0, \hat{\hat{\theta}})} 
+            & \hat{\mu} < 0 \\
+        -2 \ln \frac{\mathcal{L}(\mu, \hat{\hat{\theta}})}{\mathcal{L}(\hat{\mu}, \hat{\theta})} 
+            & 0 <= \hat{\mu} <= 0 \\
+             0  & \hat{\mu} > \mu
+        \end{cases}
+\end{equation}
+with the corresponding p-value being given by
+\begin{equation}
+    p = \int_{q_{\mu,obs}}^{\infty} f(q_{\mu} | \mu) dq_{\mu}.
+\end{equation}
+In order to find the upper limit, the test above is carried out over a range of
+signal yields until a $p$-value of 0.1 (90\% confidence) is found.  The resulting
+upper limits are shown on Fig. {}. 
+
+It is often the case that the estimator for the signal yield at a given mass 
+is negative.  In this case, it is difficult to interpret whether the experiment
+has sensitivity to this region of paramter space.
+
+\section{Setting a limit \epsilon}
+
+
+
+
+
