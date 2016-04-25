@@ -3,17 +3,23 @@
 
 The following chapter will discuss the details and results from a resonance 
 search conducted on the 2015 engineering run data.  This includes a discussion
-of the fit procedure along with the statistical 
-formalism used to set a limit.  The chapter will conclude with a discussion 
-of systematics.
+of the procedure used to determine if a significant resonance was observed at 
+a given $A'$ mass hypothesis and the statistical formalism used to set an upper
+limit on both the signal and $A'$ coupling strenght.
+
+This analysis makes use of
+the unblinded portion of the engineering run data ($\sim$ 10\%) which amounts to 
+a luminosity 74 nb$^{-1}$.  A blind search for a resonance using the procedure 
+outlined in this chapter and making use of the full engineering run 
+dataset is expected to take place in the Summer of 2016.
 
 \section{Searching for a Resonance}
 
 If a heavy photon does indeed exist and has a mass that is within the acceptance
 of the HPS detector, it will appear as a resonance above the copious QED trident
-invariant mass distribution.  Since the $A'$ signal is unknown a priori, the 
-$e^+e^-$ invariant mass is scanned for any significant peaks at a given mass 
-hypothesis.  With this in mind, the invariant mass distribution measured by
+invariant mass distribution.  Such a signal is expected to be Gaussian in nature, 
+centered on the mass of the $A'$ and with a width equal to the experimental
+mass resolution. With this in mind, the invariant mass distribution measured by
 HPS (see section 4 and Fig. \ref{fig:mass_distribution}) will serve as the 
 starting point for this analyses.
 \begin{figure}[t]
@@ -27,13 +33,16 @@ starting point for this analyses.
 
 \subsection{Maximum Likelihood Fit}
 
+Since the $A'$ signal is unknown a priori, the 
+$e^+e^-$ invariant mass is scanned for any significant peaks at a given mass 
+hypothesis.
 Customarily, a search for a resonance is perfomed by constructing a
 window centered at the mass hypothesis of interest.  Within the window, $A'$ 
 signal events are expected to appear as a Gaussian resonance, $\phi$, centered at
 the mass hypothesis, $m_{A'}$ and with a width, $\sigma_{m_{A'}}$, equal to the
  measured mass resolution of
 the experiment.  The distribution of background events within the same window
-can be modeled by a polynomial, $p$ with coefficients $t_j$.  Estimating the 
+can be modeled by a polynomial, $p$, with coefficients $t_j$.  Estimating the 
 signal yield, $\mu$, within
 the window, as well the background normalization, $B_{total}$ and shape, can be
 done by the method of maximum likelihood.  The theoretical formalism
