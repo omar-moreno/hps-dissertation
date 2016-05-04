@@ -23,17 +23,18 @@
 \usepackage{hyperref}
 
 % Allows double spacing of document
-%\usepackage{setspace}
+\usepackage{setspace}
 
 \usepackage{subcaption}
 
 % Package used to adjust the size of the section headings
 \usepackage{titlesec}
 \titleformat*{\section}{\large\bfseries}
+\titleformat*{\subsection}{\normalsize\bfseries}
 
 \begin{document}
 
-%\doublespacing
+\doublespacing
 
 %%%%%%%%%%%%%%%%
 % Front Matter %
@@ -50,22 +51,24 @@
 
 \listoffigures
 
-%\input{chapters/motivations}
+\input{chapters/motivations}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  HPS Signal and Backgrounds   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\input{chapters/fixed_target}
+\input{chapters/fixed_target}
 
 %%%%%%%%%%%%%%%%%%%%%
 %   HPS Apparatus   %
 %%%%%%%%%%%%%%%%%%%%%
-%\input{chapters/hps_apparatus}
+\input{chapters/hps_apparatus}
 
 %%%%%%%%%%%%%%%%
 %   Analysis   %
 %%%%%%%%%%%%%%%%
 %\input{chapters/analysis}
+
+\input{chapters/event_selection}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 %   Resonance Search   %
