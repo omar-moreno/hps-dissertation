@@ -23,7 +23,7 @@
 \usepackage{hyperref}
 
 % Allows double spacing of document
-%\usepackage{setspace}
+\usepackage{setspace}
 
 \usepackage{subcaption}
 
@@ -33,39 +33,39 @@
 
 \begin{document}
 
-%\doublespacing
-
 %%%%%%%%%%%%%%%%
 % Front Matter %
 %%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%
-%   Abstract   %
-%%%%%%%%%%%%%%%%
-\input{chapters/abstract}
-
-\chapter*{Dedication}
+\input{title_page}
 
 \tableofcontents
 
 \listoffigures
 
-%\input{chapters/motivations}
+\doublespacing
+%%%%%%%%%%%%%%%%
+%   Abstract   %
+%%%%%%%%%%%%%%%%
+\newpage
+\input{chapters/abstract}
+
+\input{chapters/motivations}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  HPS Signal and Backgrounds   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\input{chapters/fixed_target}
+\input{chapters/fixed_target}
 
 %%%%%%%%%%%%%%%%%%%%%
 %   HPS Apparatus   %
 %%%%%%%%%%%%%%%%%%%%%
-%\input{chapters/hps_apparatus}
+\input{chapters/hps_apparatus}
 
 %%%%%%%%%%%%%%%%
 %   Analysis   %
 %%%%%%%%%%%%%%%%
-%\input{chapters/analysis}
+\input{chapters/analysis}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 %   Resonance Search   %
@@ -77,27 +77,6 @@
 %%%%%%%%%%%%%%%%%%%%
 \bibliographystyle{hunsrt}
 \bibliography{chapters/bibliography}
-
-
-%\chapter{HPS Performance Studies}
-
-%\section{Performance of the Silicon Vertex Tracker}
-%\subsection{Cluster and Hit Reconstruction}
-%\subsection{Tracking Efficiency Using Tag and Probe}
-%\subsection{Mass and Vertexing Resolutions}
-
-%\section{Performance of the Electromagnetic Calorimeter}
-
-%\section{Trigger Performance}
-
-%\chapter{Resonance Search and Results}
-%\section{Trident Selection}
-%\subsection{Selection using Boosted Descision Tree/Random Forest}
-%\subsection{Selection using Neural Network}
-%\section{Mass Binning}
-%\section{Signal and Background Model}
-%\section{Systematics}
-%\section{Limit Setting}
 
 \end{document}
 
