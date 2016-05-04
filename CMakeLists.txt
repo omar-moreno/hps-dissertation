@@ -23,6 +23,7 @@ add_latex_document(hps_thesis.tex
            chapters/fixed_target.tex
            chapters/hps_apparatus.tex
            chapters/analysis.tex
+           chapters/event_selection.tex
            chapters/resonance.tex
     BIBFILES chapters/bibliography.bib
     IMAGE_DIRS images

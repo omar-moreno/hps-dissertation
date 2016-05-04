@@ -1,0 +1,256 @@
+%
+%
+%
+%
+\chapter{Event Selection}
+
+Searching for a heavy photon resonance requires both the accurate 
+reconstruction of the QED trident invariant mass spectrum and the efficient 
+rejection of Bethe-Heitler events.  With this in mind, a scheme 
+was developed to select events with $e^+e^-$ pairs that have well 
+reconstructed clusters and tracks associated with them.  Additional kinematic 
+requirements were applied to reject Bethe-Heitler events.  The  $e^+e^-$ events
+which satisfied all criteria were used to produce the final invariant mass 
+spectrum employed to search for a heavy photon resonance.  The following chapter
+will discuss the data and selection used to arrive at the final event sample.   
+
+\section{Data}
+
+The data used for this analysis consist of the unblinded portion of the 2015 
+HPS engineering run.  This amounts to approximately $\sim$10\% of the total 
+data collected during the run.  The list of runs used in this analysis along
+with the total number of events and luminosity for 10\% of each run 
+are shown on Table \ref{tab:data}.
+%%%%%%%%%%%%%%%%%%%%%
+%   Table of Data   %
+%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[t]
+    \begin{center}
+        \begin{tabular}{ccc}
+            \hline
+            \textbf{Run Number} & \textbf{Total Events (M)} & \textbf{Luminosity (nb$^{-1}$)} \\
+            \hline
+            5723 & 10.68765  & 3.927681901  \\
+            5724 & 11.397637 & 4.229082832    \\
+            5725 & 8.612363  & 3.193363425   \\
+            5739 & 8.0932    & 2.956111602   \\
+            5741 & 10.97741  & 3.987840806   \\
+            5742 & 11.174619 & 4.224543485   \\
+            5743 & 6.040229  & 2.244021498 \\
+            5766 & 9.927829  & 3.337962213 \\
+            5769 & 11.179994 & 4.059284573 \\
+            5771 & 11.642768 & 4.254619178 \\
+            5772 & 11.865312 & 4.403638304 \\
+            5773 & 13.429284 & 5.014898695 \\
+            5775 & 5.580172  & 1.988647799 \\
+            5776 & 8.121968  & 2.997741852 \\
+            5782 & 12.396243 & 4.552604162 \\
+            5783 & 12.226626 & 4.548117122 \\
+            5791 & 10.58427  & 3.716081116 \\
+            5795 & 8.789774  & 3.17431154 \\
+            5796 & 12.055927 & 4.323879491 \\
+            5797 & 10.047503 & 3.584285692  
+        \end{tabular}
+    \end{center}
+    \label{tab:data}
+\end{table}
+
+Before being considered for the final event selection discussed later in the chapter, 
+all events were required to satisfy the ``pair1'' trigger criteria 
+discussed in section [].  Furthermore, only events where the bias of the SVT was
+on, the SVT was positioned at 0.5 mm from the beam and were free of data 
+acquisition errors were considered.
+
+\section{Event Selection}
+
+\subsection{Cluster Pair Selection}
+
+The acceptance of the HPS detector is optimized such that the $e^+e^-$ pairs
+produced in either a QED trident reaction or from the decay of an 
+$A'$ are observed through their energy depositions in the Ecal.  The energy
+depositions or clusters are expected to be in opposite Ecal volumes i.e. 
+top/bottom and coincident in time within a coincidence window of a few ns.  This
+can be seen from Fig. \ref{fig:cluster_times_2d}, which plots the time relative to 
+the trigger time (cluster time) of one cluster composing a pair versus the 
+other.  From the figure, it can be seen that most cluster pairs of interest are 
+%%%%%%%%%%%%%%
+%   Figure   %
+%%%%%%%%%%%%%%
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=.9\textwidth]{images/20160428_pass4_cluster_time_v_cluster_time.png}
+    \caption{The Ecal cluster time of one cluster versus it's corresponding pair for all
+             pairs in an event.}
+    \label{fig:cluster_times_2d}
+\end{figure}  
+%%%%%%%%%%%%%%
+%   Figure   %
+%%%%%%%%%%%%%%
+coincidence to within a few ns. Furthermore, as can be seen from Fig. 
+\ref{fig:cluster_times}, 
+%%%%%%%%%%%%%%
+%   Figure   %
+%%%%%%%%%%%%%%
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=.9\textwidth]{images/20160428_ecal_cluster_time.png}
+    \caption{The time relative to the trigger time of all Ecal clusters.}
+    \label{fig:cluster_times}
+\end{figure}  
+%%%%%%%%%%%%%%
+%   Figure   %
+%%%%%%%%%%%%%%
+all clusters also fall within a cluster time window. 
+
+In order to select true coincidences, the clusters forming a pair were 
+required to have a cluster time between 42 ns and 47.5 ns.  The efficiency
+of finding a track associated with a cluster was found to dramatically drop 
+for clusters found outside of this window.  The selection is
+shown graphically in red on Fig. \ref{fig:cluster_times}.  Clusters satisfying
+the cluster time criteria are then formed into pairs.  The coincidence timing
+between a pair is then required to fall within a 3.2 ns window around the 
+coincidence peak at 0.003 ns (Fig. \ref{fig:coin_time}).  If an event contains
+multiple ``good'' cluster pairs, the pair with the smallest coincident time is 
+chosen. 
+%%%%%%%%%%%%%%
+%   Figure   %
+%%%%%%%%%%%%%%
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=.9\textwidth]{images/20160428_coincidence_time.png}
+    \caption{Coincidence time between two clusters in an event.}
+    \label{fig:coin_time}
+\end{figure}  
+%%%%%%%%%%%%%%
+%   Figure   %
+%%%%%%%%%%%%%%
+ 
+\subsection{Track-Cluster Matching}
+   
+In order to further supress accidental cluster pairs, the 
+selected ``good'' cluster pairs are required to have tracks associated 
+with them. The trajectories of all tracks in an event are propogated downstream
+to the face of the Ecal using the full magnetic field map.  A track and a cluster
+are considered a match if the difference between their positions in both $x$ 
+and $y$ satisfy the criteria listed on Table \ref{tab:track_cluster_cuts}. The 
+cuts were chosen such that they create a 3$\sigma$ window around the peak of 
+the cluster-track position difference distributions 
+(See Figs. \ref{fig:track_cluster_delta_x} and \ref{fig:track_cluster_delta_y}).
+\begin{figure}[h]
+    \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[width=0.85\textwidth]{images/20160502_pass4_cluster_track_delta_x_top.png}
+    \end{subfigure}
+    \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[width=0.85\textwidth]{images/20160502_pass4_cluster_track_delta_x.png}
+    \end{subfigure}
+    \caption{Histogram}
+    \label{fig:track_cluster_delta_x}
+\end{figure}
+\begin{figure}[h]
+    \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[width=0.85\textwidth]{images/20160502_pass4_cluster_track_delta_y_top.png}
+    \end{subfigure}
+    \begin{subfigure}{.5\textwidth}
+        \centering
+        \includegraphics[width=0.85\textwidth]{images/20160502_pass4_cluster_track_delta_y_bottom.png}
+    \end{subfigure}
+    \caption{Histogram}
+    \label{fig:track_cluster_delta_y}
+\end{figure}
+If multiple tracks satisfy this criteria, the track 
+\begin{table}[h]
+    \begin{center}
+        \begin{tabular}{r|cc}
+            \hline
+                    & Cluster x - track x at Ecal (mm) &  Cluster y - track y at Ecal (mm)  \\
+            \hline
+            Top     & $\ge -6.10$ and $\le 12.93$ & $\ge -6.08$ and $\le 11.49$ \\ 
+            Bottom  & $\ge -8.02$ and $\le 10.84$ & $\ge -8.31$ and $\le 7.40$  \\ 
+            \hline
+        \end{tabular}
+    \end{center}
+    \caption{Table with cuts.}
+    \label{tab:track_cluster_cuts}
+\end{table}
+closest to the cluster is chosen.  Currently, there are no requirements on the
+ratio of cluster energy to the track momentum, $E/p$.
+   
+\subsection{Final Trident Sample}
+
+The event selection criteria that have been applied thus far only select 
+events that have QED trident or $A'$ like signatures i.e. two coincident clusters that
+satisfy trigger cuts have an $e^+e^-$ track associated with them.  However, 
+there remains several accidentals that need to be removed from the final 
+event sample.  This is best accomplished by subjecting the tracks associated 
+with the clusters to additional criteria.  The criteria are as follows: 
+\begin{itemize}
+    \item For simplicity, events that have multiple positron tracks are not 
+          considered.
+    \item In order to cut down on the number of misconstructed tracks that may
+          have been mismatched to a cluster, both tracks are subjected to 
+          $\chi^2$ probability cut of 95\%.
+    \item Some of the electrons in the cluster pair may actually be a multiple
+          Coulomb scattered electron instead of one assicated with an $e^+e^-$ 
+          pair.  To remove these events from the final event sample, the 
+          momentum of electron tracks are required to be less than 0.85 GeV.
+    \item The $e^+e^-$ tracks associated with the clusters are vertexed with 
+          their position along the beamline, $v_z$, constrained to the target. 
+          For true $e^+e^-$ pairs, the vertex position should be well constrained
+          to an ellipse.  With this in mind, 
+          the $chi^2$ of the vertex fit is required to be less than 10, while
+          the positions along x and y ($v_x$ and $v_y$) must lie within an ellipse 
+          defined as
+          \[
+                v_x^2/0.04 + v_y^2/0.0025  = 1.
+          \]
+          The elliptical selection is shown graphically on Fig. \ref{vertex_xy}.
+\end{itemize}
+%%%%%%%%%%%%%%
+%   Figure   %
+%%%%%%%%%%%%%%
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=.9\textwidth]{images/20160503_vertex_xy.png}
+    \caption{Vertex position at the target.}
+    \label{fig:vertex_xy}
+\end{figure}  
+%%%%%%%%%%%%%%
+%   Figure   %
+%%%%%%%%%%%%%%
+
+\subsection{Radiative Selection}
+
+As discussed in Chapter 2, the kinematic similarities between heavy photons and
+radiative processes can be used to analyze both the rate of $A'$ signal production
+and the sensitivity of the experiment to $A'$ signals.  It is then crucial to
+maximize the fraction of radiative events in the final event sample.  The final
+event sample is expected to be dominated by the Bethe-Heitler process.  However,
+the kinematic difference between the Radiative and Bethe-Heitler processes can 
+be exploited to reduce the number of Bethe-Heitler events.  Specifically, the 
+$e^+e^-$ pair produced in a Radiative process will be highly boosted, while 
+only one of the electrons in the Bethe-Heitler process will be boosted 
+while the other will be much softer.  With this in mind, the sum of the momentum
+of the electron and positron, ``p-sum'', allows discrimination between the two processes.
+Specifically, radiative events are expected to have a ``p-sum'' peaked 
+at the beam energy, while the distribution of Bethe-Heitlers will be peaked a 
+low p-sum.
+
+Figure \ref{} shows the sum of the momentum of the $e^+e^-$ tracks composing a 
+pair. Using pure radiative and full trident MC, requiring a pair to have a 
+p-sum cut greater than 0.8 GeV was found to maximize the radiative fraction.
+The cut is shown graphically on Fig. \ref{}.  The invariant mass distribution
+before and after the p-sum cut was applied is also shown on Fig. \ref{}.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/invariant_mass_final.png}
+    \caption{The Heavy Photon Search $e^+e^-$ invariant mass distribution after
+             the final event selection has been applied.  The mass distribution
+             will serve as the starting point for the resonance search.}
+    \label{fig:mass_distribution}
+\end{figure}
+
+\subsection{Event Selection Efficiencies}
