@@ -5,25 +5,19 @@
 %
 
 % Set the document type and the font size
-\documentclass[12pt]{report}
+\documentclass[12pt]{ucthesis}
 
 % Package from AMS that facilitates formula typography
 \usepackage{amsmath}
 
 % ?
-\usepackage[utf8]{inputenc}
+%\usepackage[utf8]{inputenc}
 
 % Package required to load images
 \usepackage{graphicx}
 
-% Package used to set the layout of the page
-\usepackage[left=1.5in, right=1.25in, top=1.25in, bottom=1.25in]{geometry}
-
 % Package used to add hyperlinks to references within a document
 \usepackage{hyperref}
-
-% Allows double spacing of document
-\usepackage{setspace}
 
 \usepackage{subcaption}
 
@@ -37,20 +31,31 @@
 %%%%%%%%%%%%%%%%
 % Front Matter %
 %%%%%%%%%%%%%%%%
-
 \input{title_page}
+\begin{frontmatter}
 
-\tableofcontents
+    \maketitle
+    \copyrightpage
+    
+    \tableofcontents
+    \listoffigures
+    \listoftables
 
-\listoffigures
+    %%%%%%%%%%%%%%%%
+    %   Abstract   %
+    %%%%%%%%%%%%%%%%
+    \begin{abstract}
+        \input{chapters/abstract}
+    \end{abstract}
 
-\doublespacing
-%%%%%%%%%%%%%%%%
-%   Abstract   %
-%%%%%%%%%%%%%%%%
-\newpage
-\input{chapters/abstract}
+    \begin{dedication}
+    \end{dedication}
 
+\end{frontmatter}
+
+%%%%%%%%%%%%%%%%%%%%
+%   Introduction   %
+%%%%%%%%%%%%%%%%%%%%
 \input{chapters/motivations}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -66,7 +71,7 @@
 %%%%%%%%%%%%%%%%
 %   Analysis   %
 %%%%%%%%%%%%%%%%
-\input{chapters/analysis}
+%\input{chapters/analysis}
 
 \input{chapters/event_selection}
 
