@@ -22,7 +22,7 @@ add_latex_document(hps_thesis.tex
            chapters/motivations.tex
            chapters/fixed_target.tex
            chapters/hps_apparatus.tex
-           chapters/analysis.tex
+           chapters/performance.tex
            chapters/event_selection.tex
            chapters/resonance.tex
     BIBFILES chapters/bibliography.bib

@@ -11,7 +11,7 @@
 \usepackage{amsmath}
 
 % ?
-%\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
 
 % Package required to load images
 \usepackage{graphicx}
@@ -20,6 +20,10 @@
 \usepackage{hyperref}
 
 \usepackage{subcaption}
+
+\usepackage{booktabs}
+
+\usepackage{rotating}
 
 % Package used to adjust the size of the section headings
 \usepackage{titlesec}
@@ -49,7 +53,18 @@
     \end{abstract}
 
     \begin{dedication}
+        \null\vfil
+        {
+            \large
+            \begin{center}
+                To me, myself and I.
+            \end{center}
+        }
+        \vfil\null
     \end{dedication}
+
+    \begin{acknowledgements}
+    \end{acknowledgements}
 
 \end{frontmatter}
 
@@ -68,11 +83,14 @@
 %%%%%%%%%%%%%%%%%%%%%
 \input{chapters/hps_apparatus}
 
-%%%%%%%%%%%%%%%%
-%   Analysis   %
-%%%%%%%%%%%%%%%%
-%\input{chapters/analysis}
+%%%%%%%%%%%%%%%%%%%
+%   Performance   %
+%%%%%%%%%%%%%%%%%%%
+\input{chapters/performance}
 
+%%%%%%%%%%%%%%%%%%%%%%%
+%   Event Selection   %
+%%%%%%%%%%%%%%%%%%%%%%%
 \input{chapters/event_selection}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
