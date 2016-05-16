@@ -190,17 +190,17 @@ another layer.  In total, the SVT makes use of 36 sensors, which amounts to
 
 Since heavy photons are produced very forward, and the opening angle of their 
 decay products goes as $\sim m_{A}/E_{0}$, sensitivity to low mass heavy photons
-require
-the tracker planes to be as close to the beam plane as possible.  When deciding
-the distance of the first layer to the beam, several things  needed to be taken
-into consideration including the amount of beam halo, the ability to resolve 
-hits with pileup present and the ability to do pattern recognition in a high 
+requires
+the tracker layers to be as close to the beam plane as possible.  When deciding
+the distance of the first layer to the beam, several effects needed to be taken
+into consideration. These include the extent of the beam halo, the amount of 
+radiation damage that is expected to be incurred from the Coulomb scattering
+of the primary beam as well as radiative secondaries, the ability to resolve 
+hits with pileup present and being capable of doing pattern recognition in a high 
 occupancy environment.  With all of this in mind, it was determined that the 
 closest tolerable distance was 15 mrad, putting the active edge of layer 1 
-at 0.5 mm from the beam center. In simulation, this corresponded to 1\% occupancy
-of strips closest to the beam plane.
-% Should I include a plot of the occupancy here or in the performance section?
-% Probably in the performance section.
+at 0.5 mm from the beam center. In simulation, this corresponds to 1\% occupancy
+of strips closest to the beam plane of layer 1.
 
 % I should talk about the positions as surveyed.
 %The SVT layout is summarized in Table \ref{tab:svt_layout}. \textbf{Talk about
@@ -210,36 +210,40 @@ of strips closest to the beam plane.
 %%% Table of SVT layout %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % I should use the survey positions here.
-\begin{table}[t]
- \begin{center}
-\begin{tabular}{l|cccccc}  
-\hline
-Layer & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
-$z$ position from target (cm)    & 10 & 20 & 30 & 50 & 70 & 90 \\
-Stereo angle (mrad) & 100 & 100 & 100 & 50 & 50 & 50 \\
-Bend plane resolution ($\mu$m) & $\approx$6 & $\approx$6 & $\approx$6 & $\approx$6 & $\approx$6 & $\approx$6 \\
-Non-bend plane resolution ($\mu$m) & $\approx60$ & $\approx60$ & $\approx60$ & $\approx120$ & $\approx120$ & $\approx120$ \\
-Nominal dead zone in $y$ (mm) & $\pm$ 1.5 & $\pm$ 3.0 & $\pm$ 4.5 & $\pm$ 7.5 & $\pm$ 10.5 & $\pm$ 13.5 \\ 
-\hline
-\end{tabular}
-\caption{The layout of the HPS SVT.}
-\label{tab:svt_layout}
-\end{center}
-\end{table}
+%\begin{table}[t]
+\begin{sidewaystable}
+    \centering
+    \begin{tabular}{lcccccc}  
+        \toprule
+        \textbf{Layer} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} \\
+        \midrule
+        \midrule
+        $z$ position from target (cm)    & 10 & 20 & 30 & 50 & 70 & 90 \\
+        Stereo angle (mrad) & 100 & 100 & 100 & 50 & 50 & 50 \\
+        Bend plane resolution ($\mu$m) & $\approx$6 & $\approx$6 & $\approx$6 & $\approx$6 & $\approx$6 & $\approx$6 \\
+        Non-bend plane resolution ($\mu$m) & $\approx60$ & $\approx60$ & $\approx60$ & $\approx120$ & $\approx120$ & $\approx120$ \\
+        Nominal dead zone in $y$ (mm) & $\pm$ 1.5 & $\pm$ 3.0 & $\pm$ 4.5 & $\pm$ 7.5 & $\pm$ 10.5 & $\pm$ 13.5 \\ 
+        Material budget & .7\% & .7\% & .7\% & .7\% & .7\% & .7\% \\
+        \bottomrule
+    \end{tabular}
+    \caption{The layout of the HPS SVT.}
+    \label{tab:svt_layout}
+\end{sidewaystable}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Sensors}
 
-At the energies at which HPS will operate, the uncertainty in both the mass and
+At the energies at which HPS operates, the uncertainty in both the mass and
 vertex resolutions are dominated by multiple Coulomb scattering in the first 
-few layers. This made it crucial to choose a sensor technology that would 
-reduce the material budget of the SVT modules in order to maximize the mass and
-vertex resolutions.  Furthermore, the need to place the SVT in close proximity
-to the beam plane made it necessary to choose sensors which were highly tolerant
+few layers.  This made it important to choose a sensor technology that would 
+minimize the material budget of the SVT modules, especially since the material
+budget of the sensors dominates the total material budget of the SVT modules.
+Furthermore, the need to place the SVT in close proximity
+to the beam plane made it necessary to choose sensors which are highly tolerant
 to radiation.  With these 
 considerations in mind, a readily available batch of silicon microstrip sensors,
 initially manufactured for the D0 Run IIb upgrade, were found to satisfy all 
-necessary requirements \cite{}.
+necessary requirements \cite{D0Collab:2003}.
 
 The sensors were manufactured by Hamamatsu Photonics Corporation on 
 $\langle 100 \rangle$ crystal rotation silicon and are $p^{+}$ on $n$-bulk, 
@@ -257,9 +261,9 @@ Table \ref{tab:sensor_specs}.
         Readout (Sense) pitch           & 60 (30) $\mu$m \\
         \# Readout (Sense) strips       & 639 (1277) \\
         Breakdown voltage               & $>1000$ V \\
-        Depletion voltage               & $> 130 V$ \\
-        Bias Resistor Value             & $0.8 \pm 0.3 M \Omega$ \\
-        AC Coupling Capacitance         & $>12 pF/cm$ \\
+        Depletion voltage               & $> 130$ V \\
+        Bias Resistor Value             & $0.8 \pm 0.3$ M$\Omega$ \\
+        AC Coupling Capacitance         & $>12$ pF/cm \\
         Total Interstrip Capacitance    & $< 1.2$ pF/cm \\
         Defective Channels              & $<1$ \% \\
         \bottomrule
@@ -268,24 +272,35 @@ Table \ref{tab:sensor_specs}.
     \label{tab:sensor_specs}
 \end{table}
 
-Before being considered for use by the SVT, all sensors were electrically 
+Over the lifetime of the HPS detector, the sensor strips closest to the beam 
+plane are expected to see $>10^{15}$ electrons per cm$^2$.  The radiation
+damage the sensors are expected to incur due to the large electron flux,
+will lead to an increase in both the leakage current and the voltage required to 
+fully deplete the sensor.  It was then beneficial to choose a sensor technology
+that can be operated at high bias voltage in order for them to remain fully
+depleted even after irradiation. In fact, previous studies have shown that 
+sensors that may be operated to 1000 V can tolerate a dose of 
+$1.5 \times 10^{14}$ 1 MeV neq/cm$^2$ \cite{Fretwurst:2002vb}.  Since the damage
+incurred by electrons with energies less than 10 GeV is a factor $\sim$ 30 less
+than 1 MeV neutrons \cite{Rashevskaya:2002nd},
+then ensuring all sensors can be biased to 1000 V will ensure that the sensors
+will be able to withstand the expected flux of electrons over the lifetime of
+HPS. 
+
+
+Before being considered for use for the SVT modules, all sensors were electrically 
 characterized.  Specfically, the leakage current was measured as a function
-of bias voltage up to a maximum bias of 1000 V.  
-
-
-1000 V with only () out of () breaking down.  
-During these test, leakage currents of less than 500 nA were observed.
-IV curves for a subset of sensors can be seen on Fig. \ref{fig:sensor_iv_curves}.
-The high breakdown voltage
-\begin{figure}
+of bias voltage up to a maximum bias of 1000 V.  During these test, leakage 
+currents of less than 500 nA were observed.  The measured IV curves for a subset
+of sensors can be seen on Fig. \ref{fig:sensor_iv_curves}.  Only sensors whose
+leakage current did not uncontrollably increase (i.e. breakdown) before reaching
+a bias of 1000 V  were considered for use in HPS.
+\begin{figure}[h!t]
     \centering
-    \includegraphics[width=1.0\textwidth]{images/sensor_iv_curves.png}
-    \caption{IV curves for a subset of sensors used by HPS.}
+    \includegraphics[width=\textwidth]{images/sensor_iv_curves.png}
+    \caption{Measured IV curves for a subset of sensors used by HPS.}
     \label{fig:sensor_iv_curves}
 \end{figure}
-means that the sensors are capable of a dose tolerance of  1.5 
-$\times 10^{14}$ 1 MeV neq/cm$^{2}$.  All sensors were determined to be fully 
-depleted at $\approx$ 130 V. 
 
 \subsection{Readout} \label{subsec:readout}
 
