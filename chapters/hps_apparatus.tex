@@ -34,7 +34,7 @@ trigger for the experiment and is also used for electron identification. Togethe
 both subsystems provide the complete kinematic information required to 
 reconstruct heavy photons.
 
-The HPS detector was installed and comissioned within the Hall B alcove at the
+The HPS detector was installed and commissioned within the Hall B alcove at the
 Thomas Jefferson National Accelerator Facility (JLab) in Newport News, VA early
 in the Spring of 2015. Shortly after, an engineering run took place utilizing
 the Continuous Electron Beam Accelerator Facility (CEBAF) operating at an 
@@ -42,7 +42,7 @@ energy 1.056 GeV and current of 50 nA.
 
 The chapter that follows will detail various elements of the experiment.
 It will begin with a discussion of CEBAF and continue with descriptions
-of several beamline elements, SVT, Ecal and data aquisition system (DAQ).
+of several beamline elements, SVT, Ecal and data acquisition system (DAQ).
 
 \section{CEBAF}
 
@@ -130,7 +130,7 @@ D uses an RF separator of 750 MHz.
 
 During the Spring of 2015, HPS was prepared to run at a beam energy of 2.2 GeV,
 in conjuction with the commissioning of the 750 MHz RF separator.
-Unfortunately, an incident occured which resulted in the loss of the new CHL
+Unfortunately, an incident occurred which resulted in the loss of the new CHL
 required to operate the accelerator as a 12 GeV machine.
 The loss caused the accelerator to 
 fallback to 6 GeV operation using a single CHL.  As a result, HPS was given
@@ -142,10 +142,14 @@ phase space.
 
 \subsection{Layout}
 
-The HPS experiment utilizes a three-magnet chicane system as shown on Figure 
-\ref{fig:beamline}. The first and last dipoles of the chicane,  are used to bend
-the beam into the HPS apparatus while the second dipole, the Hall B pair 
-spectrometer, serves as the analyzing magnet of the experiment.  
+The HPS experiment is installed within the Hall B alcove and utilizes a 
+three-magnet chicane system as shown on Figure \ref{fig:beamline}. 
+
+
+
+%The first and last dipoles of the chicane,  are used to bend
+%the beam into the HPS apparatus while the second dipole, the Hall B pair 
+%spectrometer, serves as the analyzing magnet of the experiment.  
 
 \begin{sidewaysfigure}
     \centering
@@ -289,13 +293,13 @@ HPS.
 
 
 Before being considered for use for the SVT modules, all sensors were electrically 
-characterized.  Specfically, the leakage current was measured as a function
+characterized.  Specifically, the leakage current was measured as a function
 of bias voltage up to a maximum bias of 1000 V.  During these test, leakage 
 currents of less than 500 nA were observed.  The measured IV curves for a subset
 of sensors can be seen on Fig. \ref{fig:sensor_iv_curves}.  Only sensors whose
 leakage current did not uncontrollably increase (i.e. breakdown) before reaching
 a bias of 1000 V  were considered for use in HPS.
-\begin{figure}[h!t]
+\begin{figure}[t!]
     \centering
     \includegraphics[width=\textwidth]{images/sensor_iv_curves.png}
     \caption{Measured IV curves for a subset of sensors used by HPS.}
@@ -307,79 +311,121 @@ a bias of 1000 V  were considered for use in HPS.
 The sensors are continuously read out using the APV25 readout chip developed for
 the Compact Muon Solenoid detector at the Large Hadron Collider 
 \cite{Raymond:2000ey}. The APV25 has 128 channels, with each channel consisting
-of a charge sensitive pre-amplifier coupled to CR-RC shaping amplifier and 192
+of a charge sensitive pre-amplifier coupled to CR-RC shaping amplifier and a 192
 cell deep analog pipeline.  A schematic of a single channel is shown on 
 Fig. \ref{fig:apv25_schem}.
 \begin{figure}
     \centering
-    \includegraphics[width=0.9\textwidth]{images/apv25_channel_schematic.png}
+    \includegraphics[width=\textwidth]{images/apv25_channel_schematic.png}
     \caption{A schematic of a single channel of the APV25 readout chip.}
     \label{fig:apv25_schem}
 \end{figure}
 
 When a particle traverses a sensor, it generates a charge signal which is 
-processed by APV25 amplifier chain.  As shown on Figure \ref{}, the shaper output
-is continoulsy sampled at 40 MHz into the analog pipeline. If a trigger is 
-received, the cells of interest along the pipeline are marked for read out. 
-Since the trigger decision cannot happen instantenously in time, the position
-along the pipeline from which the reading out of samples will begin is 
-programmable.  Given that only 160 pipeline cells out of the 192 are used
-to buffer samples, the readout delay or latency can be as long as 4 $\mu s$.
-The remaining 32 cells along the pipeline are used to buffer samples that are
-waiting to be read out.
+processed by the APV25 amplifier chain.  As shown on Figure 
+\ref{fig:apv25_pipeline}, the shaper
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/apv25_pipeline.png}
+    \caption{A schematic demonstrating the sampling of the shaper signal and
+             the management of read/write pointers.}
+    \label{fig:apv25_pipeline}
+\end{figure}
+output is continuously sampled at 41.6 MHz into the analog pipeline. The position
+along the pipeline into which the shaper output is stored is determined by 
+a write pointer which continuously cycles the pipeline.  Similarly, a read 
+pointer determines the position that will be marked for read out when a trigger
+signal is received.  Since the trigger decision cannot happen instantaneously,
+the distance between the read and write pointers or latency is programmable.
+Given that only 160 pipeline cells out of the 192 are used
+to buffer samples, the delay between a signal and the arrival of the trigger can
+be as long as 3.8 $\mu s$. The remaining 32 cells along the pipeline are used 
+to buffer the addresses of samples that are waiting to be read out.
 
 The samples  are readout out by the Analog Pulse Shape Processor (APSP) which
-can operate in two modes: peak mode and deconvolution mode.  In peak
+can operate in two modes: peak and deconvolution mode.  In peak
 mode, only a single pipeline cell is read out corresponding to the maximum 
-value of the CR-RC shape.  In deconvolution mode, three consecutive samples are
+value of the shaper output.  In deconvolution mode, three consecutive samples are
 read out allowing for the reconstruction of the shaper output.  The output of 
-the APSP is then sent to a 128:1 multiplixer which then makes the raw data 
-frames.  An example of the output data frame is shown on Figure \ref{}.
+the APSP is then sent to a 128:1 multiplexer which then makes the raw data 
+frames. 
+%An example of the output data frame is shown on Figure \ref{}.
 
-During the engineering run, the APV25's used the nominal  operating points with
-a shaping time of 50 ns.  The nominal operating points are summarized on Table
-\ref{tab:apv_spec}. The high occupancies expected during the engineering
+During the engineering run, the APV25s were operated using the nominal settings
+with listed on Table \ref{tab:apv_specs}.  At nominal, the shaping time is set
+to 50 ns.  The high occupancies expected during the engineering
 run meant that overlapping of hits or ``pile-up'' were a concern.  In order to 
 mitigate this problem, the APV25's were operated in deconvolution allowing 
 the reconstruction of the shaper output.  Furthermore, 
 with each Ecal trigger, the APV25's were sent two consecutive trigger signals 
-allowing readout of six consecutive samples instead of three.  The trigger
+allowing the readout of six consecutive samples instead of three.  The trigger
 latency was then adjusted such that two samples before the signal were readout, 
-allowing the shape of the pileup pulse to be captured.  This was used to remove
-any effects of pileup from the signal pulse.  This is illustrated on Figure 
-\ref{fig:apv_shape}.
-\begin{figure}
+allowing the shape of the pileup pulse to be captured by the fit.  This was 
+used to remove any effects of pileup from the signal pulse.  Approximately 5\%
+of hits in layer were observed to be affected by pileup.
+\begin{table}[ht]
     \centering
-    \includegraphics[width=0.9\textwidth]{images/sideB_response_ch535.png}
-    \caption{The signal shape observed during the engineering run.}
-    \label{fig:apv_shape}
-\end{figure}
-\begin{table}[t]
-    \centering
-    \begin{tabular}{l|c}
-        \hline
-        \hline
+    \begin{tabular}{llr}
+        \toprule
+        \textbf{Name} & \textbf{Description} & \textbf{Value} \\
+        \midrule
+        \midrule
+        IPRE   & Preamp input FET current       & 98 (460 $\mu$A)\\
+        IPCASC & Preamp cascode current         & 52 (60 $\mu$A) \\
+        IPSF   & Preamp source follower current & 34 (50 $\mu$A) \\
+        ISHA   & Shaper input FET current bias  & 34 (50 $\mu$A) \\
+        ISSF   & Shaper source follower current & 34 (50 $\mu$A) \\
+        IPSP   & APSP current                   & 55 (80 $\mu$A) \\
+        IMUXIN & Multiplexer input current      & 34 (50 $\mu$A) \\
+        VFP    & Preamp feedback voltage        & 30  \\
+        VFS    & Shaper feedback voltage        & 60  \\
+        VPSP   & APSP Voltage level             & 40  \\
+        LATENCY & Trigger latency               & 147 \\
+        MUXGAIN & Multiplexer gain              & 100 $\mu$A/MIP \\
+        \bottomrule
     \end{tabular}
     \caption{APV25 specs used during the engineering run.}
     \label{tab:apv_specs}
 \end{table}
+%\ref{fig:apv_shape}.
+%\begin{figure}
+%    \centering
+%    \includegraphics[width=0.9\textwidth]{images/sideB_response_ch535.png}
+%    \caption{The signal shape observed during the engineering run.}
+%    \label{fig:apv_shape}
+%\end{figure}
 
-\subsection{Modules}
+\subsection{SVT Modules}
 
-Each sensor requires 5 APV25 chips in order to readout all channels.  The 5 
-APV25 chips are mounted on a FR4 electronic readout board, or hybrid, containing
-filtering for the high voltage bias and a temperature sensor.  Since the pitch
-of the APV25 and the sensors are similar, the chips were wirebonded directly to
-the sensors without the need of a pitch adapter.
+Each of the layers of the SVT consist of a ``module'' built by placing
+two ``half-modules'' back-to-back around an aluminum cooling block.  The 
+half-modules used for layers 1-3 are composed of a single sensor
+and FR4 hybrid electronic board glued onto a polyimide-laminated carbon fiber
+composite backing.  In order to better match the acceptance of the Ecal, 
+the half-modules used in layers 4-6 consist of two sensors glued end-to-end onto
+the polyimide-laminated carbon fiber backing with hybrids on either side of them.
 
-For layers 1-3 a ``half-module'' consist of a single sensor and hybrid glued 
-onto a polyimide-laminated carbon fiber composite backing.  The half-modules 
-for layers 4-6 consist of two sensors glued end onto the carbon fiber backing 
-with hybrids on either side of them.  Due to space constraints, the hybrids used
-by layers 4-6 have smaller footprint.  In order to further minimize the 
-amount of material, a window is machined in the carbon fiber leaving the middle
-of the sensor exposed. Fig. \ref{fig:l13_hm} and \ref{fig:l46_hm} show both a layer 1-3 and 4-6 
-half-modules.
+
+%Due to space constraints, the hybrids used
+%by layers 4-6 have smaller footprint.  In order to further minimize the 
+%amount of material, a window is machined in the carbon fiber leaving the middle
+%of the sensor exposed. Fig. \ref{fig:l13_hm} and \ref{fig:l46_hm} show both a layer 1-3 and 4-6 
+%half-modules.
+
+
+%Reading out of a sensor requires the use of 5 APV25 chips.
+
+
+%An SVT ``half-module'' consist of an electronic readout board, 
+
+
+
+%Each sensor requires 5 APV25 chips in order to readout all channels.  The 5 
+%APV25 chips are mounted on a FR4 electronic readout board, or hybrid, containing
+%filtering for the high voltage bias and a temperature sensor.  Since the pitch
+%of the APV25 and the sensors are similar, the chips were wirebonded directly to
+%the sensors without the need of a pitch adapter.
+
 \begin{figure}
     \centering
     \includegraphics[width=0.9\textwidth]{images/l13_half_module.jpg}
@@ -402,7 +448,7 @@ half-modules.
 \section{Electromagnetic Calorimeter}
 
 The HPS Ecal is used as the primary trigger for the experiment as well as to
-identify electrons and positrons.  It consist of two halves of lead-tungstate 
+identify electrons.  It consist of two halves of lead-tungstate 
 PbW0$_4$ crystals with each half mounted on an aluminum frame $\sim 137$ cm 
 from the upstream edge of the analyzing magnet.  Each half is composed of five
 layers of crystals with the four most outer layers consisting of 46 crystals and 
@@ -438,35 +484,133 @@ crystals.
 
 \section{Trigger and Data Acquisition}
 
-\textbf{Write overview ...}
+\subsection{Ecal Data Acquisition}
 
-\subsection{Ecal DAQ}
+The analog signals that are read out from each of the Ecal crystals by the APDs
+are sent a 16-channel JLab FADC250 VXS module (FADC)
+(see Figure \ref{fig:ecal_fadc}).  The 221 FADC channels used by each half of 
+the Ecal are housed in their own 20 slot VSX crates.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/ecal_fadc.png}
+    \caption{A 16-channel Jefferson Lab FADC250 VXS module.}
+    \label{fig:ecal_fadc}
+\end{figure}
 
-\subsection{SVT DAQ}
+The APD signals are sampled and digitized by the FADCs at a rate of 250 MHz
+into 8 $\mu$s deep pipelines.  If an FADC signal crosses a pre-defined
+threshold, the integrated amplitude of a select number of samples before and
+after the threshold crossing, as well as the crossing time are passed to the
+Crate Trigger Processor (CTP).
+
+\subsection{Trigger}
+
+The HPS trigger is designed to efficiently select $e^+e^-$ pairs whose energy
+depositions, or clusters, in the Ecal are consistent with 
+%with either a trident reaction or 
+the decay of an $A'$. The trigger logic searches for signals that
+are coincident in time and satisfy a specific kinematic selection optimized
+to select $A'$ events.
+
+As discussed in the previous section, if a signal from an Ecal crystal is found
+to cross some pre-determined threshold, the crossing time and amplitude are 
+reported to the CTP. The CTP contains the cluster finding algorithm
+which performs the following task: 
+\begin{itemize}
+    \item The amplitude of hits from every 3x3 array of crystals in the Ecal that
+          is within a programmable number of clock cycles is summed. 
+    \item If the 3x3 sum exceeds a pre-defined cluster amplitude threshold and
+          the sum is greater than any of the neighboring 3x3 windows, then the 
+          amplitude (energy), position, time and hit pattern is reported to the Sub-System
+          Processor (SSP).
+\end{itemize}
+
+The SSP takes the cluster information reported by both halves of the Ecal and
+creates all possible pairs of clusters that fall within an 8 ns coincident
+window.  Then, in order to further reduce background rates, the following 
+selection is applied to the pairs of clusters: 
+\begin{itemize}
+    \item $E_{min} \le E_{top} + E_{bottom} \le E_{max}$
+    \item $| t_{top} - t_{bottom} | \le \Delta t_{max}$
+    \item $|E_{top} - E_{bottom} \le \Delta E_{max}$
+    \item $E_{low} + R \times  F \le$ Threshold$_{slope}$
+    \item $|\tan^{-1}\frac{X_{top}}{Y_{top}} - \tan^{-1}\frac{X_{bottom}}{Y_{bottom}}| \le \theta_{Coplanarity}$
+\end{itemize}
+Here, $E_{top}$ ($E_{bottom}$), $t_{top}$ ($t_{bottom}$), $x_{top}$ 
+($x_{bottom}$) and $y_{top}$ ($y_{bottom}$) are the energy, timestamp and 
+position of the cluster in the top (bottom) half of the Ecal and $E_{min}$ 
+($E_{max}$) is the minimum (maximum) cluster energy sum. $E_{low}$ is the 
+energy of the lowest energy cluster, $R$ is the distance between its 
+center and the calorimeter center while $F$ is a constant. As shown on Table
+\ref{tab:triggers}, several of these 
+parameters are programmable.  The values used during the engineering run are 
+listed on Table \ref{tab:triggers}. If a pair of clusters
+satisfies these criteria, a trigger signal is generated by the Trigger Supervisor
+and sent to all subsystems. 
+
+During the engineering run, several triggers were run simultaneously.  The main
+trigger used to select $A'$ type events is the Pair-1 trigger.  The Pair-0 
+trigger is a much looser version of the Pair-1 trigger and was tuned to select 
+Moller scattering events.  The Single-1 trigger was tuned to select electrons
+that Coulomb scatter in the target i.e. full energy electrons (FEE) into the 
+acceptance of the Ecal.  These events are used to study both the momentum 
+resolution of the tracker and the energy resolution of the Ecal.  Finally, 
+there was a cosmic trigger and a pulser trigger used to trigger on cosmic ray
+muons and randoms respectively.  A summary of all of the settings is given
+on Table \ref{tab:triggers}
+
+\begin{table}
+    \centering
+    \begin{tabular}{lcccc}
+        \toprule
+        \textbf{Parameter} & \textbf{Single-0} & \textbf{Single-1} & \textbf{Pair-0} & \textbf{Pair-1} \\
+        \midrule
+        \midrule
+        $E_{min}$ (GeV)      & 0.060 & 0.400 & 0.054 & 0.054 \\
+        $E_{high}$ (GeV)     & 2.500 & 1.100 & 1.100 & 0.630 \\
+        $N_{threshold}$      & 3     & 3     & 1     & 1     \\
+        $E_{sum low}$ (GeV)  &       &       & 0.120 & 0.180 \\
+        $E_{sum high}$ (GeV) &       &       & 2.000 & 0.860 \\
+        $E_{differenec}$ (GeV) &       &       & 1.000 & 0.540 \\
+        $F (GeV)$ & & & 0.0055 \\
+        $\theta_{coplanirity}$ & & & 30$^\circ$ \\
+        $t_{coplanirity} (ns)$ & & 16 & 12 \\
+        Prescale & $2^{13}$ & $2^{11}$ & $2^{10}$ & $2^{0}$ \\
+        Rate (50 nA) & 0.4 Hz & 1.3 kHz & 0.7 kHz & 16.6 kHz \\
+        \bottomrule
+    \end{tabular}
+    \caption{The trigger setting for all trigger types used during the 
+             engineering run.}
+    \label{tab:triggers}
+\end{table}
+
+
+
+%\subsection{Ecal DAQ}
+
+%\subsection{SVT DAQ}
 % Need to discuss the hybrid design for both layers 1-3 and 4-6.
 % 1) Need to mention why different wiring was used for the different parts of 
 % the SVT.
-%
-%
 
-After a trigger is received, the differential current signals 
-from each of the APV25's are transferred to a total of 10 Front End Boards (FEB)
-to undergo digitization and further processing. (Add figure?) As discussed in 
-section (), the signals from layers 1-3 are transferred to the FEB's via 
-Teflon-coated twisted pair wires while those emerging from
-layers 4-6 use twisted pair magnet wire.  The use of twisted pairs reduces
-crosstalk between the lines as well as electromagnetic interference.
+%After a trigger is received, the differential current signals 
+%from each of the APV25's are transferred to a total of 10 Front End Boards (FEB)
+%to undergo digitization and further processing. (Add figure?) As discussed in 
+%section (), the signals from layers 1-3 are transferred to the FEB's via 
+%Teflon-coated twisted pair wires while those emerging from
+%layers 4-6 use twisted pair magnet wire.  The use of twisted pairs reduces
+%crosstalk between the lines as well as electromagnetic interference.
 
-At the FEB's, the differential current signals are first converted to a voltage
-by a pre-amplifier circuit to match the dynamic range 
-of the AD9252 14-bit analog to digital converter (ADC). The ADC samples the 
-signal at 41.667 MHz and digitizes it to a value between 0 and 16384.  The 
-digitized signals are then transferred to Xilinx Artix-7 field programmable
-gate arrays (FPGA).  The signals are sent upstream by multi-gigabit transceivers.
+%At the FEB's, the differential current signals are first converted to a voltage
+%by a pre-amplifier circuit to match the dynamic range 
+%of the AD9252 14-bit analog to digital converter (ADC). The ADC samples the 
+%signal at 41.667 MHz and digitizes it to a value between 0 and 16384.  The 
+%digitized signals are then transferred to Xilinx Artix-7 field programmable
+%gate arrays (FPGA).  The signals are sent upstream by multi-gigabit transceivers.
 
-Those signals which pass the threshold requirement are transferred through 
-mini SAS wires to a board on the vacuum  where they undergo optical conversion.
-The optical signal is then transferred over ~10 m fibers to the ATCA crate.
+%Those signals which pass the threshold requirement are transferred through 
+%mini SAS wires to a board on the vacuum  where they undergo optical conversion.
+%The optical signal is then transferred over ~10 m fibers to the ATCA crate.
 
 
 %\subsection{Ecal DAQ}
