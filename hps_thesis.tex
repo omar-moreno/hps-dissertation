@@ -7,6 +7,8 @@
 % Set the document type and the font size
 \documentclass[12pt]{ucthesis}
 
+\usepackage[letterpaper, left=1.50in, right=1.25in]{geometry}
+
 % Package from AMS that facilitates formula typography
 \usepackage{amsmath}
 
@@ -27,8 +29,13 @@
 
 % Package used to adjust the size of the section headings
 \usepackage{titlesec}
+\titleformat{\chapter}[display]
+    {\LARGE\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\LARGE}
 \titleformat*{\section}{\large\bfseries}
 \titleformat*{\subsection}{\normalsize\bfseries}
+
+\def\dsp{\def\baselinestretch{1.8}\large\normalsize}
+\dsp
 
 \begin{document}
 
@@ -105,4 +112,3 @@
 \bibliography{chapters/bibliography}
 
 \end{document}
-
