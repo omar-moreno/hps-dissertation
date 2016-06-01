@@ -2,7 +2,7 @@
 %
 %
 %
-\chapter{Event Selection}
+\chapter{Event Selection} \label{ch:event_selection}
 
 Searching for a heavy photon resonance requires both the accurate 
 reconstruction of the QED trident invariant mass spectrum and the efficient 
@@ -16,21 +16,19 @@ which satisfied all criteria were used to produce the final invariant mass
 spectrum employed to search for a heavy photon resonance.  The following chapter
 will discuss the selection used to arrive at the final event sample.   
 
+
 \section{Data}
 
-The data used for this analysis consist of the unblinded portion of the 2015 
-HPS engineering run.  This amounts to approximately $\sim$10\% of the total 
-data collected during the run.  The list of runs used in this analysis along
-with the unblinded number of events and luminosity for each run 
-are shown on Table \ref{tab:data}.
 %%%%%%%%%%%%%%%%%%%%%
 %   Table of Data   %
 %%%%%%%%%%%%%%%%%%%%%
-\begin{table}[t]
+\begin{table}[h!t]
     \centering
     \begin{tabular}{ccc}
         \toprule
-        \textbf{Run Number} & \textbf{Total Events (M)} & \textbf{Luminosity (nb$^{-1}$)} \\
+        \textbf{Run Number} 
+        & \textbf{10\%$\times$Total Events (M)} 
+        & \textbf{10\%$\times$Luminosity (nb$^{-1}$)} \\
         \midrule
         \midrule
         5723 & 10.68765  & 3.927681901  \\
@@ -55,11 +53,18 @@ are shown on Table \ref{tab:data}.
         5797 & 10.047503 & 3.584285692 \\ 
         \bottomrule
     \end{tabular}
-    \caption{List of ``golden'' runs from the 2015 Heavy Photon Search Engineering Run used
-             in this analysis along with the total number of events
-             and luminosity of the unblinded portion of the data.}
+    \caption{List of ``golden'' runs from the 2015 Heavy Photon Search 
+             Engineering Run used in this analysis along with the total number
+             of events and luminosity of the unblinded portion of the data.}
     \label{tab:data}
 \end{table}
+
+The data used for this analysis consist of the unblinded portion of the 2015 
+HPS engineering run.  This amounts to 74.72 nb$^{-1}$ (.4671 mC of charge) or 
+1/10 of a PAC day.  For comparison, the projected limits shown on Figure 
+\ref{fig:ap_limits} were set assuming a full PAC week (37.5 mC) of data.
+The list of runs used in this analysis along with the unblinded number of 
+events and luminosity for each run are shown on Table \ref{tab:data}.
 
 \section{Event Selection}
 
@@ -77,15 +82,18 @@ produced in either a QED trident reaction or from the decay of an
 $A'$ are observed through their energy depositions in the Ecal.  The energy
 depositions or clusters are expected to be in opposite Ecal volumes i.e. 
 top/bottom and coincident in time within a coincidence window of a few ns.  This
-can be seen from Fig. \ref{fig:cluster_times_2d}, which plots the time relative to 
-the trigger time (cluster time) of one cluster composing a pair versus the 
+can be seen from Figure \ref{fig:cluster_times_2d}, which plots  
+cluster time of one cluster composing a pair versus the 
 other.  From the figure, it can be seen that most cluster pairs of interest are 
+coincident to within a few ns. Furthermore, the majority of coincident clusters
+have a cluster time between $\sim$ 40 - 48 ns which corresponds approximately
+to the size of the trigger window (see Figure \ref{fig:cluster_times}). 
 %%%%%%%%%%%%%%
 %   Figure   %
 %%%%%%%%%%%%%%
 \begin{figure}[t]
     \centering
-    \includegraphics[width=.9\textwidth]{images/20160428_pass4_cluster_time_v_cluster_time.png}
+    \includegraphics[width=\textwidth]{images/20160428_pass4_cluster_time_v_cluster_time.png}
     \caption{The spectrum of Ecal cluster times of one cluster composing a pair 
              versus other.  The figure clearly shows that most coincident pairs 
              fall within tight coincidence and cluster time windows.}
@@ -94,38 +102,44 @@ other.  From the figure, it can be seen that most cluster pairs of interest are
 %%%%%%%%%%%%%%
 %   Figure   %
 %%%%%%%%%%%%%%
-coincidence to within a few ns. Furthermore,  
+
+In order to select true coincidences, the clusters forming a pair were 
+required to have a cluster time between 42 ns and 47.5 ns.  Clusters outside 
+of this window tend to be associated with pile-up in the calorimeter 
+and fall outside of the 8 ns trigger window.  As a result, the efficiency of
+finding a track associated with a cluster dramatically drops for clusters 
+outside of this window. The selection is
+shown graphically in red on Figure \ref{fig:cluster_times}.  Clusters satisfying
+the cluster time criteria are then formed into pairs.  The difference between the
+cluster time of the pair is then required to fall within a 3.2 ns window around the 
+coincidence peak located at 0.003 ns (Figure \ref{fig:coin_time}).  If an event
+contains multiple ``good'' cluster pairs, the pair with the smallest difference 
+in time is chosen. 
 %%%%%%%%%%%%%%
 %   Figure   %
 %%%%%%%%%%%%%%
-\begin{figure}[t]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=.9\textwidth]{images/20160428_ecal_cluster_time.png}
-    \caption{The time relative to the trigger time of all Ecal clusters.}
+    \caption{Cluster time of all Ecal clusters in an event (blue). The time of 
+             cluster is required to be between 42 ns and 47.5 ns (red) in order to 
+             ensure that it falls within the trigger window.}
     \label{fig:cluster_times}
 \end{figure}  
 %%%%%%%%%%%%%%
 %   Figure   %
 %%%%%%%%%%%%%%
-all clusters also fall within a cluster time window (see Fig. \ref{fig:cluster_times}). 
 
-In order to select true coincidences, the clusters forming a pair were 
-required to have a cluster time between 42 ns and 47.5 ns.  The efficiency
-of finding a track associated with a cluster was found to dramatically drop 
-for clusters outside of this window.  The selection is
-shown graphically in red on Fig. \ref{fig:cluster_times}.  Clusters satisfying
-the cluster time criteria are then formed into pairs.  The coincidence timing
-between a pair is then required to fall within a 3.2 ns window around the 
-coincidence peak located at 0.003 ns (Fig. \ref{fig:coin_time}).  If an event
-contains multiple ``good'' cluster pairs, the pair with the smallest coincident
-time is chosen. 
 %%%%%%%%%%%%%%
 %   Figure   %
 %%%%%%%%%%%%%%
-\begin{figure}[t]
+\begin{figure}[h!t]
     \centering
     \includegraphics[width=.9\textwidth]{images/20160428_coincidence_time.png}
-    \caption{Coincidence time between two clusters in an event.}
+    \caption{The difference in time of a cluster pair in an event.  Pairs 
+             selected for the final event sample are required to have a 
+             difference in time that falls within a 3.2 ns window centered at 
+             0.003 ns.}
     \label{fig:coin_time}
 \end{figure}  
 %%%%%%%%%%%%%%
@@ -133,19 +147,8 @@ time is chosen.
 %%%%%%%%%%%%%%
  
 \subsection{Track-Cluster Matching}
-   
-In order to further suppress accidentals due to one or both clusters in the pair
-being attributed to a photon, the 
-selected ``good'' cluster pairs are required to have tracks associated 
-with them. The trajectories of all tracks in an event are propagated downstream
-to the face of the Ecal using the full 3D magnetic field map.  A track and a cluster
-are considered a match if the difference between their positions in both $x$ 
-and $y$ satisfy the criteria listed on Table \ref{tab:track_cluster_cuts}. The 
-cuts were chosen such that they create a 3$\sigma$ window around the peak of 
-the cluster-track position difference distributions. The resulting selection is 
-highlighted in red on 
-Figs. \ref{fig:track_cluster_delta_x} and \ref{fig:track_cluster_delta_y}.
-\begin{figure}[h]
+
+\begin{figure}[t!h]
     \begin{subfigure}{.5\textwidth}
         \centering
         \includegraphics[width=0.85\textwidth]{images/20160502_pass4_cluster_track_delta_x_top.png}
@@ -154,9 +157,27 @@ Figs. \ref{fig:track_cluster_delta_x} and \ref{fig:track_cluster_delta_y}.
         \centering
         \includegraphics[width=0.85\textwidth]{images/20160502_pass4_cluster_track_delta_x.png}
     \end{subfigure}
-    \caption{Histogram}
+    \caption{Difference between the $x$ position of an Ecal cluster and the 
+             extrapolated track $x$ at the Ecal for all tracks and clusters in 
+             an event (blue) separate by top (left) and bottom (right) detector
+             volumes.  True track-cluster matches appear as a peak 
+             above mismatches.  In order for a track and cluster to be considered
+             a match, the difference in $x$ was required to fall within a 3$\sigma$
+             window around the peak.}
     \label{fig:track_cluster_delta_x}
 \end{figure}
+
+In order to further suppress accidental coincident pairs where one or both
+clusters can be attributed to a photon, the 
+selected ``good'' cluster pairs are required to have tracks associated 
+with them. The trajectories of all tracks in an event are propagated downstream
+to the face of the Ecal using the full 3D magnetic field map.  A track and a cluster
+are considered a match if the difference between their positions in both $x$ 
+and $y$ satisfy the criteria listed on Table \ref{tab:track_cluster_cuts}. The 
+cuts were chosen such that they create a 3$\sigma$ window around the peak of 
+the cluster-track position difference distributions. The resulting selection is 
+highlighted in red on 
+Figure. \ref{fig:track_cluster_delta_x} and \ref{fig:track_cluster_delta_y}.
 \begin{figure}[h]
     \begin{subfigure}{.5\textwidth}
         \centering
@@ -166,20 +187,29 @@ Figs. \ref{fig:track_cluster_delta_x} and \ref{fig:track_cluster_delta_y}.
         \centering
         \includegraphics[width=0.85\textwidth]{images/20160502_pass4_cluster_track_delta_y_bottom.png}
     \end{subfigure}
-    \caption{Histogram}
+    \caption{Difference between the $y$ position of an Ecal cluster and the 
+             extrapolated track $y$ at the Ecal for all tracks and clusters in 
+             an event (blue) separate by top (left) and bottom (right) detector
+             volumes.  True track-cluster matches appear as a peak 
+             above mismatches.  In order for a track and cluster to be considered
+             a match, the difference in $y$ was required to fall within a 3$\sigma$
+             window around the peak.}
     \label{fig:track_cluster_delta_y}
 \end{figure}
-\begin{table}[t]
-    \begin{center}
+\begin{table}[h!b]
+    \centering
+    \resizebox{\textwidth}{!}{
         \begin{tabular}{r|cc}
-            \hline
-                    & Cluster x - track x at Ecal (mm) &  Cluster y - track y at Ecal (mm)  \\
-            \hline
-            Top     & $\ge -6.10$ and $\le 12.93$ & $\ge -6.08$ and $\le 11.49$ \\ 
-            Bottom  & $\ge -8.02$ and $\le 10.84$ & $\ge -8.31$ and $\le 7.40$  \\ 
-            \hline
+            \toprule
+            & \textbf{Cluster $x$  - track $x$ at Ecal (mm)} 
+            & \textbf{Cluster $y$  - track $y$ at Ecal (mm)}  \\
+            \midrule
+            \midrule
+            Top     & $-6.10 \le x \le 12.93$ & $-6.08 \le y \le 11.49$ \\ 
+            Bottom  & $-8.02 \le x \le 10.84$ & $-8.31 \le y \le 7.40$  \\ 
+            \bottomrule
         \end{tabular}
-    \end{center}
+    }
     \caption{Boundaries used to denote the 3$\sigma$ window used to establish if 
              an Ecal cluster and SVT track are matched to each other.  Due to 
              global misalignments, different windows are needed for top and 
@@ -189,12 +219,28 @@ Figs. \ref{fig:track_cluster_delta_x} and \ref{fig:track_cluster_delta_y}.
 If multiple tracks were found to match to a single cluster, the track 
 with the minimum radial distance to the cluster was chosen.  
 
+
+%%%%%%%%%%%%%%
+%   Figure   %
+%%%%%%%%%%%%%%
+\begin{figure}[h!t]
+    \centering
+    \includegraphics[width=.9\textwidth]{images/20160503_vertex_xy.png}
+    \caption{Vertex position at the target of all $e^+e^-$ track pairs.  The
+             elliptical selection (in red) is used to select pairs for the 
+             final event sample.}
+    \label{fig:vertex_xy}
+\end{figure}  
+%%%%%%%%%%%%%%
+%   Figure   %
+%%%%%%%%%%%%%%
+
 \subsection{Final Trident Sample}
 
 The event selection criteria that have been applied thus far only select 
 events that have QED trident or $A'$ like signatures i.e. two coincident clusters that
 passed the trigger cuts and have $e^+e^-$ tracks associated with them.  However, 
-there remains several $e^+e^-$ accidentals that need to be removed from the final 
+there remain $e^+e^-$ accidental coincidences that need to be removed from the final 
 event sample.  This is best accomplished by subjecting the tracks associated 
 with the clusters to the following additional criteria:
 \begin{itemize}
@@ -203,7 +249,7 @@ with the clusters to the following additional criteria:
     \item In order to cut down on the number of misconstructed tracks that may
           have been mismatched to a cluster, both tracks are subjected to 
           $\chi^2$ probability cut of 95\%.
-    \item Some of the electrons in the cluster pair may actually be a multiple
+    \item Some electrons in the cluster pair may actually be a multiple
           Coulomb scattered beam electron of energy 1.056 GeV 
           instead of one associated with a true $e^+e^-$ 
           pair.  To remove these events from the final event sample, the 
@@ -217,18 +263,21 @@ with the clusters to the following additional criteria:
           to lie within an ellipse 
           defined as
           \[
-                v_x^2/0.04 + v_y^2/0.0025  = 1.
+          \left (\frac{v_x - 0.0113}{0.15} \right)^2 + \left(\frac{v_y + 0.0033}{0.05} \right)^2  \le 1.
           \]
-          The elliptical selection is shown graphically on Fig. \ref{fig:vertex_xy}.
+          The elliptical selection is shown graphically on Figure \ref{fig:vertex_xy}.
 \end{itemize}
+
 %%%%%%%%%%%%%%
 %   Figure   %
 %%%%%%%%%%%%%%
-\begin{figure}[t]
+\begin{figure}[ht]
     \centering
-    \includegraphics[width=.7\textwidth]{images/20160503_vertex_xy.png}
-    \caption{Vertex position at the target.}
-    \label{fig:vertex_xy}
+    \includegraphics[width=\textwidth]{images/20160504_psum.png}
+    \caption{Distribution of the sum of $e^+e^-$ momentum.  The distribution in 
+             red graphically indicates the selection used to reduce the number
+             of Bethe-Heitler from the final event sample.}
+    \label{fig:p_sum}
 \end{figure}  
 %%%%%%%%%%%%%%
 %   Figure   %
@@ -236,11 +285,13 @@ with the clusters to the following additional criteria:
 
 \subsection{Radiative Selection}
 
-As discussed in Chapter 2, the kinematic similarities between heavy photons and
+As discussed in Section \ref{sec:tri_bkgs}, the kinematic similarities between
+heavy photons and
 radiative processes can be used to analyze both the rate of $A'$ signal production
 and the sensitivity of the experiment to $A'$ signals.  It is then crucial to
 maximize the fraction of radiative events in the final event sample.  The final
 event sample is expected to be dominated by the Bethe-Heitler process.  However,
+as discussed in Section \ref{sec:tri_bkgs}, 
 the kinematic difference between the radiative and Bethe-Heitler processes can 
 be exploited to reduce the number of Bethe-Heitler events.  Specifically, the 
 $e^+e^-$ pair produced in a radiative process will be highly boosted, while 
@@ -248,39 +299,70 @@ only one of the electrons in the Bethe-Heitler process will be boosted
 while the other will be much softer.  With this in mind, the sum of the momentum
 of the electron and positron, ``p-sum'', allows the discrimination between the two processes.
 Specifically, radiative events are expected to have a ``p-sum'' peaked 
-closed to the beam energy, while the distribution of Bethe-Heitlers will be peaked a 
+closed to the beam energy (1.056 GeV), while the distribution of Bethe-Heitlers will be peaked a 
 low p-sum.
 
-Figure \ref{fig:p_sum} shows the distribution of the sum of the momentum of the $e^+e^-$ tracks composing a 
-%%%%%%%%%%%%%%
-%   Figure   %
-%%%%%%%%%%%%%%
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=.7\textwidth]{images/20160504_psum.png}
-    \caption{Distribution of the sum of $e^+e^-$ momentum.  The distribution in 
-             red graphically indicates the selection used to maximize the fraction
-             of  radiative events in the final event sample.}
-    \label{fig:p_sum}
-\end{figure}  
-%%%%%%%%%%%%%%
-%   Figure   %
-%%%%%%%%%%%%%%
-pair. Using pure radiative and full trident Monte Carlo, requiring a pair to have a 
-p-sum cut greater than 0.8 GeV was found to maximize the radiative fraction.
-The cut is shown graphically on Fig. \ref{fig:p_sum}.  The invariant mass
-distribution before (blue) and after (red) the p-sum cut was applied is also shown
-on Fig. \ref{fig:mass_selection}.
+Figure \ref{fig:p_sum} shows the distribution of the sum of the momentum (p-sum) 
+of the $e^+e^-$ tracks composing a pair.  Reducing the dominant Bethe-Heitler 
+background was accomplished by  requiring the p-sum of 
+the $e^+e^-$ tracks be greater than 0.8 GeV. 
+%Using pure radiative and full trident Monte Carlo, requiring a pair to have a 
+%p-sum cut greater than 0.8 GeV was found to maximize the radiative fraction.
+The cut is shown graphically on Figure \ref{fig:p_sum}.
+
+The invariant mass
+distribution before (blue) and after (red) the p-sum cut was applied is shown
+on Figure \ref{fig:mass_selection}.  The invariant mass distribution in red 
+will serve as the starting point for the resonance search.
+The details of the resonance search will be given in Chapter \ref{chap:resonance}.
 
 \begin{figure}[t]
     \centering
     \includegraphics[width=1.0\textwidth]{images/20160504_invariant_mass_selection.png}
     \caption{The Heavy Photon Search $e^+e^-$ invariant mass distribution before (blue) 
-             and after (red) a cut on the sum of the $e^+e^-$ momentum.  The cut 
-             maximizes the number of radiative trident events in the final event sample.
+             and after (red) a cut on the sum of the $e^+e^-$ momentum. 
              The mass distribution in red 
              will serve as the starting point for the resonance search.}
     \label{fig:mass_selection}
 \end{figure}
 
-%\subsection{Event Selection Efficiencies}
+\subsection{Event Selection Efficiency}
+
+The cuts used to select the final invariant mass distribution along with their
+selection efficiency for data, trident monte carlo (MC), pure radiative 
+monte carlo and 50 MeV A' events are summarized on Table \ref{tab:sel_eff}.
+The trident MC sample used contains both Bethe-Heitler and radiative events.
+
+\begin{sidewaystable}
+    \centering
+    \begin{tabular}{l||c|c|c|c|c}
+        \toprule
+        \textbf{Description of Cuts} 
+        & \multicolumn{2}{c|}{\textbf{Data}}
+        & \textbf{Trident MC}
+        & \textbf{Radiative MC}
+        & \textbf{50 MeV A' MC} \\
+        \midrule
+        \midrule
+        & N$_{\text{events}}$ & $\varepsilon$ (\%)
+        & $\varepsilon$ (\%) 
+        & $\varepsilon$ (\%)
+        & $\varepsilon$ (\%) \\ 
+        \midrule
+        \midrule
+        Pair 1 Trigger Count & 162825923 & -  & - & - & - \\
+        Single positron & 12705660 & 7.80  & 75.05 & 70.73 & 85.90 \\
+        Good cluster pair & 4529997 & 2.78  & 51.10 & 54.60 & 73.74 \\
+        Track-cluster match & 1735394 & 1.07  & 21.11 & 27.19 &55.49 \\
+        Track $\chi^2 < 15$ &1236300  & 0.76  &17.33  & 21.66 &32.52  \\
+        $e^-$ momentum $ < 0.85$ GeV & 1194117 & 0.73  & 17.31 & 21.63 &32.48  \\
+        Vertex $\chi^2 < 10$ and elliptical &710558  & 0.44  &13.36  & 15.86& 23.67 \\
+        $e^+e^-$ momentum sum $<$ 0.8 GeV & 437766 & 0.27   & 5.21 & 11.91 &22.41  \\
+        \bottomrule
+    \end{tabular}
+    \caption{Table showing the efficiency of each cut for data, a sample of 
+             trident MC, pure radiatives and 50 MeV $A'$ events.  The trident sample
+             contains both Bethe-Heitler and radiative events.}
+    \label{tab:sel_eff}
+\end{sidewaystable}
+

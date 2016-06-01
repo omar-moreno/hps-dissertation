@@ -25,7 +25,7 @@ importance since the 1\% occupancy requirement at 0.5 mm was crucial to operatio
 SVT. 
 
 All of the data taken with the SVT saw all APV25s configured to their nominal
-operating points as listed on Table \ref{}, while all sensors were reverse-biased
+operating points as listed on Table \ref{tab:apv_specs}, while all sensors were reverse-biased
 to 180 V. All hybrids were being cooled to $\sim$ -14$^{\circ}$C while all FEBs
 were being operated at $\sim$ 20$^{\circ}$C.  Finally, only 4 out of the 23,004
 SVT channels were found to be dead or noisy.
@@ -113,13 +113,15 @@ The calibration circuitry was also used to create a response
 curve for every channel.  An example of a response curve for one of the 
 APV25 channels is shown on Figure \ref{fig:response_curve}.  A linear fit
 to the response curve yields the gain and offset of the channel. From the figure, 
-it can be seen that the response is approximately linear up to $\sim$ 1 MIP.
+it can be seen that the response is approximately linear up to $\sim$ 2 MIPs 
+($\sim$ 25,000 $e^{-}$) which is the region of relevance for HPS.
 This is in agreement with previous measurements which found the gain to be 
 linear up to approximately 3 MIPS \cite{French:2001xb}.
 
 \subsection{Occupancy}
 
-When deciding the extent of the ``dead zone'', aside from the radiation field, 
+When deciding the extent of the ``dead zone'' between upper and lower portions
+of the SVT, aside from avoiding the radiation field, 
 two of the main considerations were the ability to perform robust pattern 
 recognition and minimization of pileup within the window of time needed for 
 the shaper output to evolve ($\sim$ 250 ns for a 50 ns shaping time).  Using
@@ -132,7 +134,7 @@ final position just a mere 15 mrad from the beam.  In fact, the occupancies
 with layers 1-3 at 4, 3, 2, and 1.5 mm away from the beam plane were verified to
 match what was predicted from simulation before the SVT was lowered to its final
 position.  As can be seen on Figure \ref{fig:occupancies}, once the first
-three layers were lowered into their final position (active edge at 0.5 mm away from the
+three layers were lowered into their final position (edge at 0.5 mm away from the
 beam plane), the occupancies on the innermost strips were observed to be less
 than 1\% as expected.
 \begin{figure}[h!b]
@@ -157,12 +159,12 @@ several strips.  The signal from each of the strips is processed by the
 APV25 and the six samples emerging from each channel are fit using the 
 following 3-pole function
 \begin{equation}
-    f(t) = \frac{\tau_1^2}{(\tau_1 - \tau_2)^3}\left( e^{-\frac{t}{\tau_1}}
-            - \sum_{k=0}^2 \left(\frac{\tau_1 - \tau_2}{\tau_1\tau_2}t\right)^k
-        \frac{e^{-\frac{t}{\tau_2}}}{k!} \right)
+    f(t) = A\frac{\tau_1^2}{(\tau_1 - \tau_2)^3}\left( e^{-\frac{t-t_{0}}{\tau_1}}
+        - \sum_{k=0}^2 \left(\frac{\tau_1 - \tau_2}{\tau_1\tau_2}(t-t_{0})\right)^k
+        \frac{e^{-\frac{t-t_{0}}{\tau_2}}}{k!} \right)
 \end{equation}
 where $\tau_1$ and $\tau_2$ represent the fall and rise time of the shaper 
-signal respectively.  The amplitude and the time of the hit, $t_0$, are then
+signal respectively.  The amplitude, $A$, and the time of the hit, $t_0$, are then
 determined from the fit.
 
 \begin{figure}[h!t]
@@ -188,16 +190,24 @@ The typical strip multiplicity observed during the run is shown on Figure
     \centering
     \includegraphics[width=.7\textwidth]{images/top_layer4_axial_cluster_charge.png}
     \caption{Distribution of cluster charge exhibiting the characteristic Landau
-             shape.}
+    shape.  The cluster charge was fit with a Landau (dashed blue line) convoluted
+    with a Gaussian in order to extract the most probable value.}
     \label{fig:cluster_charge}
 \end{figure}  
 Landau shape of the cluster charge distribution for one of the sensors.
-The cluster charge distribution was then used to measure the S/N to be $\sim$25
-which was as expected (See Figure \ref{fig:sig_noise}).
+The cluster charge distributions of every layer were fit using a Landau
+convoluted with a Gaussian in order to extract the most probable value.  The 
+cluster charge for all layers were measured to be between $\sim$1400-1500 ADC counts
+which corresponds to $\sim$21,000-22,500 $e^{-}$.  A similar procedure was used
+to measure the signal-to-noise of all layers to be within $\sim$24-26, 
+as expected (See Figure \ref{fig:sig_noise}).
 \begin{figure}[h!t]
     \centering
     \includegraphics[width=.7\textwidth]{images/sig_noise.png}
-    \caption{Example of signal to noise measured during the engineering run.}
+    \caption{Example of signal to noise measured during the engineering run.
+             The signal-to-noise was fit with a Landau (dashed blue line) 
+             convoluted with a Gaussian in order to extract the most probable 
+             value.}
     \label{fig:sig_noise}
 \end{figure}  
 
@@ -217,7 +227,8 @@ one of the layers in the SVT is shown on Figure \ref{fig:t0_res}.
     the SVT.}
     \label{fig:t0_res}
 \end{figure} 
-After correcting for offsets, the $t_{0}$ resolution is observed to be $\sim$ 
+After correcting for offsets and the correlation between hit times, 
+the $t_{0}$ resolution is observed to be $\sim$ 
 1.8 ns.
 
 \subsection{Momentum Resolution}
@@ -238,47 +249,52 @@ to satisfy the following criteria:
           Ecal.
 \end{itemize}
 The momentum distributions of the tracks matched to the clusters that pass the
-criteria are shown on Figures \ref{fig:top_p} and \ref{fig:bot_p} split up by volume.  The peaks
-of both distributions show that the momentum scale is accurate to within 1\%.  The 
+criteria are shown on Figures \ref{fig:top_p} and \ref{fig:bot_p}, split up by volume.  The peaks
+of both distributions show that the momentum scale is accurate to within 1\% 
+which is an indication that the detector is well aligned.  The 
 multiple scattering limited momentum resolution of the top (bottom) was measured
 to be $\sigma_{p}/p = 6.8\%$ ($\sigma_{p}/p = 7.1\%$) which 
 is within 5\% of of the expected value.
 \begin{figure}[h!t]
     \centering
     \includegraphics[width=.95\textwidth]{images/20160424_fee_top_tracks_p.png}
-    \caption{Top momentum resolution.}
+    \caption{Mometum distribution of multiple Coulomb scattered electrons (FEE) in
+             the top portion of the SVT and Ecal.}
     \label{fig:top_p}
 \end{figure}
 \begin{figure}[h!b]
     \centering
     \includegraphics[width=.95\textwidth]{images/20160424_fee_bottom_tracks_p.png}
-    \caption{Bottom momentum resolution}
+    \caption{Mometum distribution of multiple Coulomb scattered electrons (FEE) in
+             the bottom portion of the SVT and Ecal.}
     \label{fig:bot_p}
 \end{figure}
 
 \subsection{Tracking Efficiency}
 
-The tracking efficiency was calculated using a tag-and-probe technique.  First
+The electron efficiency was calculated using a tag-and-probe technique.  First
 two clusters that are coincident in time are selected in the calorimeter. One
-cluster must be on the positron side i.e. $x > 0$ and the other on the electron
+cluster must be on the positron side, i.e. $x > 0$, and the other on the electron
 side.  The sum of the momentum of the two clusters in required to be greater 
 than 0.8 GeV since this is the region of interest for analysis purposes. Then, 
 the positron side cluster is required to match to a positron track.  This 
 becomes the tag.  The cluster on the electron side is then check to have a 
-match to an electron track.  The tracking efficiency is then calculated as 
+match to an electron track.  The electron efficiency is then calculated as 
 \begin{equation}
     \varepsilon = \frac{N_{probes}}{N_{tags}}.
 \end{equation}
-Using this method, the tracking efficiency was found to be $\sim$ 95\%. 
+Using this method, the electron efficiency was found to be $\sim$ 95\%. A similar
+procedure was used to find the positron efficiency to be $\sim$ 95\%.
 
-\subsection{Mass resolution}
+\subsection{Mass resolution} \label{sec:mass_res}
 
 The heavy photon signal is expected to appear as a Gaussian peak above the QED 
 trident invariant mass spectrum with the width corresponding to the mass 
 resolution of the experiment.  Thus, determining the mass resolution is a crucial
-component of the resonance search, the details of which will be given in Chapter 5.
+component of the resonance search, the details of which will be given in Chapter 6.
 
-Determining the mass resolution from data was accomplished by using Moller scatters.
+Parameterizing the mass resolution from data was accomplished by using electron-electron
+elastic scattering (Moller scattering) which will have a well defined mass.
 For this particular study, only events which satisfy the ``singles1'' trigger 
 requirements were used.  Furthermore, only events where the bias of the SVT was 
 on, the SVT was positioned at 0.5 mm from the beam plane and were free of 
@@ -289,7 +305,7 @@ a pair of clusters coincident in time satisfying the following criteria:
 \begin{itemize}
     \item The two clusters must be coincident within a 1.6 ns window.
     \item The two clusters must be in opposite detector volumes.
-    \item The $x$ position of both clusters must be $<0$ i.e. both clusters
+    \item The $x$ position of both clusters must be $<0$, i.e. both clusters
           are on the electron side.
 \end{itemize}
 Once a pair of candidate clusters are found, they are required to match to 
@@ -333,19 +349,35 @@ hypothesis are shown on Figure \ref{fig:mass_resolution}.
 The mass resolution as a function of mass was found to be best modeled using
 a third order polynomial of the form
 \begin{equation}
-    \sigma_{m}(m_{ee}) = -6.166 x^3 + 0.9069 x^2 - 0.00297 x + 0.000579
+    \sigma_{m}(m_{ee}) = -6.166 m_{ee}^3 + 0.9069 m_{ee}^2 - 0.00297 m_{ee} + 0.000579 \text{ GeV}
 \end{equation}
 This equation was used in the resonance search described in Chapter 5. 
 
-%\section{Performance of the Electromagnetic Calorimeter}
+\section{Performance of the Electromagnetic Calorimeter}
+
+Beam electrons that multiple Coulomb scatter in the target can also be used to 
+determine the energy resolution of the calorimeter.  The resulting resolution 
+measured in this manner was determined to be $\sim$ 4\% and is shown on Figure
+\ref{fig:energy_res}.
+\begin{figure}[h!t]
+    \centering
+    \includegraphics[width=.7\textwidth]{images/ecal_energy_resolution.png}
+    \caption{Energy distribution of multiple Coulomb scattered electrons in the
+             in the Ecal.}
+    \label{fig:energy_res}
+\end{figure} 
 
 \section{Trigger Performance}
 
 The performance of the trigger was studied by using a simulation of the trigger
 and comparing it to the hardware trigger.  First, the raw FADC hits are converted
-to GTP clusters using a simulation of the hardware clustering algorithm. Then
+to simulated clusters using a simulation of the hardware clustering algorithm. Then
 a simulation of the trigger decision was compared to the actual decision reported
-by the hardware trigger.  The results of the study are listed on Table 
+by the hardware trigger.  The efficiency is calculated as 
+\begin{equation}
+\epsilon = \frac{N_{\text{trigger, hardware}}}{N_{\text{trigger, simulated}}}
+\end{equation}
+The results of the study are listed on Table 
 \ref{tab:trig_eff}.
 \begin{table}[h!]
     \centering

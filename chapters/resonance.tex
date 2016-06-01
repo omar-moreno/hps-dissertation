@@ -1,51 +1,65 @@
 
-\chapter{Resonance Search and Results}
+\chapter{Resonance Search and Results} \label{chap:resonance}
 
-The following chapter will discuss the details and results from a resonance 
-search conducted on the 2015 engineering run data.  This includes a discussion
-of the procedure used to determine if a significant resonance was observed at 
-a given $A'$ mass hypothesis and the statistical formalism used to set an upper
-limit on both the signal and $A'$ coupling strength.
+The following chapter will discuss the details and results of a resonance 
+search for an $A'$ in the mass range between 20 MeV/$c^2$ to 100 MeV/$c^2$.
+This includes a discussion of the procedure used to determine if a significant
+resonance was observed at a given $A'$ mass hypothesis and the statistical
+formalism used to set an upper limit on both the signal and $A'$ coupling
+strength.
 
 This analysis makes use of
-the unblinded portion of the engineering run data ($\sim$ 10\% of total data) 
-which amounts to 
-a luminosity 74 nb$^{-1}$.  A blind search for a resonance using the procedure 
-outlined in this chapter and making use of the full 2015 engineering run 
-dataset is expected to be completed in the Summer of 2016.
+the unblinded portion of the 2015 HPS engineering run data which amounts to 
+a luminosity of 74 nb$^{-1}$ (.4671 mC of charge) or 1/10 of a PAC day.  
+A blind search for a resonance using the procedure outlined in this chapter 
+and making use of the full 2015 engineering run 
+dataset (1165.71 nb$^{-1}$, 7.2875 mC) is expected to be completed in the 
+Summer of 2016.
 
 \section{Searching for a Resonance}
 
 If a heavy photon does indeed exist and has a mass that is within the acceptance
 of the HPS detector, it will appear as a resonance above the copious QED trident
 invariant mass distribution.  Such a signal is expected to be Gaussian in nature, 
-centered on the mass of the $A'$ and with a width equal to the experimental
-mass resolution. With this in mind, the invariant mass distribution measured by
-HPS (see section 4 and Fig. \ref{fig:mass_distribution}) will serve as the 
-starting point for this analyses.
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=1.0\textwidth]{images/invariant_mass_final.png}
-    \caption{The Heavy Photon Search $e^+e^-$ invariant mass distribution after
-             the final event selection has been applied.  The mass distribution
-             will serve as the starting point for the resonance search.}
-    \label{fig:mass_distribution}
-\end{figure}
+centered on the mass of the $A'$, $m_{A'}$ and with a mass dependent width 
+$\sigma_{m_{A'}}$ given by the mass resolution parametrization define Section \ref{sec:mass_res}.
+With this in mind, the invariant mass distribution measured by
+HPS (see Chapter \ref{ch:event_selection} and Fig. \ref{fig:mass_selection}) 
+will serve as the starting point for this analyses. 
+%In total, the invariant
+%distribution contains 437,766 events binned into a histogram ranging between 
+%0 and .1 GeV and bin sizes of 0.00005 GeV.
+%\begin{figure}[t]
+%    \centering
+%    \includegraphics[width=1.0\textwidth]{images/invariant_mass_final.png}
+%    \caption{The Heavy Photon Search $e^+e^-$ invariant mass distribution after
+%             the final event selection has been applied.  The mass distribution
+%             will serve as the starting point for the resonance search.}
+%    \label{fig:mass_distribution}
+%\end{figure}
 
 \subsection{Maximum Likelihood Fit}
 
 Since the mass of the $A'$ is unknown a priori, the 
 $e^+e^-$ invariant mass spectrum needs to be scanned for any significant peaks.
 Customarily, a search for a resonance is performed within a
-window constructed around the mass hypothesis of interest.  Within the window, $A'$ 
-signal events are expected to appear as a Gaussian resonance, 
-$\phi(m_{e^+e^-} | m_{A'}, \sigma_{m_{A'}})$, centered at
-the mass hypothesis, $m_{A'}$ and with a width, $\sigma_{m_{A'}}$, equal to the
- measured mass resolution of
-the experiment.  The distribution of background events within the same window
-can be modeled by a polynomial, $p(m_{e^+e^-} | t_j)$, with coefficients $t_j$.  Estimating the 
-signal yield, $\mu$, within
-the window, as well the background normalization, $B_{total}$ and shape, can be
+window constructed around the mass hypothesis of interest.  Within the window,
+the distribution of $A'$ signal events is modeled using the probability 
+distribution function
+\begin{equation}
+    \begin{split}
+    P(m_{e^+e^-}) 
+        = 
+        \mu \cdot \phi(m_{e^+e^-} | m_{A'}, \sigma_{m_{A'}}) + B\cdot p(m_{e^+e^-} | t_j)
+    \end{split}
+\end{equation}
+where $m_{e^+e^-}$ is the $e^+e^-$ invariant mass, $\mu$ is the signal yield,
+$B$ is the number of background events within the window, 
+$\phi(m_{e^+e^-} | m_{A'})$ is a Gaussian probability distribution describing
+the signal and $p(m_{e^+e^-} | t_j)$ is a polynomial with coefficients $t_j$
+used to describe the background shape.
+Estimating the 
+signal yield as well the background normalization and shape within a window, can be
 done by the method of maximum likelihood.  The theoretical formalism
 used to do this will be outlined here but a detailed discussion can be found in
 \cite{Cowan:2010js}.
@@ -53,7 +67,7 @@ used to do this will be outlined here but a detailed discussion can be found in
 Assume the events within the window are binned as $\mathbf{n} = (n_{1}, ... n_{i})$.
 Furthermore, assume the center of the $i$th bin is given by $b_i$ and has a width
 equal to $\epsilon$. 
-The expectation value of the $i$th bin is given by 
+The expected number of events of the $i$th bin is given by 
 \begin{equation}
     E[n_i] = S_{i} + B_{i}
 \end{equation}
@@ -64,13 +78,14 @@ where
 \begin{equation}
     B_{i} = B_{total} \int_{b_i - \epsilon/2}^{b_i + \epsilon/2} p(m_{e^+e^-} | t_{j}) d (m_{e^+e^-}).
 \end{equation}
-Denoting the nuissance parameters as $\theta = (B_{total},  t_{j})$, an estimation
+Denoting the parameters that are not of immediate interest, i.e. the nuissance
+parameters, as $\theta = (B_{total},  t_{j})$, an estimation
 of $\mu$ and $\theta$ can be obtained by finding the parameters $\hat{\mu}$ and
-$\hat{\theta}$ which maximize the Poisson likelihood function, $\mathcal{L}$, within
-the window
+$\hat{\theta}$ that maximize the Poisson likelihood function, $\mathcal{L}$
 \begin{equation}
-    \mathcal{L}(\mu, \theta) = \prod_{k=1}^{i} \frac{(S_{k} + B_{k})^{n_k}}{n_{k}!} e^{-(S_{k} + B_{k})}. 
+\mathcal{L}(\mu, \theta) = \prod_{k=1}^{n_{\text{bins}}} \frac{(S_{k} + B_{k})^{n_k}}{n_{k}!} e^{-(S_{k} + B_{k})}
 \end{equation}
+where the sum is over all bins within the window, $n_{\text{bins}}$.
 In the case where the invariant mass is scanned for a resonance, the Poisson 
 likelihood function is maximized within each window corresponding to different
 $A'$ mass hypothesis. This yields estimators for the signal yield and nuissance
@@ -94,27 +109,37 @@ ratio
 \end{equation}
 where $\hat{\hat{\theta}}$ is the conditional estimator for the nuissance parameters 
 obtained by maximizing the Poisson likelihood assuming that the null or 
-background only hypothesis is true i.e. $\mu = 0$.
+background only hypothesis is true i.e. $\mu = 0$. The uncoditinal estimators $\hat{\mu}$ 
+and $\hat{\theta}$ are obtained by maximizing the Poisson likelihood without
+any constraints on $\mu$.
 As can be seen from \ref{eqn:likelihood_ratio}, 
-if the estimator of the signal yield, $\hat{\mu}$, is compatible (incompatible) with the background
-only hypothesis the likelihood ratio will tend to 1 (0).
+if the estimator of the signal yield, $\hat{\mu}$, is compatible (incompatible)
+with the hypothesized $\mu$, the likelihood ratio will tend to 1 (0).
 
 A more convenient test statistic is the log likelihood ratio defined as
 \begin{equation}
     q_0 = \begin{cases}
             -2 \ln \frac{\mathcal{L}(0, \hat{\hat{\theta}})}{\mathcal{L}(\hat{\mu}, \hat{\theta})} 
             & \hat{\mu} > 0 \\
-             0  & \hat{\mu} < 0
+             0  & \hat{\mu} < 0.
         \end{cases}
 \end{equation}
-According to Wilkes theorem \cite{Wilks:1938dza}, in the large sample limit, the test statistic
-$q_0$ is asymptotically $1/2\chi^2$ \footnote{The 1/2 comes from the fact that only
-signal yields greater than 0 are being considered. See \cite{Cowan:2010js} for a 
-more detailed explanation.} distributed with degrees of freedom equal to the
-difference in parameters between the two models being tested.  In our current case, 
-the number of degrees of freedom is one, since the signal yield is the only 
-parameter that does not appear in
-the background only model.
+In the large sample limit, the test statistic
+$q_0$ can be shown to follow a $1/2\chi^2$ distribution defined in \cite{Cowan:2010js}  
+\begin{equation}
+    f(q_{0}|0) = \frac{1}{2} \left(\delta(q_{0}) + \frac{1}{\sqrt{2\pi}}\frac{1}{\sqrt{q_{0}}}e^{-q_0/2} \right)
+    \label{eqn:half_chi}
+\end{equation}
+where the first term on the right side of the equation is a delta function at 0
+and the second term is a $\chi^2$ distribution with one degree of freedom. 
+%Equation \ref{eqn:half_chi} is simple the mixture 
+%is asymptotically $1/2\chi^2$ \footnote{The 1/2 comes from the fact that only
+%signal yields greater than 0 are being considered. See \cite{Cowan:2010js} for a 
+%more detailed explanation.} distributed with degrees of freedom equal to the
+%difference in parameters between the two models being tested.  In our current case, 
+%the number of degrees of freedom is one, since the signal yield is the only 
+%parameter that does not appear in
+%the background only model.
 
 Quantifying how extreme the observation is can be done by calculating a $p$-value as
 \begin{equation}
@@ -179,46 +204,50 @@ was created using 10,000 toys and is shown on Fig. \ref{fig:global_p_value}.
 As can be seen from the figure, a 
 local $p$-value equal to 0.05 corresponds to a global $p$-value of $\sim$ 0.5.
 
-%\section{Optimization of Fit Procedure}
+\section{Fit Parameters}
 
-%\subsection{Pseudo Data Sets}
+\subsection{Pseudo Data Sets}
 
-%Pseudo data sets are needed to understand fitting systematics and to optimize
-%both
-%the fit function and window size.  In order to obtain an invariant mass probability
-%density function (PDF) that describes the data, smoothing algorithm 353 QH 
-%\cite{Friedman:1974vj} was
-% What smoothing algorithm was used? Why? Was a K-S test used to make sure the
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/smooth_pdf.png}
+    \caption{Probability density function obtained by applying a smoothing algorithm 
+             to the Heavy Photon Search Monte Carlo invariant mass distribution.}
+    \label{fig:smooth_pdf}
+\end{figure}
+
+Pseudo data sets are needed to understand fitting systematics and to optimize
+both
+the fit function and window size.  In order to obtain an invariant mass probability
+density function (PDF) that describes the data, smoothing algorithm 353 QH 
+\cite{Friedman:1974vj} was
+%What smoothing algorithm was used? Why? Was a K-S test used to make sure the
 % resulting PDF matched the data set?
-%applied the unit normalized final invariant mass MC distribution.  The resulting
-%PDF after smoothing (blue line) overlayed over the MC distribution it was generated 
-%from is shown on Fig. \ref{fig:smooth_pdf}.
-%\begin{figure}[b]
-%    \centering
-%    \includegraphics[width=0.7\textwidth]{images/smooth_pdf.png}
-%    \caption{Probability density function obtained by applying a smoothing algorithm 
-%             to the Heavy Photon Search Monte Carlo invariant mass distribution.}
-%    \label{fig:smooth_pdf}
-%\end{figure}
+applied to the unit normalized final invariant mass MC distribution.  The resulting
+PDF after smoothing (blue line) overlayed over the MC distribution it was generated 
+from is shown on Fig. \ref{fig:smooth_pdf}.
  
-
-%Events were sampled from the PDF between 0 and 100 MeV with the total number of
+Events were sampled from the PDF between 0 and 100 MeV with the total number of
 %% What kind of sampling algorithm was used? 
-%events, 579336, chosen to match the number observed in data.  The resulting
-%pseudo data is binned to match the data distributions with the expectation
-%value of each bin Poisson distributed.
+events, 437,766, chosen to match the number observed in data.  The resulting
+pseudo data is binned to match the data distributions with the expectation
+value of each bin Poisson distributed.
 
-\subsection{Results}
+\subsection{Mass Binning and Fit Window}
+
+\subsection{Polynomial Order}
+
+\section{Results}
 
 The resulting local $p$-values from a resonance search conducted in the range 
-between 20 MeV and 75 MeV are shown on Fig. \ref{fig:local_p_values}. 
+between 20 MeV and 60 MeV are shown on Fig. \ref{fig:local_p_values}. 
 The most significant signal
 was found at a mass of 28.525 MeV and has a local p-value of $4 \times 10^{-3}$.
 After correcting for the LEE, the corresponding global p-value is 
 $\sim 10\%$.
 \begin{figure}[t]
     \centering
-    \includegraphics[width=.8\textwidth]{images/final_p_values.png}
+    \includegraphics[width=\textwidth]{images/final_p_values.png}
     \caption{Resulting $p$-values from a resonance search for an $A'$ across the
     invariant mass spectrum.}
     \label{fig:local_p_values}
@@ -241,24 +270,28 @@ to set an upper limit is then
 \end{equation}
 with the corresponding $p$-value being given by
 \begin{equation}
-    p = \int_{q_{\mu,obs}}^{\infty} f(q_{\mu} | \mu) dq_{\mu}.
+    p = \int_{q_{\mu,obs}}^{\infty} f(q_{\mu} | \mu) dq_{\mu}
 \end{equation}
-In order to find the upper limit, the test above is carried out over a range of
+where $f(q_{\mu}|\mu)$ is the probability distribution of $q_{\mu}$ given the
+hypothesized value of $\mu$. 
+In order to find the upper limit, $\mu_{\text{up}}$, the test above is carried out over a range of
 signal yields until a $p$-value of 0.1 (90\% confidence) is found. The value of
-$\mu$ found in this way
+$\mu_{\text{up}}$ found in this way
 is often referred to as the unconstrained limit. The resulting 
 unconstrained upper limits are shown in blue on Fig. \ref{fig:upper_limit}. 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=.8\textwidth]{images/upper_limits.png}
+    \includegraphics[width=\textwidth]{images/upper_limits.png}
     \caption{Upper limits on the signal yield at each mass hypothesis.}
     \label{fig:upper_limit}
 \end{figure}
 
 As shown in green on Fig. \ref{fig:upper_limit}, it is often the case that the
-estimator for the signal yield at a given mass hypothesis is close to zero or
-even negative.  As a result, the upper limit of those measurements will be small
-relative to the background only hypothesis. This leads to a lack of 
+estimator for the signal yield, at a given mass hypothesis is zero or
+even negative.  In such cases, the probability distribution function of the
+test statistic $q_{\mu}$ assuming $\mu_{\text{up}}$ will nearly coincide with 
+the distribution of $q_{\mu}$ assuming $\mu = 0$, i.e. the background only 
+hypothesis.  As a result, there is a lack of 
 sensitivity to a signal measurement at those mass hypothesis.
 
 In such cases, a 50\% power-constrained upper limit on the signal is set
@@ -268,7 +301,7 @@ background only pseudo-data sets and the median (50\% quantile) upper limit
 is calculated, $\mu_{\mbox{median}}$. The upper limit in that region is then set to 
 the larger of either the unconstrained limit or the median limit
 \begin{equation}
-    \mu_{pc} = \mbox{max}(\mu_{\mbox{UL}}, \mu_{\mbox{median}}).
+    \mu_{pc} = \mbox{max}(\mu_{\text{up}}, \mu_{\text{median}}).
 \end{equation}
 The power constrained limits are shown in red on Fig. \ref{fig:upper_limit}.
 
@@ -286,34 +319,43 @@ $\delta m$, near $m_{A'}$ as
 \end{equation}
 where $N_{eff}$ is the number of available decay channels available.  For the 
 $A'$ masses considered in this analysis, $N_{eff} = 1$. Using equation 
-\ref{eqn:ap_rad_xsec}, the upper limit on the signal can be related to an
+\ref{eqn:ap_rad_xsec}, the upper limit on the signal, $S_{\text{up}}$, can be related to an
 upper limit on the $A'$ coupling strength as 
 \begin{equation}
-    \epsilon^2 = \left (\frac{S_{UL}/m_{A'}}{
+    \epsilon^2 = \left (\frac{S_{\text{up}}/m_{A'}}{
                 f\Delta B/\Delta m} \right) 
                 \left(\frac{2 N_{eff} \alpha}{3 \pi} \right)
     \label{eqn:eps}
 \end{equation}
-where $f$ is the radiative fraction and $\Delta B/\Delta m$ is the number of 
-background events per MeV.  In order to calculate the number of background 
+where $\Delta B/\Delta m$ is the number of 
+background events per MeV and $f$ is the ratio of the pure radiative cross-section to the full trident 
+cross section.  The ratio is calculated using MC and is shown on Figure \ref{fig:rad_frac} as 
+a function of mass.
+In order to calculate the number of background 
 events per MeV, a 1 MeV window is constructed around the $A'$ mass hypothesis
-and the number of background events in that window are counted.  The 
-background events per MeV at each mass hypothesis are shown on Fig. 
-\ref{fig:background_mev}.  Using
-10\% of the data, $\epsilon$ up to a value of $10^{-2}$ and in the mass range 
-of 20 MeV to 70 MeV is excluded.  Using the full data set
-the reach is expected to increase by a factor of ~3 down to $\epsilon^2 = 10^{-5}$. 
-\begin{figure}[t]
+and the number of background events in that window are counted.  The resulting 
+number of background events per MeV at each mass hypothesis are shown on Fig. 
+\ref{fig:background_mev}.  
+
+The limits on the coupling strength derived using equation \ref{eqn:eps}
+are shown on Fig. \ref{fig:epsilon_upper_limit}. Using the full data set
+the reach is expected to increase by a factor of ~4 down to $\epsilon^2 = \sim 10^{-6}$.
+\begin{figure}[ht]
     \centering
-    \includegraphics[width=.8\textwidth]{images/bkg_mev.png}
-    \caption{The number of background events per MeV at each $A'$ mass hypothesis.}
+    \includegraphics[width=.8\textwidth]{images/rad_frac.png}
+    \caption{The ratio of the pure radiative cross-section to the full trident 
+             cross section as a function of mass.}
+    \label{fig:rad_frac}
+\end{figure}
+\begin{figure}[hb]
+    \centering
+    \includegraphics[width=\textwidth]{images/bkg_mev.png}
+    \caption{The number of background events in a 1 MeV window around each $A'$ mass hypothesis.}
     \label{fig:background_mev}
 \end{figure}
-The limits on the coupling strength derived using equation \ref{eqn:eps}
-are shown on Fig. \ref{fig:epsilon_upper_limit}.
-\begin{figure}[b]
+\begin{figure}[ht]
     \centering
-    \includegraphics[width=.9\textwidth]{images/final_coupling_upper_limits.png}
+    \includegraphics[width=\textwidth]{images/final_coupling_upper_limits.png}
     \caption{Upper limits on the coupling strength.}
     \label{fig:epsilon_upper_limit}
 \end{figure}

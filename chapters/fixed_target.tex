@@ -1,16 +1,18 @@
 
 \chapter{HPS Signal and Backgrounds}
 
-The Heavy Photon Search is a fixed target experiment that will search for heavy
-photons in the mass range of 20 MeV/c$^{2}$ to 500 MeV/c$^{2}$ and couplings
-of $\epsilon \sim 10^{-5} - 10^{-1}$.  Since heavy photons couple to electric
-charge, they can be produced by a process analogous to bremsstrahlung 
-radiation.  The heavy photon subsequently decays to narrow $e^+e^-$ resonances, 
+%The Heavy Photon Search is a fixed target experiment that will search for heavy
+%photons in the mass range of 20 MeV/c$^{2}$ to 500 MeV/c$^{2}$ and couplings
+%of $\epsilon \sim 10^{-5} - 10^{-1}$.
+%Since heavy photons couple to 
+The effective coupling between the $A'$ and electric charge can be exploited to
+produce heavy photons through a process analogous to bremsstrahlung radiation.
+The heavy photon subsequently decays to narrow $e^+e^-$ resonances, 
 which can be observed above the dominant quantum electrodynamic (QED) trident
 background.  For suitably small couplings, heavy photons travel detectable 
-distances before decaying providing an additional search channel.  In the 
-chapter that follows, both the heavy photon production mechanism and backgrounds
-will be discussed.
+distances before decaying providing an additional search channel. In the chapter
+that follows, both the heavy photon production mechanism and 
+backgrounds will be discussed.
 
 \section{Production of Heavy Photons}
 
@@ -18,15 +20,10 @@ Sensitivity to the theoretically favored regions of the heavy photon
 mass-coupling phase space can be best achieved using high luminosity fixed
 target experiments \cite{Bjorken:2009mm}.  In such experiments, an electron
 of energy $E_{0}$ incident on a high $Z$ target will radiate heavy photons 
-through a process analogous to ordinary photon bremsstrahlung. 
-%
-% Do I need to explain what bremsstrahlung is or should I assume it's common
-% knowledge?
-%
-However, as discussed below, the weak coupling
-of the $A'$ to electrons along with its relatively large mass will lead to 
-rates and kinematics which are very different from ordinary photon 
-bremsstrahlung.
+through a process analogous to ordinary photon bremsstrahlung. However, as 
+discussed below, the weak coupling of the $A'$ to electrons along with its 
+relatively large mass will lead to rates and kinematics which are very different
+from ordinary photon bremsstrahlung.
 
 Consider the process shown on Fig. \ref{fig:ap_production} where an $A'$ with
 momentum $k = (E_{A'}, \vec{k})$ is radiated by an electron of momentum 
@@ -38,15 +35,16 @@ such a reaction can be estimated using the Weizacker-Williams approximation (WWA
 %%%%%%%%%%%%%%
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.5\textwidth]{images/aprime_brem.png}
+    \includegraphics[width=0.6\textwidth]{images/aprime_brem.png}
     \caption{A heavy photon can be produced through a process analogous to 
              ordinary photon bremsstrahlung.}
     \label{fig:ap_production}
 \end{figure}  
 %%%%%%%%%%%%%%
 %%%%%%%%%%%%%%
-\cite{Bjorken:2009mm, Tsai:1986tx}.  The WWA models the process as the 
-scattering of photons sourced by the target nuclei by the incident electron
+\cite{Bjorken:2009mm, Tsai:1986tx, Tsai:1973py, Kim:1973he}.
+The WWA models the process as the scattering of photons sourced by the target 
+nuclei by the incident electron
 in the rest frame of the electron.  Therefore, the energy-angle distribution
 can be obtained from the Compton-like process as
 \begin{equation}
@@ -133,7 +131,7 @@ thin-target of radiation length, $T \ll 1$ as
 \end{equation}
 where $N_0$ is Avogadro's number, $X_0$ is the radiation length of the target
 and $A$ is the atomic mass \cite{Bjorken:2009mm}.  Figure \ref{fig:ap_rate} shows
-an estimated of the expected number of $A'$ events as a function of $A'$ mass 
+an estimate of the expected number of $A'$ events as a function of $A'$ mass 
 and $\epsilon$ given the unblinded portion of the HPS engineering run data.
 \begin{figure}[t]
     \centering
@@ -143,7 +141,7 @@ and $\epsilon$ given the unblinded portion of the HPS engineering run data.
     \label{fig:ap_rate}
 \end{figure}  
 
-\section{Trident Backgrounds}
+\section{Trident Backgrounds} \label{sec:tri_bkgs}
 
 The primary background expected to dominate the final event sample of the HPS 
 experiment is the QED Bethe-Heitler and radiative trident processes.  Diagrams
@@ -163,8 +161,9 @@ distribution so an understanding of these backgrounds is highly desirable.
     \label{fig:tridents}
 \end{figure}  
 
-The kinematics of radiatives are indistinguishable from $A'$ signal events 
-within an invariant mass window, $\delta m$, near $m_{A'}$. Specifically, 
+The kinematics of the irreducible radiative background are indistinguishable 
+from $A'$ signal events 
+within an invariant mass window, $\delta m$, centered at $m_{A'}$. Specifically, 
 the $A'$ production cross-section is related to the production cross-section of 
 radiatives as 
 \begin{equation}
@@ -176,24 +175,26 @@ where $N_{\text{eff}}$ is the number of decay channels available.
 Therefore, radiatives can be used to analyze both the rate of the $A'$ signal 
 production and the sensitivity of an experiment to $A'$ signals.
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=.8\textwidth]{images/bh_energy_cut.png}
+    \caption{Scatter plot of the positron momentum versus the electron momentum 
+             of pairs from Bethe-Heitler background (blue) and 50 MeV $A'$
+             signal events (red).}
+    \label{fig:ap_v_bethe}
+\end{figure}
 Although the rate of the Bethe-Heitler process dominates among the two 
 processes, its different kinematics can be used to reduce them in the final 
 event sample.  Specifically, the $A'$ decay products are highly boosted while 
 the recoiling electron is soft and scatters at large angles.  In contrast, 
-at higher energies, the Bethe-Heitler process is not enhance.  Furthermore,
+at higher pair energies, the Bethe-Heitler process is not enhance.  Furthermore,
 only one of the leptons in the pair will be highly boosted, while the other
-will be much softer.  As a result, the recoiling electron will be produced much more forward.
+will be much softer.  
+%As a result, the recoiling electron will be produced much more forward.
 These kinematic differences are illustrated in Figure \ref{fig:ap_v_bethe} which
 shows the energy of the positron versus the electron energy for both $A'$ (red)
 and Bethe-Heitler (black) events.  As can be seen from the figure, the signal
 distribution is concentrated in the region where the sum of the energy of the
 electron and positron is approximately equal to the beam energy.
-\begin{figure}[b]
-    \centering
-    \includegraphics[width=0.5\textwidth]{images/bh_energy_cut.png}
-    \caption{The distribution of the energy of the positron versus the electron
-    for Bethe-Heitler (black) and $A'$ (red) event.}
-    \label{fig:ap_v_bethe}
-\end{figure}
 
 
