@@ -206,6 +206,8 @@ local $p$-value equal to 0.05 corresponds to a global $p$-value of $\sim$ 0.5.
 
 \section{Fit Parameters}
 
+
+
 \subsection{Pseudo Data Sets}
 
 \begin{figure}[ht]
@@ -233,9 +235,24 @@ events, 437,766, chosen to match the number observed in data.  The resulting
 pseudo data is binned to match the data distributions with the expectation
 value of each bin Poisson distributed.
 
-\subsection{Mass Binning and Fit Window}
+\subsection{Mass Binning}
 
-\subsection{Polynomial Order}
+Ideally, an unbinned maximum likelihood fit would be used to estimate the fit 
+parameters describe previously.  However, due to the large number of statistics, 
+this wouldn't be possible to do in a reasonable amount of time.  Instead, 
+a binned likelihood fit is performed with the bin size set such that the 
+pulls are minimized.
+
+In order to understand the effect of the bin size on the fitting systematics, 
+pseudo data sets were binned using bin sizes of 0.2 MeV, 0.1 MeV and 0.05 MeV.
+A resonance search was performed on each of the pseudo data sets and the 
+average pulls were calcualted.   Using this procedure, it was found that using
+a bin size of 0.05 MeV minimizes the pulls, hence, it was used in the final
+analysis.
+
+\subsection{Fit Window and Polynomial Order}
+
+
 
 \section{Results}
 
