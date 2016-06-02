@@ -26,6 +26,7 @@ add_latex_document(hps_thesis.tex
            chapters/performance.tex
            chapters/event_selection.tex
            chapters/resonance.tex
+           chapters/conclusion.tex
     BIBFILES chapters/bibliography.bib
     IMAGE_DIRS images
 )
