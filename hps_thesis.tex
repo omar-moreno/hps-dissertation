@@ -37,18 +37,20 @@
 \titleformat*{\section}{\large\bfseries}
 \titleformat*{\subsection}{\normalsize\bfseries}
 
-\def\dsp{\def\baselinestretch{1.8}\large\normalsize}
-\dsp
+%\def\dsp{\def\baselinestretch{1.8}\large\normalsize}
+%\dsp
 
 \makeatletter
 \let\@currsize\normalsize
 \makeatother
 
-\usepackage{caption}
+%\usepackage{caption}
 
 \usepackage{setspace}
 
-\captionsetup{font={stretch=1.0}}
+%\captionsetup{font={stretch=1.0}}
+
+\setstretch{2}
 
 \begin{document}
 
@@ -129,7 +131,6 @@
 %   Bibliography   %
 %%%%%%%%%%%%%%%%%%%%
 \linespread{1}\selectfont
-%\setlength\bibitemsep{12pt}
 \bibliographystyle{hunsrt}
 \bibliography{chapters/bibliography}
 
