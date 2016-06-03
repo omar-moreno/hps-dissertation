@@ -61,10 +61,10 @@ will discuss the selection used to arrive at the final event sample.
 
 The data used for this analysis consist of the unblinded portion of the 2015 
 HPS engineering run.  This amounts to 74.72 nb$^{-1}$ (.4671 mC of charge) or 
-1/10 of a PAC day.  For comparison, the projected limits shown on Figure 
+1/10 of a PAC day.  For comparison, the projected limits shown in Figure 
 \ref{fig:ap_limits} were set assuming a full PAC week (37.5 mC) of data.
 The list of runs used in this analysis along with the unblinded number of 
-events and luminosity for each run are shown on Table \ref{tab:data}.
+events and luminosity for each run are shown in Table \ref{tab:data}.
 
 \section{Event Selection}
 
@@ -73,7 +73,7 @@ whose positions in the Ecal were consistent with an $e^+e^-$ from either a tride
 reaction or the decay of an $A'$. As such, only ``pairs1'' trigger events
 were considered for the final data sample.  Furthermore, only events where the
 bias of the SVT was on, the SVT was positioned at 0.5 mm from the beam and 
-were free of data acquisition errors were included in the data sample.
+where the events were free of data acquisition errors were included in the data sample.
 
 \subsection{Cluster Pair Selection}
 
@@ -95,7 +95,7 @@ to the size of the trigger window (see Figure \ref{fig:cluster_times}).
     \centering
     \includegraphics[width=\textwidth]{images/20160428_pass4_cluster_time_v_cluster_time.png}
     \caption{The spectrum of Ecal cluster times of one cluster composing a pair 
-             versus other.  The figure clearly shows that most coincident pairs 
+             versus the other pair's time.  The figure clearly shows that most coincident pairs 
              fall within tight coincidence and cluster time windows.}
     \label{fig:cluster_times_2d}
 \end{figure}  
@@ -109,7 +109,7 @@ of this window tend to be associated with pile-up in the calorimeter
 and fall outside of the 8 ns trigger window.  As a result, the efficiency of
 finding a track associated with a cluster dramatically drops for clusters 
 outside of this window. The selection is
-shown graphically in red on Figure \ref{fig:cluster_times}.  Clusters satisfying
+shown graphically in red in Figure \ref{fig:cluster_times}.  Clusters satisfying
 the cluster time criteria are then formed into pairs.  The difference between the
 cluster time of the pair is then required to fall within a 3.2 ns window around the 
 coincidence peak located at 0.003 ns (Figure \ref{fig:coin_time}).  If an event
@@ -173,7 +173,7 @@ selected ``good'' cluster pairs are required to have tracks associated
 with them. The trajectories of all tracks in an event are propagated downstream
 to the face of the Ecal using the full 3D magnetic field map.  A track and a cluster
 are considered a match if the difference between their positions in both $x$ 
-and $y$ satisfy the criteria listed on Table \ref{tab:track_cluster_cuts}. The 
+and $y$ satisfy the criteria listed in Table \ref{tab:track_cluster_cuts}. The 
 cuts were chosen such that they create a 3$\sigma$ window around the peak of 
 the cluster-track position difference distributions. The resulting selection is 
 highlighted in red on 
@@ -265,7 +265,7 @@ with the clusters to the following additional criteria:
           \[
           \left (\frac{v_x - 0.0113}{0.15} \right)^2 + \left(\frac{v_y + 0.0033}{0.05} \right)^2  \le 1.
           \]
-          The elliptical selection is shown graphically on Figure \ref{fig:vertex_xy}.
+          The elliptical selection is shown graphically in Figure \ref{fig:vertex_xy}.
 \end{itemize}
 
 %%%%%%%%%%%%%%
@@ -274,7 +274,7 @@ with the clusters to the following additional criteria:
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{images/20160504_psum.png}
-    \caption{Distribution of the sum of $e^+e^-$ momentum.  The distribution in 
+    \caption{Distribution of the sum of $e^+e^-$ momenta.  The distribution in 
              red graphically indicates the selection used to reduce the number
              of Bethe-Heitler from the final event sample.}
     \label{fig:p_sum}
@@ -299,20 +299,20 @@ only one of the electrons in the Bethe-Heitler process will be boosted
 while the other will be much softer.  With this in mind, the sum of the momentum
 of the electron and positron, ``p-sum'', allows the discrimination between the two processes.
 Specifically, radiative events are expected to have a ``p-sum'' peaked 
-closed to the beam energy (1.056 GeV), while the distribution of Bethe-Heitlers will be peaked a 
-low p-sum.
+close to the beam energy (1.056 GeV), while the distribution of Bethe-Heitlers 
+will be peaked at low p-sum.
 
-Figure \ref{fig:p_sum} shows the distribution of the sum of the momentum (p-sum) 
+Figure \ref{fig:p_sum} shows the distribution of the sum of the momenta (p-sum) 
 of the $e^+e^-$ tracks composing a pair.  Reducing the dominant Bethe-Heitler 
 background was accomplished by  requiring the p-sum of 
 the $e^+e^-$ tracks be greater than 0.8 GeV. 
 %Using pure radiative and full trident Monte Carlo, requiring a pair to have a 
 %p-sum cut greater than 0.8 GeV was found to maximize the radiative fraction.
-The cut is shown graphically on Figure \ref{fig:p_sum}.
+The cut is shown graphically in Figure \ref{fig:p_sum}.
 
 The invariant mass
 distribution before (blue) and after (red) the p-sum cut was applied is shown
-on Figure \ref{fig:mass_selection}.  The invariant mass distribution in red 
+in Figure \ref{fig:mass_selection}.  The invariant mass distribution in red 
 will serve as the starting point for the resonance search.
 The details of the resonance search will be given in Chapter \ref{chap:resonance}.
 
@@ -320,7 +320,7 @@ The details of the resonance search will be given in Chapter \ref{chap:resonance
     \centering
     \includegraphics[width=1.0\textwidth]{images/20160504_invariant_mass_selection.png}
     \caption{The Heavy Photon Search $e^+e^-$ invariant mass distribution before (blue) 
-             and after (red) a cut on the sum of the $e^+e^-$ momentum. 
+             and after (red) a cut on the sum of the $e^+e^-$ momenta. 
              The mass distribution in red 
              will serve as the starting point for the resonance search.}
     \label{fig:mass_selection}
@@ -330,7 +330,7 @@ The details of the resonance search will be given in Chapter \ref{chap:resonance
 
 The cuts used to select the final invariant mass distribution along with their
 selection efficiency for data, trident monte carlo (MC), pure radiative 
-monte carlo and 50 MeV A' events are summarized on Table \ref{tab:sel_eff}.
+monte carlo and 50 MeV A' events are summarized in Table \ref{tab:sel_eff}.
 The trident MC sample used contains both Bethe-Heitler and radiative events.
 
 \begin{sidewaystable}

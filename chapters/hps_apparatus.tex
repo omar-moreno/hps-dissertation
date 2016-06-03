@@ -17,7 +17,7 @@ forward acceptance that can be placed in close proximity to the target.
 Maximizing the acceptance requires placing the detector close to the beam plane,
 encroaching on a ``dead zone'' which is occupied by an intense flux of multiple
 Coulomb scattered beam particles along with radiative secondaries originating
-from the target.  In order to avoid additional background from from beam gas
+from the target.  In order to avoid additional background from beam gas
 interactions, the detector needs to operate in vacuum. Finally, minimizing the
 material budget of the active area of the detector is essential to reducing the
 multiple scattering that dominates both the mass and vertex resolutions that
@@ -55,7 +55,7 @@ delivering 11 GeV electron beams to the three existing experimental halls
 (Hall A, B, C) and can use the 12 GeV electron beam to generate and deliver a 9
 GeV photon beam to Hall D. 
 
-As shown on Figure \ref{fig:cebaf}, achieving 12 GeV operation, required several
+As shown in Figure \ref{fig:cebaf}, achieving 12 GeV operation, required several
 improvements to the accelerator \cite{Burkert:2012rh}. Central to the upgrade 
 was the addition of 5 
 cryomodules to each of the linacs.  Coupled with upgrades to the accelerator
@@ -100,7 +100,7 @@ before being delivered into the accelerator.
 \subsection{Electron Acceleration}
 
 The CEBAF accelerator is composed of two linacs arranged in a racetrack
-configuration as shown on Fig \ref{fig:cebaf}. Each of the linacs consist
+configuration as shown in Fig \ref{fig:cebaf}. Each of the linacs consist
 of 25 cryomodules, 5 of which were added as part of the upgrade.  The original
 (new) cryomodules consist of 8 5-cell (7-cell) superconducting radio frequency
 (RF) cavities made of ultra-pure Niobium (see Figure \ref{fig:cebaf_cavity}).  
@@ -116,7 +116,7 @@ are capable of accelerating an electron upwards of 25 MeV while the newly instal
 cryomodules can achieve an acceleration of 100 MeV.  This leads to an acceleration
 of 1.1 GeV per linac and 2.2 GeV per pass. The 
 number of passes depends on the energy requirements of the experiment taking place.
-However, for electrons delivered to Halls A, B and C, the maximum amount of passes
+However, for electrons delivered to Halls A, B and C, the maximum number of passes
 is 5 while for Hall D, it's 5.5.
 
 Electron bunches circulating the accelerator can be delivered to a Halls A, B
@@ -147,7 +147,7 @@ phase space.
 \subsection{Layout}
 
 The HPS experiment is installed within the Hall B alcove and utilizes a 
-three-magnet chicane system as shown on Figure \ref{fig:beamline}. 
+three-magnet chicane system as shown in Figure \ref{fig:beamline}. 
 
 %\subsection{Beam Quality}
 
@@ -312,7 +312,7 @@ The sensors are continuously read out using the APV25 readout chip developed for
 the Compact Muon Solenoid detector at the Large Hadron Collider 
 \cite{Raymond:2000ey}. The APV25 has 128 channels, with each channel consisting
 of a charge sensitive pre-amplifier coupled to CR-RC shaping amplifier and a 192
-cell deep analog pipeline.  A schematic of a single channel is shown on 
+cell deep analog pipeline.  A schematic of a single channel is shown in 
 Fig. \ref{fig:apv25_schem}.
 \begin{figure}
     \centering
@@ -322,7 +322,7 @@ Fig. \ref{fig:apv25_schem}.
 \end{figure}
 
 When a particle traverses a sensor, it generates a charge signal which is 
-processed by the APV25 amplifier chain.  As shown on Figure 
+processed by the APV25 amplifier chain.  As shown in Figure 
 \ref{fig:apv25_pipeline}, the shaper
 \begin{figure}
     \centering
@@ -344,15 +344,16 @@ to buffer the addresses of samples that are waiting to be read out.
 
 The samples  are readout out by the Analog Pulse Shape Processor (APSP) which
 can operate in two modes: multi-peak and deconvolution mode.  In deconvolution
-mode, only a single pipeline cell is read out corresponding to the maximum 
-value of the shaper output.  In multi-peak mode, three consecutive samples are
-read out allowing for the reconstruction of the shaper output.  The output of 
+mode, three consecutive pipeline cells are read out and combined into a 
+weighted sum before being output. In multi-peak mode, three consecutive samples are
+read out and output without any additional operations allowing for the 
+reconstruction of the shaper output.  The output of 
 the APSP is then sent to a 128:1 multiplexer which then makes the raw data 
 frames. 
-%An example of the output data frame is shown on Figure \ref{}.
+%An example of the output data frame is shown in Figure \ref{}.
 
 During the engineering run, the APV25s were operated using the nominal settings
-listed on Table \ref{tab:apv_specs}.  At nominal, the shaping time is set
+listed in Table \ref{tab:apv_specs}.  At nominal, the shaping time is set
 to 50 ns.  The high occupancies expected during the engineering
 run meant that overlapping of hits or ``pile-up'' were a concern.  In order to 
 mitigate this problem, the APV25's were operated in multi-peak mode allowing 
@@ -441,7 +442,7 @@ Due to space constraints, the hybrids used by layers 4-6 have a smaller footprin
 \subsection{Mechanical Support, Cooling and Services}
 
 The SVT modules are mounted directly to 4,  1/4'' aluminum ``u-channels'' with each
-of the u-channels supporting 3 modules as shown on Figure \ref{fig:;46_hm}.  
+of the u-channels supporting 3 modules as shown in Figure \ref{fig:;46_hm}.  
 The u-channels are actively cooled by HFE 7000 flowing through 1/4'' copper 
 tubing press-fit into pre-machined grooves into the aluminum. Each of the 4 
 u-channels are installed inside an aluminum support box using a guide rail system
@@ -503,7 +504,7 @@ crystals.
 \subsection{Ecal Data Acquisition}
 
 The analog signals that are read out from each of the Ecal crystals by the APDs
-are sent a 16-channel JLab FADC250 VXS module (FADC)
+are sent to a 16-channel JLab FADC250 VXS module (FADC)
 (see Figure \ref{fig:ecal_fadc}).  The 221 FADC channels used by each half of 
 the Ecal are housed in their own 20 slot VSX crates.
 \begin{figure}
@@ -537,7 +538,7 @@ which performs the following task:
           is within a programmable number of clock cycles is summed. 
     \item If the 3x3 sum exceeds a pre-defined cluster amplitude threshold and
           the sum is greater than any of the neighboring 3x3 windows, then the 
-          amplitude (energy), position, time and hit pattern is reported to the Sub-System
+          amplitude (energy), position, time and hit pattern are reported to the Sub-System
           Processor (SSP).
 \end{itemize}
 
@@ -557,23 +558,23 @@ Here, $E_{top}$ ($E_{bottom}$), $t_{top}$ ($t_{bottom}$), $x_{top}$
 position of the cluster in the top (bottom) half of the Ecal and $E_{min}$ 
 ($E_{max}$) is the minimum (maximum) cluster energy sum. $E_{low}$ is the 
 energy of the lowest energy cluster, $R$ is the distance between its 
-center and the calorimeter center while $F$ is a constant. As shown on Table
+center and the calorimeter center while $F$ is a constant. As shown in Table
 \ref{tab:triggers}, several of these 
 parameters are programmable.  The values used during the engineering run are 
-listed on Table \ref{tab:triggers}. If a pair of clusters
+listed in Table \ref{tab:triggers}. If a pair of clusters
 satisfies these criteria, a trigger signal is generated by the Trigger Supervisor
 and sent to all subsystems. 
 
 During the engineering run, several triggers were run simultaneously.  The main
 trigger used to select $A'$ type events is the Pair-1 trigger.  The Pair-0 
 trigger is a much looser version of the Pair-1 trigger and was tuned to select 
-Moller scattering events.  The Single-1 trigger was tuned to select electrons
+electron-electron elastic scattering (M\o ller scattering) events.  The Single-1 trigger was tuned to select electrons
 that Coulomb scatter in the target i.e. full energy electrons (FEE) into the 
 acceptance of the Ecal.  These events are used to study both the momentum 
 resolution of the tracker and the energy resolution of the Ecal.  Finally, 
 there was a cosmic trigger and a pulser trigger used to trigger on cosmic ray
 muons and randoms respectively.  A summary of all of the settings is given
-on Table \ref{tab:triggers}
+in Table \ref{tab:triggers}
 
 \begin{table}
     \centering
