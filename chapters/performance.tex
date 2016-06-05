@@ -130,7 +130,7 @@ to the beam within an 8 ns window to less than 1\% fulfilled all of the requirem
 
 Since the engineering run marked the first time that the SVT had taken an 
 electron beam, care was taken when lowering the first three layers to their 
-final position just a mere 15 mrad from the beam.  In fact, the occupancies 
+final position a mere 15 mrad from the beam.  In fact, the occupancies 
 with layers 1-3 at 4, 3, 2, and 1.5 mm away from the beam plane were verified to
 match what was predicted from simulation before the SVT was lowered to its final
 position.  As can be seen in Figure \ref{fig:occupancies}, once the first
@@ -176,13 +176,13 @@ determined from the fit.
 Hits on neighboring strips are clustered using a nearest neighbor
 algorithm as follows: 
 \begin{itemize}
-    \item A list of seeds is created from all raw hits that have a signal-to-noise (S/N)
-          $>4$.
-    \item Recursively add neighboring strips that have a S/N $>$ 3 until a strip with
-          S/N $<$ 3 is found.
+    \item A list of seeds is created from all raw hits that have an amplitude, $S$,
+          $> 4\times \sigma_{\text{Noise}}$
+  \item Recursively add neighboring strips that have a $S> 3 \times \sigma_{\text{Noise}}$
+          until a strip with $S < 3\times \sigma_{\text{Noise}}$ is found.
       \item Require that neighboring hits have a $t_{0}$ that is within 8 ns of the seed hit.
     \item Repeat the first two steps until seed strips are no longer found.
-    \item Require that a cluster has a S/N $>$ 4.
+\item Require that a cluster has an amplitude $> 4 \times \sigma_{\text{Noise}}$.
 \end{itemize}
 The typical strip multiplicity observed during the run is shown in Figure 
 \ref{fig:strip_mult}. Figure \ref{fig:cluster_charge} shows the characteristic
@@ -191,22 +191,27 @@ The typical strip multiplicity observed during the run is shown in Figure
     \includegraphics[width=.7\textwidth]{images/top_layer4_axial_cluster_charge.png}
     \caption{Distribution of cluster charge exhibiting the characteristic Landau
     shape.  The cluster charge was fit with a Landau (dashed blue line) convoluted
-    with a Gaussian in order to extract the most probable value.}
+with a Gaussian (convolution shown in red) in order to extract the most probable value.}
     \label{fig:cluster_charge}
 \end{figure}  
 Landau shape of the cluster charge distribution for one of the sensors.
 The cluster charge distributions of every layer were fit using a Landau
 convoluted with a Gaussian in order to extract the most probable value.  The 
 cluster charge for all layers were measured to be between $\sim$1400-1500 ADC counts
-which corresponds to $\sim$21,000-22,500 $e^{-}$.  A similar procedure was used
-to measure the signal-to-noise of all layers to be within $\sim$24-26, 
+which corresponds to $\sim$21,000-22,500 $e^{-}$.  
+
+Measuring the signal-to-noise of a sensor was done by simply taking the 
+cluster charge amplitude for all single strip clusters and dividing it by
+the noise of the channels.  Using this procedure, 
+the signal-to-noise of all layers was measured to be within $\sim$24-26, 
 as expected (See Figure \ref{fig:sig_noise}).
 \begin{figure}[h!t]
     \centering
     \includegraphics[width=.7\textwidth]{images/sig_noise.png}
     \caption{Example of signal to noise measured during the engineering run.
              The signal-to-noise was fit with a Landau (dashed blue line) 
-             convoluted with a Gaussian in order to extract the most probable 
+             convoluted with a Gaussian (convolution shown in red)
+             in order to extract the most probable 
              value.}
     \label{fig:sig_noise}
 \end{figure}  
@@ -233,8 +238,8 @@ the $t_{0}$ resolution is observed to be $\sim$
 
 \subsection{Momentum Resolution}
 
-Beam electrons that multiple Coulomb scatter in the target can be used to 
-not only verify that the momentum scale is correct but also determine the 
+Beam electrons that multiple Coulomb scatter in the target can be used  
+not only to verify that the momentum scale is correct but also determine the 
 momentum resolution.  These full energy electrons (FEEs) 
 were selected by requiring a cluster in the Ecal to have a matching track and
 to satisfy the following criteria:
@@ -259,7 +264,10 @@ is within 5\% of of the expected value.
     \centering
     \includegraphics[width=.95\textwidth]{images/20160424_fee_top_tracks_p.png}
     \caption{Mometum distribution of multiple Coulomb scattered electrons (FEE) in
-             the top portion of the SVT and Ecal.}
+             the top portion of the SVT and Ecal. 
+             The mean of the distribution 
+             is within $\sim$1\% of the beam energy (1.056 GeV), indicating that 
+             the detector is well aligned.}
     \label{fig:top_p}
 \end{figure}
 \begin{figure}[h!b]
@@ -267,6 +275,9 @@ is within 5\% of of the expected value.
     \includegraphics[width=.95\textwidth]{images/20160424_fee_bottom_tracks_p.png}
     \caption{Mometum distribution of multiple Coulomb scattered electrons (FEE) in
              the bottom portion of the SVT and Ecal.}
+             The mean of the distribution 
+             is within $\sim$1\% of the beam energy (1.056 GeV), indicating that 
+             the detector is well aligned.}
     \label{fig:bot_p}
 \end{figure}
 
@@ -278,7 +289,7 @@ cluster must be on the positron side, i.e. $x > 0$, and the other on the electro
 side.  The sum of the momentum of the two clusters in required to be greater 
 than 0.8 GeV since this is the region of interest for analysis purposes. Then, 
 the positron side cluster is required to match to a positron track.  This 
-becomes the tag.  The cluster on the electron side is then check to have a 
+becomes the tag.  The cluster on the electron side is then checked a 
 match to an electron track.  The electron efficiency is then calculated as 
 \begin{equation}
     \varepsilon = \frac{N_{probes}}{N_{tags}}.
@@ -350,7 +361,11 @@ hypothesis are shown in Figure \ref{fig:mass_resolution}.
 \begin{figure}[h!t]
     \centering
     \includegraphics[width=.8\textwidth]{images/invariant_mass_curve.png}
-    \caption{Mass resolution as a function of mass.}
+    \caption{The mass resolution as a function of mass calculated using 
+              the invariant mass distributions of
+              $A'$ (blue) and M\o ller Monte Carlo (red) as well as M\o ller 
+         data (purple).  The mass resolution calcualted using data is within
+            10\% of the expected value calculated with Monte Carlo.}
     \label{fig:mass_resolution}
 \end{figure}
 The mass resolution as a function of mass was found to be best modeled using
