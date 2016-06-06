@@ -21,7 +21,7 @@ Summer of 2016.
 If a heavy photon does indeed exist and has a mass that is within the acceptance
 of the HPS detector, it will appear as a resonance above the copious QED trident
 invariant mass distribution.  Such a signal is expected to be Gaussian in 
-nature, with a mean equal to the mass of the $A'$, $m_{A'}$, and with a mass
+nature, with a mean equal to the mass $m_{A'}$ of the $A'$ and with a mass
 dependent width, $\sigma_{m_{A'}}$, given by the mass resolution 
 parameterization define in Section \ref{sec:mass_res}. With this in mind, the 
 invariant mass distribution measured by HPS (see Chapter 
@@ -58,9 +58,11 @@ where $m_{e^+e^-}$ is the $e^+e^-$ invariant mass, $\mu$ is the signal yield,
 $B$ is the number of background events within the window, 
 $\phi(m_{e^+e^-} | m_{A'})$ is a Gaussian probability distribution describing
 the signal and $p(m_{e^+e^-} | t_j)$ is a Chebyshev polynomial of the first kind
-with coefficients $t_j$ that is used to describe the background shape.
+with coefficients $t_j$ that is used to describe the background shape. In this
+instance, a 7th order Chebyshev polynomial is used to describe the background
+(see Section \ref{subsec:poly}).
 Estimating the 
-signal yield as well the background normalization and shape within a window, can be
+signal yield as well the background normalization and shape within a window can be
 done by the method of maximum likelihood.  The theoretical formalism
 used to do this will be outlined here but a detailed discussion can be found in
 \cite{Cowan:2010js}.
@@ -77,10 +79,10 @@ where
     S_{i} = \mu \int_{b_i - \epsilon/2}^{b_i + \epsilon/2} \phi(m_{e^+e^-} | m_{A'}, \sigma_{m_{A'}}) d (m_{e^+e^-})
 \end{equation} 
 \begin{equation}
-    B_{i} = B_{total} \int_{b_i - \epsilon/2}^{b_i + \epsilon/2} p(m_{e^+e^-} | t_{j}) d (m_{e^+e^-}).
+    B_{i} = B \int_{b_i - \epsilon/2}^{b_i + \epsilon/2} p(m_{e^+e^-} | t_{j}) d (m_{e^+e^-}).
 \end{equation}
 Denoting the parameters that are not of immediate interest, i.e. the nuissance
-parameters, by $\theta = (B_{total},  t_{j})$, an estimation
+parameters, by $\theta = (B,  t_{j})$, an estimation
 of $\mu$ and $\theta$ can be obtained by finding the parameters $\hat{\mu}$ and
 $\hat{\theta}$ that maximize the Poisson likelihood function, $\mathcal{L}$
 \begin{equation}
@@ -268,7 +270,7 @@ Using this procedure, it was found that using
 a bin size of 0.05 MeV minimizes the pulls, hence, it was used in the final
 analysis.
 
-\subsection{Fit Window and Polynomial Order}
+\subsection{Fit Window and Polynomial Order} \label{subsec:poly}
 
 The pseudo data sets were also used to understand what size fit window and what 
 order polynomial minimizes the signal yield pulls. Performing a resonance search on 
@@ -344,7 +346,7 @@ unconstrained upper limits are shown in blue in Figure \ref{fig:upper_limit}.
 \end{figure}
 
 As shown in green in Figure \ref{fig:upper_limit}, it is often the case that the
-estimator for the signal yield, at a given mass hypothesis is zero or
+estimator for the signal yield, at a given mass hypothesis, is zero or
 even negative.  In such cases, the probability distribution function of the
 test statistic $q_{\mu}$ assuming $\mu_{\text{up}}$ will nearly coincide with 
 the distribution of $q_{\mu}$ assuming $\mu = 0$, i.e. the background only 
@@ -394,7 +396,7 @@ and the number of background events in that window are counted.  The resulting
 number of background events per MeV at each mass hypothesis are shown in Figure 
 \ref{fig:background_mev}.  
 
-The limits on the coupling strength derived using equation \ref{eqn:eps}
+The limits on the coupling derived using equation \ref{eqn:eps}
 are shown in Figure \ref{fig:epsilon_upper_limit}. Using the full data set
 the reach is expected to increase by a factor of ~4 down to $\epsilon^2 \sim 10^{-6}$.
 \begin{figure}[ht]
@@ -417,7 +419,12 @@ the reach is expected to increase by a factor of ~4 down to $\epsilon^2 \sim 10^
     \label{fig:epsilon_upper_limit}
 \end{figure}
 
+\section{Systematics}
 
-
-
+The upper limits on the coupling shown in Figure \ref{fig:epsilon_upper_limit}
+have not been corrected for any theoretical or experimental uncertainties.  These
+include uncertainties in the mass resolution ($\sim$10\%), luminosity ($\sim$1\%),
+theory cross-sections ($\sim$0.5\%), electron and positron efficiency ($>$95\%)
+and the background.  All of these uncertainties will be included in the final
+result using the full 2015 engineering run dataset. 
 
