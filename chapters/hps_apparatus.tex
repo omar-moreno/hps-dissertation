@@ -32,7 +32,15 @@ chamber and inside of an analyzing magnet immediately downstream of a thin
 The Ecal is placed downstream of the tracker and provides the primary 
 trigger for the experiment and is also used for electron identification. Together, 
 both subsystems provide the complete kinematic information required to 
-reconstruct heavy photons.
+reconstruct heavy photons.  An overview of the HPS Detector is shown in Figure
+\ref{fig:hps_detector}.
+\begin{figure}[th]
+    \centering
+    \includegraphics[width=\textwidth]{images/hps_detector.png}
+    \caption{Schematic view of the Heavy Photon Search Detector used during the
+             2015 engineering run.}
+    \label{fig:hps_detector}
+\end{figure}
 
 The HPS detector was installed and commissioned within the Hall B alcove at the
 Thomas Jefferson National Accelerator Facility (JLab) in Newport News, VA early
@@ -477,7 +485,7 @@ layers of crystals with the four outermost layers consisting of 46 crystals and
     \includegraphics[width=0.8\textwidth]{images/ecal_layout.png}
     \caption{A rendering showing the arrangement of the Ecal crystals.  The Ecal
              is split into upper and lower modules in order to accommodate the 
-             ``dead zone''.  The crystals removed from the first layer allow
+             ``dead zone.''  The crystals removed from the first layer allow
              a larger opening for the outgoing electron and photon beams.}
     \label{fig:ecal_layout}
 \end{figure}
@@ -605,34 +613,34 @@ in Table \ref{tab:triggers}
 \end{table}
 
 
-%\section{Data Acquisition}
+\section{Data Acquisition}
 
 
 %\subsection{Ecal DAQ}
 
-%\subsection{SVT DAQ}
+\subsection{SVT DAQ}
 % Need to discuss the hybrid design for both layers 1-3 and 4-6.
 % 1) Need to mention why different wiring was used for the different parts of 
 % the SVT.
 
-%After a trigger is received, the differential current signals 
-%from each of the APV25's are transferred to a total of 10 Front End Boards (FEB)
-%to undergo digitization and further processing. (Add figure?) As discussed in 
-%section (), the signals from layers 1-3 are transferred to the FEB's via 
-%Teflon-coated twisted pair wires while those emerging from
-%layers 4-6 use twisted pair magnet wire.  The use of twisted pairs reduces
-%crosstalk between the lines as well as electromagnetic interference.
+After a trigger is received, the differential current signals 
+from each of the APV25's are transferred to a total of 10 Front End Boards (FEB)
+to undergo digitization and further processing. (Add figure?) As discussed in 
+section (), the signals from layers 1-3 are transferred to the FEB's via 
+Teflon-coated twisted pair wires while those emerging from
+layers 4-6 use twisted pair magnet wire.  The use of twisted pairs reduces
+crosstalk between the lines as well as electromagnetic interference.
 
-%At the FEB's, the differential current signals are first converted to a voltage
-%by a pre-amplifier circuit to match the dynamic range 
-%of the AD9252 14-bit analog to digital converter (ADC). The ADC samples the 
-%signal at 41.667 MHz and digitizes it to a value between 0 and 16384.  The 
-%digitized signals are then transferred to Xilinx Artix-7 field programmable
-%gate arrays (FPGA).  The signals are sent upstream by multi-gigabit transceivers.
+At the FEB's, the differential current signals are first converted to a voltage
+by a pre-amplifier circuit to match the dynamic range 
+of the AD9252 14-bit analog to digital converter (ADC). The ADC samples the 
+signal at 41.667 MHz and digitizes it to a value between 0 and 16384.  The 
+digitized signals are then transferred to Xilinx Artix-7 field programmable
+gate arrays (FPGA).  The signals are sent upstream by multi-gigabit transceivers.
 
-%Those signals which pass the threshold requirement are transferred through 
-%mini SAS wires to a board on the vacuum  where they undergo optical conversion.
-%The optical signal is then transferred over ~10 m fibers to the ATCA crate.
+Those signals which pass the threshold requirement are transferred through 
+mini SAS wires to a board on the vacuum  where they undergo optical conversion.
+The optical signal is then transferred over ~10 m fibers to the ATCA crate.
 
 
 %\subsection{Ecal DAQ}

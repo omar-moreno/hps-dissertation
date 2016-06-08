@@ -51,16 +51,18 @@ distribution function
     \begin{split}
     P(m_{e^+e^-}) 
         = 
-        \mu \cdot \phi(m_{e^+e^-} | m_{A'}, \sigma_{m_{A'}}) + B\cdot p(m_{e^+e^-} | t_j)
+        \mu \cdot \phi(m_{e^+e^-} | m_{A'}, \sigma_{m_{A'}}) + B\cdot p(m_{e^+e^-} | \mathbf{t})
     \end{split}
 \end{equation}
 where $m_{e^+e^-}$ is the $e^+e^-$ invariant mass, $\mu$ is the signal yield,
 $B$ is the number of background events within the window, 
-$\phi(m_{e^+e^-} | m_{A'})$ is a Gaussian probability distribution describing
-the signal and $p(m_{e^+e^-} | t_j)$ is a Chebyshev polynomial of the first kind
-with coefficients $t_j$ that is used to describe the background shape. In this
+$\phi(m_{e^+e^-} | m_{A'}, \sigma_{m_{A'}})$ is a Gaussian probability distribution describing
+the signal and $p(m_{e^+e^-} | \mathbf{t})$ is a Chebyshev polynomial of the first kind
+with coefficients $\mathbf{t} = (t_{1}, ... t_{j})$ that is used to describe the background shape. In this
 instance, a 7th order Chebyshev polynomial is used to describe the background
-(see Section \ref{subsec:poly}).
+(see Section \ref{subsec:poly}).  Furthermore, $m_{A'}$ and $\sigma_{m_{A'}}$
+are constant and set to the $A'$ mass hypothesis and expected experimental 
+mass resolution, respectively.
 Estimating the 
 signal yield as well the background normalization and shape within a window can be
 done by the method of maximum likelihood.  The theoretical formalism
