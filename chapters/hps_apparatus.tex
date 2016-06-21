@@ -25,11 +25,15 @@ determine the experimental sensitivity.
 
 These design principles led to the conception of the HPS detector.  
 Specifically, HPS utilizes a compact, large acceptance forward spectrometer 
-consisting of a silicon microstrip tracker (SVT) along with a lead tungstate
-electromagnetic calorimeter (Ecal).  The SVT is installed inside of a vacuum
-chamber and inside of an analyzing magnet immediately downstream of a thin
-($0.125\%X_{0}$) tungsten target.
-The Ecal is placed downstream of the tracker and provides the primary 
+consisting of a silicon vertex tracker (SVT) along with a lead tungstate
+electromagnetic calorimeter (Ecal).  The SVT is installed inside a vacuum
+chamber immediately downstream of a thin ($0.125\%X_{0}$) tungsten target.
+The vacuum chamber resides within an analyzing magnet providing a .24 Tesla field 
+perpendicular to
+the beam plane,
+allowing for the precise measurement of track momenta.
+%and resides within an analyzing magnet
+The Ecal, placed downstream of the tracker, provides the primary 
 trigger for the experiment and is also used for electron identification. Together, 
 both subsystems provide the complete kinematic information required to 
 reconstruct heavy photons.  An overview of the HPS Detector is shown in Figure
@@ -44,9 +48,9 @@ reconstruct heavy photons.  An overview of the HPS Detector is shown in Figure
 
 The HPS detector was installed and commissioned within the Hall B alcove at the
 Thomas Jefferson National Accelerator Facility (JLab) in Newport News, VA early
-in the Spring of 2015. Shortly after, an engineering run took place utilizing
+in the spring of 2015. Shortly after, an engineering run took place utilizing
 the Continuous Electron Beam Accelerator Facility (CEBAF) operating at an 
-energy 1.056 GeV and current of 50 nA.
+energy of 1.056 GeV and current of 50 nA.
 
 The chapter that follows will detail various elements of the experiment.
 It will begin with a discussion of CEBAF and continue with descriptions
@@ -79,7 +83,7 @@ accelerate electrons at a rate of 2.2 GeV per pass up to a maximum of 5 passes.
              program.}
     \label{fig:cebaf}
 \end{figure}
-Enabling four hall operation also required the addition of a new 750 MHz RF 
+Enabling four-hall operation also required the addition of a new 750 MHz RF 
 separator, a new laser to the electron source and a 10th arc which provides
 the additional pass of acceleration that allows 
 delivery of the maximum beam energy to Hall D.
@@ -98,18 +102,17 @@ cryomodules is 1497 MHz, four hall operation requires subharmonics of 499 MHz to
 be chosen.  This is achieved by ``cutting away'' pulses using an optical 
 modulator \cite{Kazimi:2013yua}.
 
-
 The photoemission electrons are released into an extremely high vacuum
 environment at a pressure of $10^{-11}$ to $10^{-12}$ Torr.  The free electrons
 are then delivered into the injector by a 100 keV electron gun.  The injector
 itself then accelerates the electron bunches to an energy of 50 MeV 
 %by 2 1/4 cryomodules 
-before being delivered into the accelerator.
+before they are delivered into the accelerator.
 
 \subsection{Electron Acceleration}
 
 The CEBAF accelerator is composed of two linacs arranged in a racetrack
-configuration as shown in Fig \ref{fig:cebaf}. Each of the linacs consist
+configuration as shown in Figure\ref{fig:cebaf}. Each of the linacs consist
 of 25 cryomodules, 5 of which were added as part of the upgrade.  The original
 (new) cryomodules consist of 8 5-cell (7-cell) superconducting radio frequency
 (RF) cavities made of ultra-pure Niobium (see Figure \ref{fig:cebaf_cavity}).  
@@ -126,7 +129,7 @@ cryomodules can achieve an acceleration of 100 MeV.  This leads to an accelerati
 of 1.1 GeV per linac and 2.2 GeV per pass. The 
 number of passes depends on the energy requirements of the experiment taking place.
 However, for electrons delivered to Halls A, B and C, the maximum number of passes
-is 5 while for Hall D, it's 5.5.
+is 5, while for Hall D, it's 5.5.
 
 Electron bunches circulating the accelerator can be delivered to a Halls A, B
 and C by an RF separator operating at a frequency of 499 MHz.  Delivery to Hall
@@ -155,17 +158,38 @@ phase space.
 
 \subsection{Layout}
 
-The HPS experiment is installed within the Hall B alcove and utilizes a 
-three-magnet chicane system as shown in Figure \ref{fig:beamline}. 
+The HPS experiment is installed within the Hall B alcove upstream of the CEBAF
+Large Acceptance Spectrometer 12 detector.  The experiment utilizes a 
+three-magnet chicane system as shown in Figure \ref{fig:beamline}. The distance
+between the center of the magnets is 218.1 cm. The second 
+dipole of the setup, the Hall B Pair Spectrometer (PS), serves as the analyzing 
+magnet of the experiment.  It is a 18D36 magnet with a pole length of 91.44 cm
+and gap size of $45.72 \times 15.24 \text{ cm}^2$.  It provides a 0.24 Tesla
+field perpendicular to the beam plane. A vacuum chamber, housing the SVT, resides 
+within the gap of the analyzing magnet. The first and last dipoles of the 
+chicane are ``Frascati'' H-dipole magnets.
+They are used to steer the deflected beam back onto the beam line and into the
+beam dump downstream.  
+They have a pole length of 50 cm and were operated at 0.6 Tesla.
+
+A 0.125\%X$_{0}$ ($\sim 4\mu$m thick) tungsten target is installed at the
+upstream edge of the 
+PS magnet, 10 cm from the first layer of the SVT.
+The target is connected a rigid support rod that is attached on the upstream 
+side to a linear shift.  This allows the precise movement of the target
+in an out the of the beam plane using a stepper motor.  Far upstream of the target, a 10 mm
+thick tungsten protection collimator with a $4\times 10 \text{ mm}^2$ hole
+was installed. The protection collimator was used to protect the SVT
+silicon planes from being hit directly by mistered beam.
+
+A vacuum box is mounted on the upstream end of the PS vacuum 
+chamber and is used to provide vacuum penetration for linear motion system, 
+cooling lines, power and signal cables (see Figure \ref{fig:svt_layout_render}.
+On the downstream end of the PS vacuum 
+chamber, another vacuum chamber is installed and is encroached by the upper
+and lower modules of the SVT.  
 
 %\subsection{Beam Quality}
-
-%In order to optimize the ve
-
-%The first and last dipoles of the chicane,  are used to bend
-%the beam into the HPS apparatus while the second dipole, the Hall B pair 
-%spectrometer, serves as the analyzing magnet of the experiment.  
-
 
 \section{Silicon Vertex Tracker}
 
@@ -173,13 +197,13 @@ three-magnet chicane system as shown in Figure \ref{fig:beamline}.
 
 The HPS SVT is comprised of two halves of six measurement layers encroaching the
 beam plane as shown of Figure \ref{fig:svt_layout_render}. Each layer consist of a pair of
-closely-spaced silicon planes with one of the planes oriented orthogonal to
+closely-spaced silicon strip detector planes with one of the planes oriented orthogonal to
 the beam plane and the other at small angle stereo 
 (see Table \ref{tab:svt_layout}).
 \begin{figure}[h!t]
     \centering
     \includegraphics[width=0.9\textwidth]{images/svt_layout_render.png}
-    \caption{A rendered view of the Silicon Vertex Tracker inside of the pair
+    \caption{A rendered view of the Silicon Vertex Tracker inside the pair
              spectrometer vacuum chamber.}
     \label{fig:svt_layout_render}
 \end{figure}
@@ -287,7 +311,7 @@ Table \ref{tab:sensor_specs}.
 
 Over the lifetime of the HPS detector, the sensor strips closest to the beam 
 plane are expected to see $>10^{15}$ electrons per cm$^2$.  The radiation
-damage the sensors are expected to incur due to the large electron flux,
+damage the sensors are expected to incur due to the large electron flux
 will lead to an increase in both the leakage current and the voltage required to 
 fully deplete the sensor.  It was thus beneficial to choose a sensor technology
 that can be operated at high bias voltage in order for them to remain fully
@@ -305,7 +329,7 @@ Before being considered for use for the SVT modules, all sensors were electrical
 characterized.  Specifically, the leakage current was measured as a function
 of bias voltage up to a maximum bias of 1000 V.  During these test, leakage 
 currents of less than 500 nA were observed.  The measured IV curves for a subset
-of sensors can be seen on Fig. \ref{fig:sensor_iv_curves}.  Only sensors whose
+of sensors can be seen on Figure \ref{fig:sensor_iv_curves}.  Only sensors whose
 leakage current did not uncontrollably increase (i.e. break down) before reaching
 a bias of 1000 V  were considered for use in HPS.
 \begin{figure}[t!]
@@ -320,9 +344,9 @@ a bias of 1000 V  were considered for use in HPS.
 The sensors are continuously read out using the APV25 readout chip developed for
 the Compact Muon Solenoid detector at the Large Hadron Collider 
 \cite{Raymond:2000ey}. The APV25 has 128 channels, with each channel consisting
-of a charge sensitive pre-amplifier coupled to CR-RC shaping amplifier and a 192
-cell deep analog pipeline.  A schematic of a single channel is shown in 
-Fig. \ref{fig:apv25_schem}.
+of a charge-sensitive pre-amplifier coupled to CR-RC shaping amplifier and a 
+192-cell-deep analog pipeline.  A schematic of a single channel is shown in 
+Figure \ref{fig:apv25_schem}.
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{images/apv25_channel_schematic.png}
@@ -342,7 +366,7 @@ processed by the APV25 amplifier chain.  As shown in Figure
 \end{figure}
 output is continuously sampled at 41.6 MHz into the analog pipeline. The position
 along the pipeline into which the shaper output is stored is determined by 
-a write pointer which continuously cycles the pipeline.  Similarly, a read 
+a write pointer which continuously cycles through the pipeline.  Similarly, a read 
 pointer determines the position that will be marked for read out when a trigger
 signal is received.  Since the trigger decision cannot happen instantaneously,
 the distance between the read and write pointers or latency is programmable.
@@ -351,25 +375,25 @@ to buffer samples, the delay between a signal and the arrival of the trigger can
 be as long as 3.8 $\mu s$. The remaining 32 cells along the pipeline are used 
 to buffer the addresses of samples that are waiting to be read out.
 
-The samples  are readout out by the Analog Pulse Shape Processor (APSP) which
+The samples  are read out by the Analog Pulse Shape Processor (APSP) which
 can operate in two modes: multi-peak and deconvolution mode.  In deconvolution
 mode, three consecutive pipeline cells are read out and combined into a 
 weighted sum before being output. In multi-peak mode, three consecutive samples are
-read out and output without any additional operations allowing for the 
+read out and output without any additional operations, allowing for the 
 reconstruction of the shaper output.  The output of 
-the APSP is then sent to a 128:1 multiplexer which then makes the raw data 
+the APSP is then sent to a 128:1 multiplexer which makes the raw data 
 frames. 
 %An example of the output data frame is shown in Figure \ref{}.
 
 During the engineering run, the APV25s were operated using the nominal settings
-listed in Table \ref{tab:apv_specs}.  At nominal, the shaping time is set
+listed in Table \ref{tab:apv_specs}.  The nominal shaping time is set
 to 50 ns.  The high occupancies expected during the engineering
 run meant that overlapping of hits or ``pile-up'' were a concern.  In order to 
-mitigate this problem, the APV25's were operated in multi-peak mode allowing 
+mitigate this problem, the APV25s were operated in multi-peak mode allowing 
 the reconstruction of the shaper output.  Furthermore, 
-with each Ecal trigger, the APV25's were sent two consecutive trigger signals 
+with each Ecal trigger, the APV25s were sent two consecutive trigger signals 
 allowing the readout of six consecutive samples instead of three.  The trigger
-latency was then adjusted such that two samples before the signal were readout, 
+latency was then adjusted such that two samples before the signal were read out, 
 allowing the shape of the pileup pulse to be captured by the fit.  This was 
 used to remove any effects of pileup from the signal pulse.  Approximately 5\%
 of hits in layer 1 were observed to be affected by pileup.
@@ -410,23 +434,27 @@ of hits in layer 1 were observed to be affected by pileup.
 Two different sensor module designs were used for the layers of the SVT.
 A module was built by sandwiching a pair of half-modules around an aluminum 
 cooling block located on the hybrid side. For layers 1-3, the half-modules are 
-fixed on the hybrid side while a spring and level mechanism tensions them on
+fixed on the hybrid side while a spring and lever mechanism tensions them on
 the opposite end.  For layers 4-6, the tensioning mechanism is integrated into
 into one of the cooling blocks.
 
 The first three layers of the SVT reused the half-module design from the HPS 
 test run \cite{Battaglieri:2014hga}. They consist of a single sensor
 and FR4 hybrid electronic board glued onto a polyimide-laminated carbon fiber
-composite backing.  The APV25 chips used to readout the sensors are mounted 
+composite backing. The hybrid contains filtering for the high voltage bias, temperature
+sensors and the APV25 readout chips used to read out the sensor. The APV25 chips
+are mounted 
 onto the hybrid electronic board and the channel pads are wiredbonded directly
-to the sensor. Each sensor requires 5 APV25 chips in order to readout all channels.
-In order to further minimize the amount of material, a window 
+to the sensor. Each sensor requires 5 APV25 chips in order to read out all channels.
+In order to further minimize the material budget of the half-modules, 
+a window 
 was machined into the carbon fiber, leaving the middle of the sensor exposed.
 
 In order to better match the acceptance of the Ecal, 
 the half-modules used in layers 4-6 consist of two sensors glued end-to-end onto
 the polyimide-laminated carbon fiber backing with hybrids on either side of them.
-Due to space constraints, the hybrids used by layers 4-6 have a smaller footprint.
+Due to space constraints, the hybrids used by layers 4-6 have a smaller footprint
+compared to the hybrids used for layers 1-3.
 
 %Each sensor requires 5 APV25 chips in order to readout all channels.  The 5 
 %APV25 chips are mounted on a FR4 electronic readout board, or hybrid, containing
@@ -451,7 +479,7 @@ Due to space constraints, the hybrids used by layers 4-6 have a smaller footprin
 \subsection{Mechanical Support, Cooling and Services}
 
 The SVT modules are mounted directly to 4,  1/4'' aluminum ``u-channels'' with each
-of the u-channels supporting 3 modules as shown in Figure \ref{fig:;46_hm}.  
+of the u-channels supporting 3 modules as shown in Figure \ref{fig:l46_hm}.  
 The u-channels are actively cooled by HFE 7000 flowing through 1/4'' copper 
 tubing press-fit into pre-machined grooves into the aluminum. Each of the 4 
 u-channels are installed inside an aluminum support box using a guide rail system
@@ -464,20 +492,20 @@ linear shifts. The linear shifts are used to precisely move the layer 1-3
 u-channels vertically in 6 $\mu$m steps using stepper motors.  This, in turn, 
 allows the placement of the edge of the layer 1 sensor at $\sim$ 7 mm from the 
 beam plane.  Each of the two layer 1-3 u-channels are connected to their own 
-linear shifts.  The support box is installed the Hall B analyzing magnet 
+linear shifts.  The support box is installed inside the Hall B analyzing magnet 
 vacuum enclosure. 
 
 The support box is also used to house an aluminum plate onto which data 
-aquisition boards are mounted.  The aluminum plates slides into the support box
-via a machined grove.  An embeded loop is used to circulate water through the
+acquisition boards are mounted.  The aluminum plates slides into the support box
+via a machined grove.  An embedded loop is used to circulate water through the
 plate, providing cooling of the boards.
 
 
 \section{Electromagnetic Calorimeter}
 
-The HPS Ecal is used as the primary trigger for the experiment as well as to
+The HPS Ecal is used to provide the primary trigger for the experiment as well as to
 identify electrons.  It consist of two halves of lead-tungstate 
-PbWO$_4$ crystals with each half mounted on an aluminum frame $\sim 137$ cm 
+(PbWO$_4$) crystals with each half mounted on an aluminum frame $\sim 137$ cm 
 from the upstream edge of the analyzing magnet.  Each half is composed of five
 layers of crystals with the four outermost layers consisting of 46 crystals and 
 \begin{figure}
@@ -492,7 +520,7 @@ layers of crystals with the four outermost layers consisting of 46 crystals and
 the layer closest to the beam plane consisting of 37. The removal of the 9 
 crystals from the inner layer was necessary to allow the outgoing electron and
 photon beams to pass through unimpeded.  Each half is enclosed in a temperature
-controlled environment held at 1$^{\circ}$ F which encroaches on the Ecal 
+controlled environment held at 17$^{\circ}$C which encroaches on the Ecal 
 vacuum chamber.
 
 Each of the crystals is 16 cm long and trapezoidal in shape with a front face
@@ -599,34 +627,32 @@ in Table \ref{tab:triggers}
         $N_{threshold}$      & 3     & 3     & 1     & 1     \\
         $E_{sum low}$ (GeV)  &       &       & 0.120 & 0.180 \\
         $E_{sum high}$ (GeV) &       &       & 2.000 & 0.860 \\
-        $E_{differenec}$ (GeV) &       &       & 1.000 & 0.540 \\
-        $F (GeV)$ & & & 0.0055 \\
-        $\theta_{coplanirity}$ & & & 30$^\circ$ \\
-        $t_{coplanirity} (ns)$ & & 16 & 12 \\
+        $E_{\text{differenec}}$ (GeV) &       &       & 1.000 & 0.540 \\
+        $F (\text{GeV})$ & & & & 0.0055 \\
+        $\theta_{\text{coplanirity}}$ & & & & 30$^\circ$ \\
+        $t_{\text{coplanirity}} (\text{ns})$ & & & 16 & 12 \\
         Prescale & $2^{13}$ & $2^{11}$ & $2^{10}$ & $2^{0}$ \\
         Rate (50 nA) & 0.4 Hz & 1.3 kHz & 0.7 kHz & 16.6 kHz \\
         \bottomrule
     \end{tabular}
     \caption{The trigger setting for all trigger types used during the 
-             engineering run.}
+             engineering run. The pair-1 trigger was the main trigger used 
+             by the experiment.}
     \label{tab:triggers}
 \end{table}
 
-
-\section{Data Acquisition}
-
-
-%\subsection{Ecal DAQ}
-
-\subsection{SVT DAQ}
+\subsection{SVT Data Acquisition}
 % Need to discuss the hybrid design for both layers 1-3 and 4-6.
 % 1) Need to mention why different wiring was used for the different parts of 
 % the SVT.
 
 After a trigger is received, the differential current signals 
-from each of the APV25's are transferred to a total of 10 Front End Boards (FEB)
-to undergo digitization and further processing. (Add figure?) As discussed in 
-section (), the signals from layers 1-3 are transferred to the FEB's via 
+from each of the APV25s are transferred to a total of 10 Front End Boards (FEB)
+to undergo digitization and further processing.  The FEBs contain all of the
+necessary electronics to digitize the signal and to distribute power to
+the hybrids.
+%(Add figure?)
+The signals from layers 1-3 are transferred to the FEBs via 
 Teflon-coated twisted pair wires while those emerging from
 layers 4-6 use twisted pair magnet wire.  The use of twisted pairs reduces
 crosstalk between the lines as well as electromagnetic interference.
@@ -636,15 +662,21 @@ by a pre-amplifier circuit to match the dynamic range
 of the AD9252 14-bit analog to digital converter (ADC). The ADC samples the 
 signal at 41.667 MHz and digitizes it to a value between 0 and 16384.  The 
 digitized signals are then transferred to Xilinx Artix-7 field programmable
-gate arrays (FPGA).  The signals are sent upstream by multi-gigabit transceivers.
+gate arrays (FPGA) which sends the signals upstream to multi-gigabit transceivers.
+In addition to transmitting data upstream, the FPGAs are also responsible for 
+controlling and monitoring the hybrid power and distributing triggers and 
+clock to the hybrids.
 
-Those signals which pass the threshold requirement are transferred through 
-mini SAS wires to a board on the vacuum  where they undergo optical conversion.
-The optical signal is then transferred over ~10 m fibers to the ATCA crate.
-
-
-%\subsection{Ecal DAQ}
-
- % Maybe show an example of how the signal looks emerging from the APV?
+Data from the FEBs are transferred through 
+mini SAS cables to electronic boards potted through slots on a 8 inch vacuum 
+flange located upstream on the vacuum box. The flange boards contain the necessary
+electronics to convert the digitized signal to optical.
+The optical signal is then transferred over ~30 m fibers to an ATCA crate. The
+data from all 10 FEBs is distributed between two
+ATCA blades, called Cluster on board (COB), housed inside the ATCA crate.
+Each COB contains
+8 processing nodes known as Reconfigurable Cluster Elements (RCE). The 
+processing nodes use Xilinx Zynq-7000 series FPGAs to apply data reduction
+algorithms to the incoming signals and build event frames.  
 
 

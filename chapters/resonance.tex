@@ -83,8 +83,8 @@ where
 \begin{equation}
     B_{i} = B \int_{b_i - \epsilon/2}^{b_i + \epsilon/2} p(m_{e^+e^-} | t_{j}) d (m_{e^+e^-}).
 \end{equation}
-Denoting the parameters that are not of immediate interest, i.e. the nuissance
-parameters, by $\theta = (B,  t_{j})$, an estimation
+Denoting the parameters that are not of immediate interest, i.e. the nuisance
+parameters, by $\theta = (B,  \mathbf{t})$, an estimate
 of $\mu$ and $\theta$ can be obtained by finding the parameters $\hat{\mu}$ and
 $\hat{\theta}$ that maximize the Poisson likelihood function, $\mathcal{L}$
 \begin{equation}
@@ -93,7 +93,7 @@ $\hat{\theta}$ that maximize the Poisson likelihood function, $\mathcal{L}$
 where the sum is over all bins within the window, $n_{\text{bins}}$.
 In the case where the invariant mass is scanned for a resonance, the Poisson 
 likelihood function is maximized within the window constructed around each
-$A'$ mass hypothesis. This yields estimators for the signal yield and nuissance
+$A'$ mass hypothesis. This yields estimators for the signal yield and nuisance
 parameters at each $A'$ mass hypothesis which are used to determine if a significant 
 resonance was found.
 
@@ -112,7 +112,7 @@ ratio
     \lambda(\mu) = \frac{\mathcal{L}(\mu, \hat{\hat{\theta}})}{\mathcal{L}(\hat{\mu}, \hat{\theta})}
     \label{eqn:likelihood_ratio}
 \end{equation}
-where $\hat{\hat{\theta}}$ is the conditional estimator for the nuissance parameters 
+where $\hat{\hat{\theta}}$ is the conditional estimator for the nuisance parameters 
 obtained by maximizing the Poisson likelihood assuming that the null or 
 background only hypothesis is true i.e. $\mu = 0$. The unconditional estimators $\hat{\mu}$ 
 and $\hat{\theta}$ are obtained by maximizing the Poisson likelihood without
@@ -151,11 +151,11 @@ Quantifying how extreme the observation is can be done by calculating a $p$-valu
     p = \int_{q_{0,obs}}^{\infty} f(q_{0} | 0) dq_{0}.
 \end{equation} 
 This is shown graphically in Figure \ref{fig:p_value}.  Typically, the observed 
-p-value is
+$p$-value is
 \begin{figure}[t]
     \centering
     \includegraphics[width=.5\textwidth]{images/p_value.png}
-    \caption{Graphical representation of a p-value.}
+    \caption{Graphical representation of a $p$-value.}
     \label{fig:p_value}
 \end{figure}
 compared against a significance level $\alpha$.  The significance level denotes
@@ -177,7 +177,7 @@ threshold, $\alpha$.  However,
 when performing multiple tests, as is the case when scanning a mass distribution
 for a resonance, an observation with a $p$-value that is as extreme as $\alpha$
 is bound to occur at a rate of $n\times\alpha$ where $n$ is the number of measurements.
-This phenomena is known as the ``Look-Elsewhere Effect'' (LEE)
+This phenomenon is known as the ``Look-Elsewhere Effect'' (LEE)
 and needs to be taken into account through a correction to the ``local'' $p$-value
 observed at each mass hypothesis.
 
@@ -205,7 +205,7 @@ for this analysis is shown in Figure \ref{fig:global_p_value}.
 \begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{images/global_p_value_map.png}
-    \caption{Mapping between local and global p-values.}
+    \caption{Mapping between local and global $p$-values.}
     \label{fig:global_p_value}
 \end{figure}
 As can be seen from the figure, a 
@@ -288,10 +288,10 @@ It was found that a 7th order polynomial minimizes the pulls.
 The resulting local $p$-values from a resonance search conducted in the range 
 between 20 MeV and 60 MeV are shown in Figure \ref{fig:local_p_values}. 
 The most significant signal
-was found at a mass of 27.525 MeV and has a local p-value of $4 \times 10^{-3}$.
+was found at a mass of 27.525 MeV and has a local $p$-value of $4 \times 10^{-3}$.
 The resulting signal plus background fit (blue) along with the signal component 
 (red) and background component (green) is shown in Figure \ref{fig:fit_27}.
-After correcting for the LEE, the corresponding global p-value is 
+After correcting for the LEE, the corresponding global $p$-value is 
 $\sim 10\%$.
 \begin{figure}[t]
     \centering
@@ -368,7 +368,7 @@ The power constrained limits are shown in red in Figure \ref{fig:upper_limit}.
 
 \section{Setting a limit on $\epsilon$}
 
-As discussed in chapter 2, the kinematic similarities between heavy photons and 
+As discussed in Chapter 3, the kinematic similarities between heavy photons and 
 radiatives allows their cross sections to be related within a mass window, 
 $\delta m$, near $m_{A'}$ as 
 \begin{equation}
@@ -379,7 +379,7 @@ $\delta m$, near $m_{A'}$ as
     \label{eqn:ap_rad_xsec}
 \end{equation}
 where $N_{eff}$ is the number of available decay channels available.  For the 
-$A'$ masses considered in this analysis, $N_{eff} = 1$. Using equation 
+$A'$ masses considered in this analysis, $N_{eff} = 1$. Using Equation 
 \ref{eqn:ap_rad_xsec}, the upper limit on the signal, $S_{\text{up}}$, can be related to an
 upper limit on the $A'$ coupling strength as 
 \begin{equation}
@@ -398,7 +398,7 @@ and the number of background events in that window are counted.  The resulting
 number of background events per MeV at each mass hypothesis are shown in Figure 
 \ref{fig:background_mev}.  
 
-The limits on the coupling derived using equation \ref{eqn:eps}
+The limits on the coupling derived using Equation \ref{eqn:eps}
 are shown in Figure \ref{fig:epsilon_upper_limit}. Using the full data set
 the reach is expected to increase by a factor of ~4 down to $\epsilon^2 \sim 10^{-6}$.
 \begin{figure}[ht]
